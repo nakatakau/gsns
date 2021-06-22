@@ -1,0 +1,72 @@
+/* ---------------------------------------------------------------- */
+/* １. 基本設計 */
+/* メインコンテンツの幅は960px */
+/* ---------------------------------------------------------------- */
+html{
+  width: 960px;
+  margin: 0 auto;
+}
+
+/* ---------------------------------------------------------------- */
+/* 2. ログインコンテンツ */
+/* ---------------------------------------------------------------- */
+/* ーーーーーーーーーーーーーーーーーーーーーー */
+/* 2-1. 全体の装飾 */
+/* ーーーーーーーーーーーーーーーーーーーーーー */
+.login{
+  width: 420px;
+  height: auto;
+  margin: 0 auto;
+}
+/* ーーーーーーーーーーーーーーーーーーーーーー */
+/* 2-2. ロゴ部分 */
+/* ーーーーーーーーーーーーーーーーーーーーーー */
+.login_logo{
+  width: 180px;
+  height: 40px;
+  text-align: center;
+  margin: 0 auto;
+  border: 1px solid gray;
+  margin-top: 50px;
+}
+/* ーーーーーーーーーーーーーーーーーーーーーー */
+/* 2-3. 入力部分 */
+/* ーーーーーーーーーーーーーーーーーーーーーー */
+/* 入力エリア */
+.input_box{
+  width: 100%;
+  border: 1px solid gray;
+  margin-top: 50px;
+  padding: 60px 70px;
+}
+.input_form{
+  width: 95%;
+  margin: 0 auto;
+}
+.login_text{
+  margin-bottom: 10px;
+}
+input[type="email"],
+input[type="password"],
+input[type="text"]{
+  width: 100%;
+  height: 40px;
+  border: 1px solid gray;
+  margin-bottom: 20px;
+}
+/* ボタンと距離を空けるため追加 */
+input[type="text"]{
+  margin-bottom: 40px;
+}
+
+/* 登録ボタン */
+.submit_btn{
+  width: 80%;
+  height: 40px;
+  border: 1px solid gray;
+  border-radius: 15px;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 8px;
+}
+/* ログイン情報を保持する */
