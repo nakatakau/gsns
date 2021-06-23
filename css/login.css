@@ -55,7 +55,7 @@ input[type="text"]{
   margin-bottom: 20px;
 }
 /* ボタンと距離を空けるため追加 */
-input[type="text"]{
+.ma{
   margin-bottom: 40px;
 }
 
@@ -66,7 +66,12 @@ input[type="text"]{
   border: 1px solid gray;
   border-radius: 15px;
   text-align: center;
-  margin: 0 auto;
+  margin: 0 auto 40px;
   padding-top: 8px;
 }
-/* ログイン情報を保持する */
+/* リンク */
+.link{
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+}
