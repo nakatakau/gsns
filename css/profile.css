@@ -1,0 +1,71 @@
+body{
+  width: 720px;
+  margin: 0 auto;
+}
+/* -------------------------------------------------- */
+/* プロフィールの１番目のブロック（アイコンとメッセージ） */
+/* -------------------------------------------------- */
+.top{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto 50px;
+}
+.icon_img{
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 1px gray solid;
+  margin-bottom: 10px;
+}
+.message_area{
+  width: 520px;
+  height: 200px;
+  border: 1px gray solid;
+}
+/* -------------------------------------------------- */
+/* プロフィールの２番目のブロック（ポートフォリオ） */
+/* -------------------------------------------------- */
+.second{
+  margin: 0 auto 70px;
+}
+.portfolio_title{
+  font-size: 1.3rem;
+  border-bottom: 1px gray solid;
+  margin-bottom: 30px;
+}
+.portfolio_area_title{
+  margin-bottom: 10px;
+}
+.portfolio_area_content{
+  width: 100%;
+  height: 240px;
+  border: 1px gray solid;
+  margin-bottom: 10px;
+}
+
+/* -------------------------------------------------- */
+/* プロフィールの３番目のブロック（スキル・経歴） */
+/* -------------------------------------------------- */
+.profile_area_title{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px gray solid;
+}
+.profile_area_name{
+  margin-top: 20px;
+  font-size: 1.3rem;
+}
+.edit_button{
+  width: 120px;
+  height: 40px;
+  text-align: center;
+  border: 1px gray solid;
+  border-radius: 15px;
+}
+.profile_area_content{
+  width: 100%;
+  height: 200px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
