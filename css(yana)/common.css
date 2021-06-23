@@ -1,0 +1,234 @@
+html{
+  background-color: #F3F5F7;
+}
+* {
+  box-sizing: border-box;
+}
+/* ページ全体の基本デザイン */
+body {
+  /*文字・文章*/
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", 游ゴシック,
+    "Yu Gothic", 游ゴシック体, YuGothic, "Meiryo UI", メイリオ, Meiryo,
+    sans-serif;
+  font-size: 16px;
+  color: #000000;
+  line-height: 1.9;
+  /*幅*/
+  margin: 0 0 0;
+  min-width: 960px;
+}
+​
+/* 見出し */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Alfa Slab One", cursive;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 2em 0 1em;
+  clear: both;
+  letter-spacing: 1px;
+}
+​
+/* 段落 */
+
+/* p {
+
+} */
+
+/* リスト */
+ul {
+  padding-left: 20px;
+  margin: 0;
+}
+​
+ol {
+  padding-left: 20px;
+}
+​
+/* dl {
+}
+​
+dt {
+} */
+​
+dd {
+  margin-left: 0;
+}
+​
+/* テーブル */
+table {
+  border-collapse: collapse;
+}
+​
+/* table,
+th,
+td {
+}
+th {
+}
+td {
+} */
+​
+/* リンク */
+a {
+  color: #000000;
+  text-decoration: none;
+}
+​
+a:hover {
+  text-decoration: underline;
+}
+​
+/*画像*/
+img {
+  max-width: 100%;
+}
+​
+/* 各種パーツのデザイン */
+/*各パーツ用外枠 .box*/
+
+/* .box {
+
+} */
+/*表示領域 .inner*/
+.inner {
+  width: 1000px;
+  margin: 0 auto;
+}
+​
+/* header pc */
+header {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+header .display{
+  box-shadow: 1px 1px 1px #DDDDDD;
+  background-color: #fff;
+  align-items: center;
+}
+header .header {
+  margin-left: 200px;
+  margin-right:200px;
+  height: 77px;
+  color: #383333;
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+}
+header .prof_img{
+  border-radius: 50%;
+  margin-left: 10px;
+}
+header.maintag{
+  margin-left: 35px;
+  font-size: 12px;
+}
+header .lefttag{
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+  font-size: 12px;
+}
+/* リンク */
+header .top_menu{
+  color: #383333;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+
+/* footer*/
+footer {
+  background-color: #F3F5F7;
+  position: absolute;
+  bottom: 0;
+}
+footer .display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer .sub {
+  padding-right: 20px;
+}
+footer .banner {
+  padding-left: 20px;
+}
+footer li {
+  list-style: none;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  font-family: "Alfa Slab One", cursive;
+  margin-left: 20px;
+}
+footer ul{
+  display: flex;
+}
+footer .favorite_icon {
+  padding: 20px 0 0 10px;
+}
+footer .copyright {
+  text-align: center;
+  border-top: solid 1px #707070;
+}
+
+/* ////////////わったん記入のheader css////////////// */
+
+/* header .flex {
+  display: flex;
+  justify-content: space-between;
+  height: 77px;
+}
+header .logo img {
+  width: 231px;
+  height: 77px;
+}
+header .menu {
+  display: flex;
+  padding: 1em 0;
+  padding-left: 23em;
+}
+header li {
+  list-style: none;
+}
+header .search01 {
+  position: relative;
+  top: 15px;
+}
+header .favorite {
+  font-weight: bold;
+  padding-right: 0.5em;
+}
+/* header .favorite_icon {
+  padding-right: 23em;
+} */
+
+/* header .sbox01 {
+  height: 32px;
+  padding: 0 10px;
+  right: 70px;
+  top: 17px;
+  outline: 0;
+}
+header .sbtn01 {
+  position: absolute;
+  height: 50px;
+  right: 2px;
+  top: -8px;
+  background: none;
+  columns: #000000;
+  border: none;
+  font-size: 16px;
+} */
+
+/* ////////////わったん記入のheader css////////////// */
