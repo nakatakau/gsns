@@ -3,26 +3,104 @@ body{
   margin: 0 auto;
 }
 /* -------------------------------------------------- */
-/* プロフィールの１番目のブロック（アイコンとメッセージ） */
+/* コンテンツのflex*/
 /* -------------------------------------------------- */
-.top{
+.profile_flex{
   width: 100%;
+  height: auto;
   display: flex;
   justify-content: space-between;
-  margin: 0 auto 50px;
+  margin-bottom: 50px;
+}
+.left{
+  width:33%;
+  height:100vh;
+}
+.right{
+  width:64%;
+  height:133vh;
+  overflow: scroll;
+  padding: 0 15px;
+}
+.button_area{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.edit_button{
+  width: 120px;
+  height: 40px;
+  text-align: center;
+  border: 1px gray solid;
+  border-radius: 15px;
+  margin-bottom: 40px;
+}
+/* -------------------------------------------------- */
+/* プロフィールの１番目のブロック（アイコンとメッセージ） */
+/* -------------------------------------------------- */
+.icon{
+  margin-bottom: 20px;
+}
+.icon_area{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 .icon_img{
   width: 160px;
   height: 160px;
   border-radius: 50%;
   border: 1px gray solid;
+  object-fit: cover;
+}
+.gs_year{
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+.graduate{
+  text-align: center;
   margin-bottom: 10px;
 }
+.icon_name_area{
+  text-align: center;
+}
+.hurigana{
+  font-size: 0.7rem;
+}
+.name{
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+.gender{
+  margin-bottom: 5px;
+}
 .message_area{
-  width: 520px;
-  height: 200px;
+  width: 100%;
+  height: 60px;
+  border: 1px gray solid;
+  margin-bottom: 20px;
+}
+.other{
   border: 1px gray solid;
 }
+.other_table{
+  width: 100%;
+  height: auto;
+}
+.cell{
+  margin-bottom: 30px;
+}
+.cell_left{
+  padding: 5px;
+  width: 50%;
+}
+.cel_right{
+  padding: 5px;
+  width: 50%;
+}
+
 /* -------------------------------------------------- */
 /* プロフィールの２番目のブロック（ポートフォリオ） */
 /* -------------------------------------------------- */
@@ -30,12 +108,18 @@ body{
   margin: 0 auto 70px;
 }
 .portfolio_title{
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   border-bottom: 1px gray solid;
   margin-bottom: 30px;
 }
 .portfolio_area_title{
   margin-bottom: 10px;
+}
+.portfolio_area_description{
+  margin-bottom: 5px;
+  width: 100%;
+  height: 50px;
+  border: 1px gray solid;
 }
 .portfolio_area_content{
   width: 100%;
@@ -53,19 +137,20 @@ body{
   border-bottom: 1px gray solid;
 }
 .profile_area_name{
-  margin-top: 20px;
-  font-size: 1.3rem;
-}
-.edit_button{
-  width: 120px;
-  height: 40px;
-  text-align: center;
-  border: 1px gray solid;
-  border-radius: 15px;
+  font-size: 1.2rem;
 }
 .profile_area_content{
   width: 100%;
-  height: 200px;
+  height: 180px;
   margin-top: 10px;
   margin-bottom: 30px;
+  overflow: scroll;
+  border: 1px gray solid;
+}
+.profile_area_content2{
+  width: 100%;
+  height: 120px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  overflow: scroll;
 }
