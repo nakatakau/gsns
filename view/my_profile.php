@@ -16,7 +16,7 @@
 
 <body>
   <?php
-  include('../header.php');
+  include('../parts/header.php');
   ?>
   <main>
     <form action="">
@@ -496,7 +496,7 @@
     </form>
   </main>
   <?php
-  include('../footer.php');
+  include('../parts/footer.php');
   ?>
   <script>
     // ----------------------------------------------

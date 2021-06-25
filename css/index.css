@@ -48,12 +48,18 @@
 }
 /* ----------------- ここまで → チェックボックス ----------------------*/
 main{
-  width: 720px;
+  width: 960px;
   margin: 0 auto;
+}
+.display_card_first{
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 30px;
 }
 .tb_flex{
   display: flex;
-  justify-content:space-between;
+  justify-content:space-around;
 }
 label{
   font-size:12px;
@@ -71,11 +77,51 @@ td{
 }
 .kihon_info{
   display: flex;
+  justify-content:space-around;
 }
 .sonota{
   display: flex;
   margin-right: 30px;
 }
 .btn{
-  margin-bottom:30px;
+  display: flex;
+  margin: 0 auto;
+  border: 1px solid;
+  margin-top: 30px;
+  margin-bottom:10px;
+  padding:5px 70px 5px 70px;
+  border-radius: 30px;
+}
+.display_card_second{
+  border: 1px solid;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  max-width: 31%;
+  max-height: 35%;
+}
+.card_info{
+  display: flex;
+  padding: 20px;
+}
+.card_sub{
+  border-top: 1px solid;
+  padding: 20px;
+}
+.prof_img{
+  border-radius: 50%;
+}
+.one_item{
+  text-align-last: center;
+}
+.mail_icon{
+  width: 30px;
+  height: 30px;
+  margin-top: 40px;
+}
+.hitokoto_area{
+  border: 0.5px solid;
+}
+.card_two{
+  display: flex;
+  justify-content: space-between;
 }
