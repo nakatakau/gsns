@@ -1,6 +1,18 @@
-body{
-  width: 720px;
+main{
+  width: 960px;
   margin: 0 auto;
+}
+select{
+  border-bottom: 1px gray solid;
+}
+input{
+  border-bottom: 1px gray solid;
+}
+textarea{
+  border: 1px gray solid;
+}
+img{
+  border: 1px gray solid;
 }
 /* -------------------------------------------------- */
 /* コンテンツのflex*/
@@ -18,8 +30,6 @@ body{
 }
 .right{
   width:64%;
-  height:133vh;
-  overflow: scroll;
   padding: 0 15px;
 }
 .button_area{
@@ -31,9 +41,9 @@ body{
   width: 120px;
   height: 40px;
   text-align: center;
-  border: 1px gray solid;
   border-radius: 15px;
   margin-bottom: 40px;
+  border: 1px gray solid;
 }
 /* -------------------------------------------------- */
 /* プロフィールの１番目のブロック（アイコンとメッセージ） */
@@ -43,25 +53,67 @@ body{
 }
 .icon_area{
   width: 100%;
+  height: 190px;
+  /* display: flex;
+  justify-content: center; */
+  margin-bottom: 10px;
+}
+.icon_area_img{
+  width: 170px;
+  height: 170px;
+  margin: 0 auto;
+}
+.icon_area_img > img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.icon_area_img > label >i{
+  font-size: 28px;
+}
+.icon_select{
+  width: 28px;
+  height: auto;
+  margin-right: 0;
+  margin-left: 146px;
+}
+.gs_year{
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+  font-size: 1.2rem;
+}
+.gs_year > p{
+  padding-top: 5px;
+  padding-right: 15px;
+}
+.gs_year > select{
+  width: 50px;
+}
+.gs_course{
+  width: 100%;
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
 }
-.icon_img{
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  border: 1px gray solid;
-  object-fit: cover;
+.gs_course > select{
+  width: 50px;
+  padding-left: 10px;
 }
-.gs_year{
-  text-align: center;
-  font-size: 1.2rem;
-  margin-bottom: 5px;
+.gs_course > input{
+  width: 40px;
+  padding-left: 10px;
 }
 .graduate{
-  text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+.graduate > p{
+  margin-right: 3px;
 }
 .icon_name_area{
   text-align: center;
@@ -73,21 +125,25 @@ body{
   font-size: 1.2rem;
   margin-bottom: 5px;
 }
-.gender{
-  margin-bottom: 5px;
+.birth{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.birth > p{
+  margin-right: 5px;
 }
 .message_area{
-  width: 100%;
+  width: 95%;
   height: 60px;
-  border: 1px gray solid;
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
+  padding: 0 3px;
 }
-.other{
-  border: 1px gray solid;
-}
+
 .other_table{
-  width: 100%;
+  width: 95%;
   height: auto;
+  margin: 0 auto;
 }
 .cell{
   margin-bottom: 30px;
@@ -105,7 +161,7 @@ body{
 /* プロフィールの２番目のブロック（ポートフォリオ） */
 /* -------------------------------------------------- */
 .second{
-  margin: 0 auto 70px;
+  margin: 0 auto 60px;
 }
 .portfolio_title{
   font-size: 1.2rem;
@@ -113,21 +169,30 @@ body{
   margin-bottom: 30px;
 }
 .portfolio_area_title{
+  width: 100%;
   margin-bottom: 10px;
+  border-bottom: 1px gray solid;
+}
+.portfolio_area_url{
+  width: 100%;
+  margin-bottom: 10px;
+  border-bottom: 1px gray solid;
 }
 .portfolio_area_description{
-  margin-bottom: 5px;
+  margin-bottom: 20px;
   width: 100%;
-  height: 50px;
-  border: 1px gray solid;
+  height: 60px;
 }
 .portfolio_area_content{
   width: 100%;
   height: 240px;
-  border: 1px gray solid;
   margin-bottom: 10px;
 }
-
+.portfolio_area_content_img{
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
 /* -------------------------------------------------- */
 /* プロフィールの３番目のブロック（スキル・経歴） */
 /* -------------------------------------------------- */
@@ -145,7 +210,7 @@ body{
   margin-top: 10px;
   margin-bottom: 30px;
   overflow: scroll;
-  border: 1px gray solid;
+  padding: 0 3px;
 }
 .profile_area_content2{
   width: 100%;
@@ -153,4 +218,92 @@ body{
   margin-top: 10px;
   margin-bottom: 30px;
   overflow: scroll;
+}
+.profile_area_content3{
+  width: 100%;
+  height: 280px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  overflow: scroll;
+}
+.profile_area_content4{
+  width: 100%;
+  height: 200px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  overflow: scroll;
+}
+.profile_description{
+  width: 100;
+  height: auto;
+}
+
+/* ----------------- スタート → チェックボックス ----------------------*/
+/* 元々のチェックボックス（非表示） */
+.check_box_design input[type="checkbox"]{
+    display: none;
+}
+/* チェックボックスの代わりを成すラベル */
+.check_box_design input[type="checkbox"]+label{
+    display: none;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    padding-left: 25px;
+    padding-right: 10px;
+}
+/* ラベルの左に表示させる正方形のボックス */
+.check_box_design input[type="checkbox"]+label::before{
+    border-radius: 15%;
+    content: "";
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    left: 0;
+    top: 50%;
+    border: 1px solid;
+    border-color:  #585753; /* 枠の色変更 */
+    background-color: #FFF; /* 背景の色変更 */
+}
+/* チェックが入った時のレ点 */
+.check_box_design input[type="checkbox"]:checked+label::after{
+    content: "";
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    width: 18px;
+    height: 9px;
+    margin-top: -9px;
+    top: 50%;
+    left: 3px;
+    transform: rotate(-45deg);
+    border-bottom: 3px solid;
+    border-left: 3px solid;
+    border-color:  #585753; /* チェックの色変更 */
+}
+/* ----------------- ここまで → チェックボックス ----------------------*/
+.check_box_design{
+  width: 100%;
+  margin-bottom: 10px;
+}
+.cell_tb{
+  width: 100%;
+  height: 35px;
+}
+.cell_tb > td{
+  width: 145px;
+  height: 30px;
+}
+.tb_flex{
+  display: flex;
+  justify-content:space-between;
+}
+label{
+  font-size:12px;
+}
+.cell_tb{
+  margin-bottom: 30px;
 }
