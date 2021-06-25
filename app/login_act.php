@@ -38,6 +38,7 @@ if ($val["user_id"] != "") {
   //Login成功時
   $_SESSION["chk_ssid"]  = session_id();
   // $_SESSION["kanri_flg"] = $val['kanri_flg'];
+  $_SESSION["my_id"]      = $val['user_id'];
   $_SESSION["name"]      = $val['name'];
   // echo 'login succeed';
   redirect("../view/index.php");
