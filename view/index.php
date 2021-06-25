@@ -1,3 +1,11 @@
+<?php
+session_start();
+include_once __DIR__ . "/../app/funcs.php";
+$my_id = $_SESSION["my_id"];
+// v($my_id);
+
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
