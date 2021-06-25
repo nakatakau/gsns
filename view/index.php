@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- CSSを入れる -->
   <link rel="stylesheet" href="../css/reset.css">
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="../css/index.css">
   <title>indexページ</title>
@@ -175,11 +177,11 @@ include("../parts/header.php");
       <!-- -----プログラミング言語選択----- -->
     <div class="my_sentaku">
       <h1 class="#">使用可能プログラミング言語</h1>
-      <div class="tb_flex">
+      <div class="tb_flex gengo_sentaku">
 
         <div class="check_box_design">
           <table>
-            <tr class="cell_tb">
+            <tr class="cell_tb gengo_a">
             <td>
             <input type="checkbox" id="check_ht" name="">
             <label for="check_ht" class="check_display">HTML</label>
@@ -388,7 +390,7 @@ include("../parts/header.php");
           <img id="" class="prof_img" src="../img/test1.png" alt="" width="70" height="70">
         </div>
         <a id="#" href="#">
-          <p class="mail_icon" data-feather="mail"></p>
+          <p class="mail_icon data-feather" data-feather="mail"></p>
         </a>
       </div>
 
@@ -436,7 +438,7 @@ include("../parts/header.php");
           <img id="" class="prof_img" src="../img/test1.png" alt="" width="70" height="70">
         </div>
         <a id="#" href="#">
-          <p class="mail_icon" data-feather="mail"></p>
+          <p class="mail_icon data-feather" data-feather="mail"></p>
         </a>
       </div>
 
@@ -484,7 +486,7 @@ include("../parts/header.php");
           <img id="" class="prof_img" src="../img/test1.png" alt="" width="70" height="70">
         </div>
         <a id="#" href="#">
-          <p class="mail_icon" data-feather="mail"></p>
+          <p class="mail_icon data-feather" data-feather="mail"></p>
         </a>
       </div>
 
@@ -531,6 +533,7 @@ include("../parts/header.php");
 <?php
 include("../parts/footer.php");
 ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
 
 //featherアイコン

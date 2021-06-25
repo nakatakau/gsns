@@ -24,12 +24,3 @@ main{
   display:flex;
   font-size:12px;
 }
-footer{
-  width: 100%;
-  background-color: #89c7de;
-  color: #fff;
-  text-align: center;
-  padding: 20px 0;
-  position: absolute;
-  bottom: 0;
-}

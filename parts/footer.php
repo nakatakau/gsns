@@ -1,10 +1,10 @@
 <footer>
   <div class="display">
-    <h1 class="banner">G's SNS</h1>
+    <h1 class="banner">G talk</h1>
     <ul class="sub">
-      <li>利用規約</li>
-      <li>プライバシーポリシー</li>
-      <li>お問い合わせ</li>
+      <a href="#">利用規約</a>
+      <a href="#">プライバシーポリシー</a>
+      <a href="#">お問い合わせ</a>
     </ul>
   </div>
 </footer>
