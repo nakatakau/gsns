@@ -22,7 +22,7 @@
       </div>
       <!-- ログイン入力エリア -->
       <div class="input_box">
-        <form action="" post="" class="input_form">
+        <form action="../app/login_act.php" method="POST" class="input_form">
           <p class="login_text">メールアドレス</p>
           <input type="email" name="email">
           <p class="login_text">パスワード</p>
