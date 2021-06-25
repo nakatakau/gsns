@@ -1,4 +1,3 @@
-<!-- コメント -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -527,17 +526,15 @@ include("../parts/header.php");
 
 <!-- /////////////////ここまでがプロフィールカード//////////////////// -->
 
-
 </div>
 </main>
 <?php
 include("../parts/footer.php");
 ?>
-
 <script>
 
-  //featherアイコン
-  feather.replace();
+//featherアイコン
+feather.replace();
 
 </script>
 </body>
