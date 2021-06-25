@@ -14,7 +14,7 @@
 <body>
 
 <?php
-include("../parts/header.php");
+include("../header.php");
 ?>
 
 <main>
@@ -429,7 +429,7 @@ include("../parts/header.php");
 </div>
 </main>
 <?php
-include("../parts/footer.php");
+include("../footer.php");
 ?>
 <script>
 
