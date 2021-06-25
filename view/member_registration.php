@@ -22,13 +22,13 @@
       </div>
       <!-- ログイン入力エリア -->
       <div class="input_box">
-        <form action="" post="" class="input_form">
+        <form action="../app/regist_act.php" method="POST" class="input_form">
           <p class="login_text">メールアドレス</p>
           <input type="email" name="email">
           <p class="login_text">パスワード</p>
           <input type="password" name="password">
           <p class="login_text">名前</p>
-          <input type="text" name="password" class="margin_bottom_add">
+          <input type="text" name="name" class="margin_bottom_add">
           <div class="submit_btn">
             <input type="submit" value="登録">
           </div>
