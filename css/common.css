@@ -1,7 +1,7 @@
+
 * {
   box-sizing: border-box;
 }
-​
 /* ページ全体の基本デザイン */
 body {
   /*文字・文章*/
@@ -12,8 +12,9 @@ body {
   color: #000000;
   line-height: 1.9;
   /*幅*/
-  margin: 80px 0 0;
+  margin: 0 0 0;
   min-width: 960px;
+  background:#F2F5F7;
 }
 ​
 /* 見出し */
@@ -32,9 +33,11 @@ h6 {
 }
 ​
 /* 段落 */
-p {
-}
-​
+
+/* p {
+
+} */
+
 /* リスト */
 ul {
   padding-left: 20px;
@@ -45,11 +48,11 @@ ol {
   padding-left: 20px;
 }
 ​
-dl {
+/* dl {
 }
 ​
 dt {
-}
+} */
 ​
 dd {
   margin-left: 0;
@@ -60,14 +63,14 @@ table {
   border-collapse: collapse;
 }
 ​
-table,
+/* table,
 th,
 td {
 }
 th {
 }
 td {
-}
+} */
 ​
 /* リンク */
 a {
@@ -86,8 +89,10 @@ img {
 ​
 /* 各種パーツのデザイン */
 /*各パーツ用外枠 .box*/
-.box {
-}
+
+/* .box {
+
+} */
 /*表示領域 .inner*/
 .inner {
   width: 1000px;
@@ -103,7 +108,82 @@ header {
   left: 0;
   background-color: rgba(255, 255, 255, 0.7);
 }
-header .flex {
+header .display{
+  box-shadow: 1px 1px 1px #DDDDDD;
+  background-color: #fff;
+  align-items: center;
+  margin-bottom: 50px;
+}
+header .header {
+  margin-left: 200px;
+  margin-right:200px;
+  height: 77px;
+  color: #383333;
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+}
+header .prof_img{
+  border-radius: 50%;
+  margin-left: 10px;
+}
+header.maintag{
+  margin-left: 35px;
+  font-size: 12px;
+}
+header .lefttag{
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+  font-size: 12px;
+}
+/* リンク */
+header .top_menu{
+  color: #383333;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+
+/* footer*/
+
+footer .display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 200px;
+  margin-right:200px;
+  margin-bottom: 40px;
+}
+footer .sub {
+  padding-right: 20px;
+}
+footer .banner {
+  padding-left: 20px;
+}
+footer li {
+  list-style: none;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  font-family: "Alfa Slab One", cursive;
+  margin-left: 20px;
+}
+footer ul{
+  display: flex;
+}
+footer .favorite_icon {
+  padding: 20px 0 0 10px;
+}
+footer .copyright {
+  text-align: center;
+  border-top: solid 1px #707070;
+}
+
+/* ////////////わったん記入のheader css////////////// */
+
+/* header .flex {
   display: flex;
   justify-content: space-between;
   height: 77px;
@@ -131,7 +211,8 @@ header .favorite {
 /* header .favorite_icon {
   padding-right: 23em;
 } */
-header .sbox01 {
+
+/* header .sbox01 {
   height: 32px;
   padding: 0 10px;
   right: 70px;
@@ -146,32 +227,7 @@ header .sbtn01 {
   background: none;
   columns: #000000;
   border: none;
-  font-size: 16px; /* アイコンサイズ */
-}
-/* footer*/
-footer {
-  background-color: #eef0ee;
-}
-footer .flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-footer .banner {
-  padding: 44px 0 40px;
-}
-footer li {
-  list-style: none;
-  font-size: 20px;
-  letter-spacing: 1px;
-  font-weight: bold;
-  font-family: "Alfa Slab One", cursive;
-  padding: 10px 0 0;
-}
-footer .favorite_icon {
-  padding: 20px 0 0 10px;
-}
-footer .copyright {
-  text-align: center;
-  border-top: solid 1px #707070;
-}
+  font-size: 16px;
+} */
+
+/* ////////////わったん記入のheader css////////////// */
