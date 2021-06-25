@@ -1,0 +1,35 @@
+main{
+  width: 460px;
+  margin: 0 auto;
+}
+.btn_edit{
+  border: 1px solid;
+  padding:0 20px 0 20px;
+  border-radius: 30px;
+}
+.form_line{
+  border-bottom: 1px gray solid;
+  width: 380px;
+}
+.form{
+  display:flex;
+  justify-content:center;
+  margin-bottom: 10px;
+}
+.item{
+  margin-bottom: 50px;
+  display:flex;
+}
+.fontsize{
+  display:flex;
+  font-size:12px;
+}
+footer{
+  width: 100%;
+  background-color: #89c7de;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  position: absolute;
+  bottom: 0;
+}
