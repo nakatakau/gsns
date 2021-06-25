@@ -10,11 +10,12 @@
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="../css/index.css">
   <title>indexページ</title>
+  <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
 
 <?php
-include("../header.php");
+include("../parts/header.php");
 ?>
 
 <main>
@@ -378,15 +379,21 @@ include("../header.php");
 
 <!-- /////////////////ここからプロフィールカード//////////////////// -->
 
-
+  <div class="card_two">
   <div class="display_card_second">
     <!-- カード全体 -->
     <div class="card_info">
-      <!-- カード基本情報 -->
-      <div class="card_main">
         <!-- プロフィール写真 -->
-        <img id="" class="" src="../img/test1.png" alt="" width="100" height="100">
+      <div class="one_item">
+        <div class="img">
+          <img id="" class="prof_img" src="../img/test1.png" alt="" width="70" height="70">
+        </div>
+        <a id="#" href="#">
+          <p class="mail_icon" data-feather="mail"></p>
+        </a>
+      </div>
 
+      <div class="two_item">
         <div class="card_title">
           <h1 class="school">東京LAB11期</h1>
         </div>
@@ -409,19 +416,114 @@ include("../header.php");
           <div class="preview_tag"></div>
         </div>
       </div>
-      <!-- ひとこと -->
-      <div class="card_sub">
-        <h2>ひとこと</h2>
-        <div class="hitokoto_area">
-          <p>ここにひとことが入る</p>
-        </div>
+    </div>
+    <!-- ひとこと -->
+    <div class="card_sub">
+      <h2>ひとこと</h2>
+      <div class="hitokoto_area">
+        <p>ここにひとことが入る</p>
       </div>
-
       <input type="btn" id="details1" class="details" value="詳細をみる">
     </div>
 
   </div>
 
+  <div class="display_card_second">
+    <!-- カード全体 -->
+    <div class="card_info">
+        <!-- プロフィール写真 -->
+      <div class="one_item">
+        <div class="img">
+          <img id="" class="prof_img" src="../img/test1.png" alt="" width="70" height="70">
+        </div>
+        <a id="#" href="#">
+          <p class="mail_icon" data-feather="mail"></p>
+        </a>
+      </div>
+
+      <div class="two_item">
+        <div class="card_title">
+          <h1 class="school">東京LAB11期</h1>
+        </div>
+
+        <div class="card_user_name">
+          <h2>加來 真有</h2>
+        </div>
+
+        <div class="card_main_info">
+          <p>職種</p>
+          <div class="preview_tag"></div>
+          <div class="preview_tag"></div>
+          <div class="preview_tag"></div>
+        </div>
+
+        <div class="card_main_info_">
+          <p>使用可能プログラミング言語</p>
+          <div class="preview_tag"></div>
+          <div class="preview_tag"></div>
+          <div class="preview_tag"></div>
+        </div>
+      </div>
+    </div>
+    <!-- ひとこと -->
+    <div class="card_sub">
+      <h2>ひとこと</h2>
+      <div class="hitokoto_area">
+        <p>ここにひとことが入る</p>
+      </div>
+      <input type="btn" id="details1" class="details" value="詳細をみる">
+    </div>
+
+  </div>
+
+  <div class="display_card_second">
+    <!-- カード全体 -->
+    <div class="card_info">
+        <!-- プロフィール写真 -->
+      <div class="one_item">
+        <div class="img">
+          <img id="" class="prof_img" src="../img/test1.png" alt="" width="70" height="70">
+        </div>
+        <a id="#" href="#">
+          <p class="mail_icon" data-feather="mail"></p>
+        </a>
+      </div>
+
+      <div class="two_item">
+        <div class="card_title">
+          <h1 class="school">東京LAB11期</h1>
+        </div>
+
+        <div class="card_user_name">
+          <h2>加來 真有</h2>
+        </div>
+
+        <div class="card_main_info">
+          <p>職種</p>
+          <div class="preview_tag"></div>
+          <div class="preview_tag"></div>
+          <div class="preview_tag"></div>
+        </div>
+
+        <div class="card_main_info_">
+          <p>使用可能プログラミング言語</p>
+          <div class="preview_tag"></div>
+          <div class="preview_tag"></div>
+          <div class="preview_tag"></div>
+        </div>
+      </div>
+    </div>
+    <!-- ひとこと -->
+    <div class="card_sub">
+      <h2>ひとこと</h2>
+      <div class="hitokoto_area">
+        <p>ここにひとことが入る</p>
+      </div>
+      <input type="btn" id="details1" class="details" value="詳細をみる">
+    </div>
+
+  </div>
+  </div>
 
 <!-- /////////////////ここまでがプロフィールカード//////////////////// -->
 
@@ -429,9 +531,13 @@ include("../header.php");
 </div>
 </main>
 <?php
-include("../footer.php");
+include("../parts/footer.php");
 ?>
+
 <script>
+
+  //featherアイコン
+  feather.replace();
 
 </script>
 </body>
