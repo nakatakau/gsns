@@ -27,7 +27,7 @@
             <!-- Dropdown menu links -->
             <div class="drop_flex">
             <p class="drop_icon" data-feather="user"></p>
-            <a href="../view/account.php">プロフィール</a>
+            <a href="../view/my_profile.php">プロフィール</a>
             </div>
             <br>
             <div class="drop_flex">
