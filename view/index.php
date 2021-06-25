@@ -1,3 +1,4 @@
+<!-- コメント -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -33,19 +34,19 @@ include("../parts/header.php");
             <table>
             <tr class="cell_tb">
             <td>
-            <input type="checkbox" id="check_1" name="3">
+            <input type="checkbox" id="check_1" name="occupation" value="3">
             <label for="check_1" class="check_display">フロントエンドエンジニア</label>
             </td>
             </tr>
             <tr class="cell_tb">
             <td>
-            <input type="checkbox" id="check_2" name="7">
+            <input type="checkbox" id="check_2" name="occupation" value="7">
             <label for="check_2" class="check_display">機械学習エンジニア</label>
             </td>
             </tr>
             <tr class="cell_tb">
             <td>
-            <input type="checkbox" id="check_3" name="11">
+            <input type="checkbox" id="check_3" name="occupation" value="11">
             <label for="check_3" class="check_display">データサイエンティスト</label>
             </td>
             </tr>
