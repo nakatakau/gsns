@@ -47,10 +47,23 @@
     border-color:  #585753; /* チェックの色変更 */
 }
 /* ----------------- ここまで → チェックボックス ----------------------*/
+
 main{
   width: 960px;
   margin: 0 auto;
 }
+.display_card_first h1{
+  font-size: 20px;
+}
+.display_card_second h1{
+  font-size: 20px;
+}
+
+/* カードの名前、ひとこと---------------------------------------------------- */
+h2{
+  font-size: 15px;
+}
+/* -------------------------------------------------------------------- */
 .display_card_first{
   border: 1px solid;
   border-radius: 5px;
@@ -74,6 +87,7 @@ td{
   display: flex;
   align-self: flex-start;
   margin-bottom: 10px;
+  padding-left: 28px;
 }
 .kihon_info{
   display: flex;
@@ -91,6 +105,7 @@ td{
   margin-bottom:10px;
   padding:5px 70px 5px 70px;
   border-radius: 30px;
+  background: #fff;
 }
 .display_card_second{
   border: 1px solid;
@@ -125,3 +140,12 @@ td{
   display: flex;
   justify-content: space-between;
 }
+.gengo_sentaku{
+  padding-left: 28px;
+  padding-right: 220px;
+  justify-content: space-between;
+}
+.data-feather{
+  color: #000
+}
+
