@@ -3,17 +3,17 @@ main{
   margin: 0 auto;
 }
 .btn_edit{
+  display: list-item;
+  margin: 0 auto;
   border: 1px solid;
   padding:0 20px 0 20px;
   border-radius: 30px;
 }
 .form_line{
   border-bottom: 1px gray solid;
-  width: 380px;
+  width: 480px;
 }
 .form{
-  display:flex;
-  justify-content:center;
   margin-bottom: 10px;
 }
 .item{
@@ -23,4 +23,12 @@ main{
 .fontsize{
   display:flex;
   font-size:12px;
+  margin-bottom: 50px;
+}
+.mr_bt{
+  margin-bottom: 50px;
+}
+footer{
+  bottom: 0;
+  position: absolute;
 }
