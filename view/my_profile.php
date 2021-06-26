@@ -87,7 +87,7 @@ $user_lang = json_encode($val);
   include('../parts/header.php');
   ?>
   <main>
-    <form action="">
+    <form action="../app/my_profile_act.php" method="POST">
       <div class="profile_flex">
         <!-- プロフィールの１番目のブロック（アイコンとメッセージ） -->
         <div class="left">
@@ -111,7 +111,7 @@ $user_lang = json_encode($val);
                 <option value="5">BIZ</option>
                 <option value="2">その他</option>
               </select>
-              <input type="text" pattern="\d{2}" name="" maxlength="2" name="admission_period">
+              <input type="text" pattern="\d{2}" maxlength="2" name="admission_period">
               <p>期</p>
             </div>
             <div class="graduate">
@@ -154,7 +154,7 @@ $user_lang = json_encode($val);
             </div>
           </div>
           <div class="message_area">
-            <textarea name="" id="" cols="30" rows="3" placeholder="一言お願いします。" maxlength='42' name="comment"></textarea>
+            <textarea id="" cols="30" rows="3" placeholder="一言お願いします。" maxlength='42' name="comment"></textarea>
           </div>
           <div class="other">
             <table class="other_table">
@@ -319,19 +319,19 @@ $user_lang = json_encode($val);
                   <table>
                     <tr class="cell_tb">
                       <td>
-                        <input type="checkbox" id="check_2" name="occupation" value="3">
+                        <input type="checkbox" id="check_2" name="occupation[]" value="3">
                         <label for="check_2" class="check_display">フロントエンドエンジニア</label>
                       </td>
                       <td>
-                        <input type="checkbox" id="check_8" name="occupation" value="4">
+                        <input type="checkbox" id="check_8" name="occupation[]" value="4">
                         <label for="check_8" class="check_display">バックエンドエンジニア</label>
                       </td>
                       <td>
-                        <input type="checkbox" id="check_4" name="occupation" value="11">
+                        <input type="checkbox" id="check_4" name="occupation[]" value="11">
                         <label for="check_4" class="check_display">データサイエンティスト</label>
                       </td>
                       <td>
-                        <input type="checkbox" id="check_5" name="occupation" value="14">
+                        <input type="checkbox" id="check_5" name="occupation[]" value="14">
                         <label for="check_5" class="check_display">CGデザイナー</label>
                       </td>
                     </tr>
@@ -342,19 +342,19 @@ $user_lang = json_encode($val);
                   <table>
                     <tr class="cell_tb">
                       <td>
-                        <input type="checkbox" id="check_10" name="occupation" value="10">
+                        <input type="checkbox" id="check_10" name="occupation[]" value="10">
                         <label for="check_10" class="check_display">ゲーム開発エンジニア</label>
                       </td>
                       <td>
-                        <input type="checkbox" id="check_7" name="occupation" value="18">
+                        <input type="checkbox" id="check_7" name="occupation[]" value="18">
                         <label for="check_7" class="check_display">クリエイティブデザイナー</label>
                       </td>
                       <td>
-                        <input type="checkbox" id="check_3" name="occupation" value="7">
+                        <input type="checkbox" id="check_3" name="occupation[]" value="7">
                         <label for="check_3" class="check_display">機械学習エンジニア</label>
                       </td>
                       <td>
-                        <input type="checkbox" id="check_9" name="occupation" value="8">
+                        <input type="checkbox" id="check_9" name="occupation[]" value="8">
                         <label for="check_9" class="check_display">iOSエンジニア</label>
                       </td>
                     </tr>
@@ -365,19 +365,19 @@ $user_lang = json_encode($val);
                   <table>
                     <tr class="cell_tb">
                       <td>
-                        <input type="checkbox" id="check_14" name="occupation" value="9">
+                        <input type="checkbox" id="check_14" name="occupation[]" value="9">
                         <label for="check_14" class="check_display">Androidエンジニア</label>
                       </td>
                       <td>
-                        <input type="checkbox" id="check_11" name="occupation" value="15">
+                        <input type="checkbox" id="check_11" name="occupation[]" value="15">
                         <label for="check_11" class="check_display">ゲームデザイナー</label>
                       </td>
                       <td>
-                        <input type="checkbox" id="check_18" name="occupation" value="6">
+                        <input type="checkbox" id="check_18" name="occupation[]" value="6">
                         <label for="check_18" class="check_display">Dev Opsエンジニア</label>
                       </td>
                       <td>
-                        <input type="checkbox" id="check_13" name="occupation" value="5">
+                        <input type="checkbox" id="check_13" name="occupation[]" value="5">
                         <label for="check_13" class="check_display">インフラエンジニア</label>
                       </td>
                     </tr>
@@ -388,19 +388,19 @@ $user_lang = json_encode($val);
                   <table>
                     <tr class="cell_tb">
                       <td>
-                        <input type="checkbox" id="check_12" name="occupation" value="21">
+                        <input type="checkbox" id="check_12" name="occupation[]" value="21">
                         <label for="check_12" class="check_display">PM</label>
                       </td>
                       <td>
-                        <input type="checkbox" id="check_15" name="occupation" value="12">
+                        <input type="checkbox" id="check_15" name="occupation[]" value="12">
                         <label for="check_15" class="check_display">グラフィックデザイナー</label>
                       </td>
                       <td>
-                        <input type="checkbox" id="check_16" name="occupation" value="16">
+                        <input type="checkbox" id="check_16" name="occupation[]" value="16">
                         <label for="check_16" class="check_display">UI|UXデザイナー</label>
                       </td>
                       <td>
-                        <input type="checkbox" id="check_17" name="occupation" value="19">
+                        <input type="checkbox" id="check_17" name="occupation[]" value="19">
                         <label for="check_17" class="check_display">テクニカルディレクター</label>
                       </td>
                     </tr>
@@ -411,19 +411,19 @@ $user_lang = json_encode($val);
                   <table>
                     <tr class="cell_tb">
                       <td>
-                        <input type="checkbox" id="check_23" name="occupation" value="22">
+                        <input type="checkbox" id="check_23" name="occupation[]" value="22">
                         <label for="check_23" class="check_display">PO</label>
                       </td>
                       <td>
-                        <input type="checkbox" id="check_22" name="occupation" value="20">
+                        <input type="checkbox" id="check_22" name="occupation[]" value="20">
                         <label for="check_22" class="check_display">アートディレクター</label>
                       </td>
                       <td>
-                        <input type="checkbox" id="check_20" name="occupation" value="13">
+                        <input type="checkbox" id="check_20" name="occupation[]" value="13">
                         <label for="check_20" class="check_display">Webデザイナー</label>
                       </td>
                       <td>
-                        <input type="checkbox" id="check_21" name="occupation" value="17">
+                        <input type="checkbox" id="check_21" name="occupation[]" value="17">
                         <label for="check_21" class="check_display">プロダクトデザイナー</label>
                       </td>
                     </tr>
@@ -441,19 +441,19 @@ $user_lang = json_encode($val);
                     <table>
                       <tr class="cell_tb">
                         <td>
-                          <input type="checkbox" id="check_ht" name="available_programming_language" value="3">
+                          <input type="checkbox" id="check_ht" name="available_programming_language[]" value="3">
                           <label for="check_ht" class="check_display">HTML</label>
                         </td>
                         <td>
-                          <input type="checkbox" id="check_cc" name="available_programming_language" value="7">
+                          <input type="checkbox" id="check_cc" name="available_programming_language[]" value="7">
                           <label for="check_cc" class="check_display">C#</label>
                         </td>
                         <td>
-                          <input type="checkbox" id="check_go" name="available_programming_language" value="11">
+                          <input type="checkbox" id="check_go" name="available_programming_language[]" value="11">
                           <label for="check_go" class="check_display">Go</label>
                         </td>
                         <td>
-                          <input type="checkbox" id="check_kt" name="available_programming_language" value="15">
+                          <input type="checkbox" id="check_kt" name="available_programming_language[]" value="15">
                           <label for="check_kt" class="check_display">Kotlin</label>
                         </td>
                       </tr>
@@ -464,19 +464,19 @@ $user_lang = json_encode($val);
                     <table>
                       <tr class="cell_tb">
                         <td>
-                          <input type="checkbox" id="check_cs" name="available_programming_language" value="4">
+                          <input type="checkbox" id="check_cs" name="available_programming_language[]" value="4">
                           <label for="check_cs" class="check_display">CSS</label>
                         </td>
                         <td>
-                          <input type="checkbox" id="check_py" name="available_programming_language" value="8">
+                          <input type="checkbox" id="check_py" name="available_programming_language[]" value="8">
                           <label for="check_py" class="check_display">Python</label>
                         </td>
                         <td>
-                          <input type="checkbox" id="check_sw" name="available_programming_language" value="12">
+                          <input type="checkbox" id="check_sw" name="available_programming_language[]" value="12">
                           <label for="check_sw" class="check_display">Swift</label>
                         </td>
                         <td>
-                          <input type="checkbox" id="check_jv" name="available_programming_language" value="5">
+                          <input type="checkbox" id="check_jv" name="available_programming_language[]" value="5">
                           <label for="check_jv" class="check_display1">Java</label>
                         </td>
                       </tr>
@@ -487,19 +487,19 @@ $user_lang = json_encode($val);
                     <table>
                       <tr class="cell_tb">
                         <td>
-                          <input type="checkbox" id="check_js" name="available_programming_language" value="9">
+                          <input type="checkbox" id="check_js" name="available_programming_language[]" value="9">
                           <label for="check_js" class="check_display1">JavaScript</label>
                         </td>
                         <td>
-                          <input type="checkbox" id="check_ph" name="available_programming_language" value="13">
+                          <input type="checkbox" id="check_ph" name="available_programming_language[]" value="13">
                           <label for="check_ph" class="check_display1">PHP</label>
                         </td>
                         <td>
-                          <input type="checkbox" id="check_cp" name="available_programming_language" value="6">
+                          <input type="checkbox" id="check_cp" name="available_programming_language[]" value="6">
                           <label for="check_cp" class="check_display2">C++</label>
                         </td>
                         <td>
-                          <input type="checkbox" id="check_rb" name="available_programming_language" value="10">
+                          <input type="checkbox" id="check_rb" name="available_programming_language[]" value="10">
                           <label for="check_rb" class="check_display2">Ruby</label>
                         </td>
                       </tr>
@@ -510,7 +510,7 @@ $user_lang = json_encode($val);
                     <table>
                       <tr class="cell_tb">
                         <td>
-                          <input type="checkbox" id="check_ts" name="available_programming_language" value="14">
+                          <input type="checkbox" id="check_ts" name="available_programming_language[]" value="14">
                           <label for="check_ts" class="check_display2">TypeScript</label>
                         </td>
                       </tr>
