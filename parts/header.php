@@ -37,7 +37,7 @@
             <br>
             <div class="drop_flex">
             <p class="drop_icon" data-feather="power"></p>
-            <a href="../view/login.php">ログアウト</a>
+            <a href="../app/logout_act.php">ログアウト</a>
             </div>
           </ul>
         </div>
