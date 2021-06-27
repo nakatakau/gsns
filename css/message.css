@@ -1,0 +1,193 @@
+/* -------------------------------------------------- */
+/* 今は使用していないが必要ならば使うCSS */
+/* -------------------------------------------------- */
+
+select{
+  border-bottom: 1px gray solid;
+}
+input{
+  border-bottom: 1px gray solid;
+}
+textarea{
+  border: 1px gray solid;
+}
+img{
+  border: 1px gray solid;
+}
+body{
+  background: #F2F5F7;
+}
+
+/* -------------------------------------------------- */
+/* サイドバー*/
+/* -------------------------------------------------- */
+
+#side_bar {
+  box-sizing: border-box;
+  height: auto;
+  width: 300px;
+  padding: 20px;
+  border: 1px gray solid;
+  overflow: scroll;
+}
+.prof_img{
+  width: 50px;
+  height: 50px;
+  margin-right: 30px;
+  border-radius: 50%;
+}
+.main_con{
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.sub_con{
+  text-align: center;
+  margin-bottom: 30px;
+}
+.user_card a{
+  color: #6F7681;
+  text-decoration: none;
+}
+.user_card{
+  margin-top: 20px;
+  border-bottom: 0.5px solid #6F7681;
+}
+
+
+/* -------------------------------------------------- */
+/* チャットコンテンツ全体*/
+/* -------------------------------------------------- */
+
+body #display{
+  display:flex;
+  justify-content: center;
+  height: 700px;
+  margin-bottom: 30px;
+}
+
+/* -------------------------------------------------- */
+/* 入力した文字を表示する部分 */
+/* -------------------------------------------------- */
+
+.chat-message {
+  max-width: 300px;
+  border-radius: 20px;
+  padding: 10px 30px;
+  font-weight: bold;
+  color: #001A32;
+  overflow-wrap: break-word;
+}
+.chat-area {
+  height: 75%;
+  width: 650px;
+  overflow: scroll;
+  padding: 20px 20px 10px 10px;
+  background: #8DB4E5;
+}
+
+/* -------------------------------------------------- */
+/* メッセージエリア */
+/* -------------------------------------------------- */
+
+.message_box{
+  border: 1px solid;
+  height: 25%;
+  padding: 10px;
+}
+.message-area {
+  height: 10vh;
+  display: flex;
+}
+
+.message-area-text {
+  width: 100%;
+  display: flex;
+}
+
+.message-area-text textarea {
+  width: 100%;
+  height: 100%;
+  resize: none;
+  border: none;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+.message-container {
+  display: flex;
+}
+
+/* 相手のメッセージの場合、左寄せにしたい */
+.message-container-you {
+  justify-content: flex-start;
+}
+
+/* 自分のメッセージの場合、右寄せにしたい */
+.message-container-me {
+  justify-content: flex-end;
+}
+
+/* -------------------------------------------------- */
+/* 時間の表示 */
+/* -------------------------------------------------- */
+
+.chat-time {
+  color: #33415B;
+  align-self: flex-end; /* 時間は最下部に表示する */
+}
+
+.message-container-you .chat-time {
+  order: 2;
+  margin-left : 10px;
+}
+
+.message-container-me .chat-time {
+  margin-right : 10px;
+}
+
+/* -------------------------------------------------- */
+/* メッセージを送る人の内容 */
+/* -------------------------------------------------- */
+
+.message-container-you .chat-message {
+  background: #fff;
+}
+
+.message-container-me .chat-message {
+  background: #61cf3f;
+}
+
+.message-person {
+  display: flex;
+  margin: 5px 0;
+}
+
+/* ラジオボタンはラベルで表現するので非表示にする */
+.message-person input {
+  display: none;
+}
+
+.message-person label {
+  display: block;
+  cursor: pointer;
+  width: 60px;
+  font-size: 1.3rem;
+  text-align: center;
+  padding: 10px;
+  background: #BDC3C7;
+  color: #fff;
+  border-radius: 5px;
+}
+/* チェックが入ってる方のラジオボタンの隣のlabelを背景緑にする */
+.message-person input[type="radio"]:checked + label {
+  background: #61cf3f;
+}
+/* ボタンを押した時の線を非表示にする */
+.btn_chat {
+  color: #01A6EA;
+  outline: none;
+}
+
+/* -------------------------------------------------- */
+
+/* -------------------------------------------------- */
