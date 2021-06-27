@@ -75,7 +75,7 @@ $user_lang = json_encode($val);
   <!-- CSSの取り込み -->
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/common.css">
-  <link rel="stylesheet" href="../css/profile.css">
+  <link rel="stylesheet" href="../css/my_profile.css">
   <!-- line-awesome -->
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
   <title>my_profile</title>
@@ -94,7 +94,7 @@ $user_lang = json_encode($val);
           <div class="icon">
             <div class="gs_year">
               <p>地域</p>
-              <select id="" name="admission_area">
+              <select name="admission_area" id="admission_area">
                 <option value="1"></option>
                 <option value="3">東京</option>
                 <option value="4">福岡</option>
@@ -104,14 +104,14 @@ $user_lang = json_encode($val);
             </div>
             <div class="gs_course">
               <p>コース</p>
-              <select id="" name="course_name">
+              <select id="course_name" name="course_name">
                 <option value="1"></option>
                 <option value="3">LAB</option>
                 <option value="4">DEV</option>
                 <option value="5">BIZ</option>
                 <option value="2">その他</option>
               </select>
-              <input type="text" pattern="\d{2}" maxlength="2" name="admission_period">
+              <input type="text" pattern="\d{2}" maxlength="2" name="admission_period" id="admission_period">
               <p>期</p>
             </div>
             <div class="graduate">
@@ -135,7 +135,7 @@ $user_lang = json_encode($val);
               </div>
             </div>
             <div class="icon_name_area">
-              <p class="name">名前</p>
+              <p class="name" id="name">名前</p>
               <div class="birth">
                 <p>生年月日</p>
                 <select id="birth_year" name="birthday_year">
@@ -154,14 +154,14 @@ $user_lang = json_encode($val);
             </div>
           </div>
           <div class="message_area">
-            <textarea id="" cols="30" rows="3" placeholder="一言お願いします。" maxlength='42' name="comment"></textarea>
+            <textarea id="comment" cols="30" rows="2" placeholder="一言お願いします。" maxlength='42' name="comment"></textarea>
           </div>
           <div class="other">
             <table class="other_table">
               <tr class="cell">
                 <td class="cell_left">血液型</td>
                 <td class="cell_right">
-                  <select name="blood_type" id="">
+                  <select name="blood_type" id="blood_type">
                     <option value="1"></option>
                     <option value="3">A型</option>
                     <option value="4">B型</option>
@@ -190,13 +190,13 @@ $user_lang = json_encode($val);
               <tr class="cell">
                 <td class="cell_left">年収</td>
                 <td class="cell_right">
-                  <select name="annual_income" id="">
+                  <select name="annual_income" id="annual_income">
                     <option value="1"></option>
                     <option value="3">200万 - 399万</option>
                     <option value="4">400万 - 599万</option>
                     <option value="5">600万 - 799万</option>
                     <option value="6">800万 - 999万</option>
-                    <option value="7">1000万 -</option>
+                    <option value="7">1000万 - </option>
                     <option value="2">その他</option>
                   </select>
                 </td>
@@ -204,7 +204,7 @@ $user_lang = json_encode($val);
               <tr class="cell">
                 <td class="cell_left">英語スキル</td>
                 <td class="cell_right">
-                  <select name="english_skill" id="">
+                  <select name="english_skill" id="english_skill">
                     <option value="1"></option>
                     <option value="3">日常会話</option>
                     <option value="4">ビジネスレベル</option>
@@ -216,7 +216,7 @@ $user_lang = json_encode($val);
               <tr class="cell">
                 <td class="cell_left">性格</td>
                 <td class="cell_right">
-                  <select name="personality" id="">
+                  <select name="personality" id="personality">
                     <option value="1"></option>
                     <option value="3">熱血</option>
                     <option value="4">冷静</option>
@@ -273,7 +273,7 @@ $user_lang = json_encode($val);
               <p class="profile_area_name"> なぜG'sに入学したか? </p>
             </div>
             <div class="profile_area_content">
-              <textarea name="why_gs" id="" cols="62" rows="9" placeholder="背景・経緯などを教えてください" class="profile_description" maxlength='400'></textarea>
+              <textarea name="why_gs" id="why_gs" cols="62" rows="5" placeholder="背景・経緯などを教えてください" class="profile_description" maxlength='400'></textarea>
             </div>
           </div>
           <!-- プロフィールの２番目のブロック（ポートフォリオ） -->
@@ -283,7 +283,7 @@ $user_lang = json_encode($val);
             <div class="portfolio_area" id="portfolio_area_1">
               <input type="text" name="portfolio_title1" class="portfolio_area_title" id="portfolio_area_title1" placeholder="タイトルを入力">
               <input type="text" name="portfolio_url1" class="portfolio_area_url" id="portfolio_area_url1" placeholder="URLを入力">
-              <textarea name="portfolio_comment1" id="" cols="50" rows="4" class="portfolio_area_description" id="portfolio_area_description1" placeholder="説明"></textarea>
+              <textarea name="portfolio_comment1" cols="50" rows="4" class="portfolio_area_description" id="portfolio_area_description1" placeholder="説明"></textarea>
               <!-- <div class="portfolio_area_content" id="portfolio_area_content1">
             <img src="" alt="" class="portfolio_area_content_img" id="portfolio_area_content_img1">
           </div> -->
@@ -292,7 +292,7 @@ $user_lang = json_encode($val);
             <div class="portfolio_area" id="portfolio_area_2">
               <input type="text" name="portfolio_title2" class="portfolio_area_title" id="portfolio_area_title2" placeholder="タイトルを入力">
               <input type="text" name="portfolio_url2" class="portfolio_area_url" id="portfolio_area_url2" placeholder="URLを入力">
-              <textarea name="portfolio_comment2" id="" cols="50" rows="4" class="portfolio_area_description" id="portfolio_area_description2" placeholder="説明"></textarea>
+              <textarea name="portfolio_comment2" cols="50" rows="4" class="portfolio_area_description" id="portfolio_area_description2" placeholder="説明"></textarea>
               <!-- <div class="portfolio_area_content" id="portfolio_area_content2">
             <img src="" alt="" class="portfolio_area_content_img" id="portfolio_area_content_img2">
           </div> -->
@@ -301,7 +301,7 @@ $user_lang = json_encode($val);
             <div class="portfolio_area" id="portfolio_area_3">
               <input type="text" name="portfolio_title3" class="portfolio_area_title" id="portfolio_area_title3" placeholder="タイトルを入力">
               <input type="text" name="portfolio_url3" class="portfolio_area_url" id="portfolio_area_url3" placeholder="URLを入力">
-              <textarea name="portfolio_comment3" id="" cols="50" rows="4" class="portfolio_area_description" id="portfolio_area_description3" placeholder="説明"></textarea>
+              <textarea name="portfolio_comment3" cols="50" rows="4" class="portfolio_area_description" id="portfolio_area_description3" placeholder="説明"></textarea>
               <!-- <div class="portfolio_area_content" id="portfolio_area_content3">
             <img src="" alt="" class="portfolio_area_content_img" id="portfolio_area_content_img3">
           </div> -->
@@ -525,7 +525,7 @@ $user_lang = json_encode($val);
                 <p class="profile_area_name"> その他のスキル </p>
               </div>
               <div class="profile_area_content">
-                <textarea name="available_skill" id="" cols="62" rows="9" placeholder="（記載例）AWS構築・運用の経験あり。Adobe系のソフトで業務経験あり。等" maxlength='400'></textarea>
+                <textarea name="available_skill" id="available_skill" cols="62" rows="5" placeholder="（記載例）AWS構築・運用の経験あり。Adobe系のソフトで業務経験あり。等" maxlength='400'></textarea>
               </div>
             </div>
             <!-- 来歴（学歴・職歴など） -->
@@ -534,7 +534,7 @@ $user_lang = json_encode($val);
                 <p class="profile_area_name"> 来歴（学歴・職歴など） </p>
               </div>
               <div class="profile_area_content">
-                <textarea name="history" id="" cols="62" rows="9" placeholder="（例）20XX年 〇〇大学卒業 &#13;20XX年-20XX年 株式会社〇〇にて××を担当" maxlength='400'></textarea>
+                <textarea name="history" id="history" cols="62" rows="5" placeholder="（例）20XX年 〇〇大学卒業 &#13;20XX年-20XX年 株式会社〇〇にて××を担当" maxlength='400'></textarea>
               </div>
             </div>
             <!--  資格 -->
@@ -543,7 +543,7 @@ $user_lang = json_encode($val);
                 <p class="profile_area_name"> 資格 </p>
               </div>
               <div class="profile_area_content">
-                <textarea name="qualification" id="" cols="62" rows="9" placeholder="（例）応用情報技術者（AP）、TOEIC 700点 等" maxlength='400'></textarea>
+                <textarea name="qualification" id="qualification" cols="62" rows="5" placeholder="（例）応用情報技術者（AP）、TOEIC 700点 等" maxlength='400'></textarea>
               </div>
             </div>
             <!-- フリーコメント -->
@@ -552,7 +552,7 @@ $user_lang = json_encode($val);
                 <p class="profile_area_name"> フリーコメント </p>
               </div>
               <div class="profile_area_content">
-                <textarea name="free_space" id="" cols="62" rows="9" placeholder="（例）〇〇の技術を持った方を探しています。〇〇の案件に興味あります。等" maxlength='400'></textarea>
+                <textarea name="free_space" id="free_space" cols="62" rows="5" placeholder="（例）〇〇の技術を持った方を探しています。〇〇の案件に興味あります。等" maxlength='400'></textarea>
               </div>
             </div>
           </div>
@@ -834,7 +834,7 @@ $user_lang = json_encode($val);
         const img_url = e.target.result;
         img.src = img_url;
       }
-      // いざファイルをURLとして読み込む
+      // ファイルをURLとして読み込む
       reader.readAsDataURL(file);
     }
 
@@ -846,7 +846,189 @@ $user_lang = json_encode($val);
 
     // イベントを追加
     profile_image.addEventListener('change', file);
+
+    // ----------------------------------------------
+    // json_dataの取得
+    // ----------------------------------------------
+    // 1.user_infoの取得
+    const json1 = <?= $user_info ?>;
+    const json1_str = JSON.stringify(json1);
+    const user_info = JSON.parse(json1_str);
+    console.log(user_info);
+
+    // selectに該当のvalueがあった際の関数
+    function select_tab(option, object) {
+      // objectがundefinedでなければ
+      if (object != undefined) {
+        //HTMLCollectionをNodeList的に変換
+        Array.from(option).forEach(option_child => {
+          if (option_child.value == object) {
+            option_child.selected = true;
+          }
+        })
+      }
+    }
+
+    // inputに該当のvalueを挿入する関数
+    function input_insert(input, object) {
+      if (object != undefined) {
+        input.value = object;
+      }
+    }
+
+    // 2.admission_areaのvalueを選択
+    const admission_area = document.getElementById('admission_area').children;
+    select_tab(admission_area, user_info.admission_area);
+    // 3.admission_areaとadmission_periodのvalueを選択
+    const course_name = document.getElementById('course_name').children;
+    select_tab(course_name, user_info.course_name);
+    const admission_period = document.getElementById('admission_period');
+    input_insert(admission_period, user_info.admission_period);
+    // 4.graduateのvalueを選択
+    const select_year = document.getElementById('year').children;
+    const select_month = document.getElementById('month').children;
+    const graduate = user_info.graduation_date.split('-');
+    select_tab(select_year, graduate[0]);
+    select_tab(select_month, graduate[1]);
+    // 5.iconのsrcを選択
+    const icon_img = document.getElementById('img');
+    const file_name = "../icon/"
+    // アイコン画像をDBに登録していれば
+    if (user_info.profile_image != undefined) {
+      icon_img.src = file_name + user_info.profile_image;
+    }
+    //6.birthのvalueを選択
+    const select_birth_year = document.getElementById('birth_year');
+    const select_birth_month = document.getElementById('birth_month');
+    const select_birth_day = document.getElementById('birth_day');
+    const birth = user_info.birthday.split('-');
+    select_tab(select_birth_year, birth[0]);
+    select_tab(select_birth_month, birth[1]);
+    select_tab(select_birth_day, birth[2]);
+    //7.birthのvalueを選択
+    const comment = document.getElementById('comment');
+    input_insert(comment, user_info.comment);
+    //8.blood_typeのvalueを選択
+    const blood_type = document.getElementById('blood_type');
+    select_tab(blood_type, user_info.blood_type);
+    //9.residenceのvalueを選択
+    const residence = document.getElementById('address');
+    select_tab(residence, user_info.residence);
+    //10.birthplaceのvalueを選択
+    const birthplace = document.getElementById('from');
+    select_tab(birthplace, user_info.birthplace);
+    //11.annual_incomeのvalueを選択
+    const annual_income = document.getElementById('annual_income');
+    select_tab(annual_income, user_info.annual_income);
+    //12.english_skillのvalueを選択
+    const english_skill = document.getElementById('english_skill');
+    select_tab(english_skill, user_info.english_skill);
+    //12.english_skillのvalueを選択
+    const personality = document.getElementById('personality');
+    select_tab(personality, user_info.personality);
+    //13.why_gsのvalueを選択
+    const why_gs = document.getElementById('why_gs');
+    input_insert(why_gs, user_info.why_gs);
+    // 14.portfolioのDOM
+    const portfolio_area_title1 = document.getElementById('portfolio_area_title1');
+    const portfolio_area_url1 = document.getElementById('portfolio_area_url1');
+    const portfolio_area_description1 = document.getElementById('portfolio_area_description1');
+    input_insert(portfolio_area_title1, user_info.portfolio_title1);
+    input_insert(portfolio_area_url1, user_info.portfolio_url1);
+    input_insert(portfolio_area_description1, user_info.portfolio_comment1);
+    const portfolio_area_title2 = document.getElementById('portfolio_area_title2');
+    const portfolio_area_url2 = document.getElementById('portfolio_area_url2');
+    const portfolio_area_description2 = document.getElementById('portfolio_area_description2');
+    input_insert(portfolio_area_title2, user_info.portfolio_title2);
+    input_insert(portfolio_area_url2, user_info.portfolio_url2);
+    input_insert(portfolio_area_description2, user_info.portfolio_comment2);
+    const portfolio_area_title3 = document.getElementById('portfolio_area_title3');
+    const portfolio_area_url3 = document.getElementById('portfolio_area_url3');
+    const portfolio_area_description3 = document.getElementById('portfolio_area_description3');
+    input_insert(portfolio_area_title3, user_info.portfolio_title3);
+    input_insert(portfolio_area_url3, user_info.portfolio_url3);
+    input_insert(portfolio_area_description3, user_info.portfolio_comment3);
+    // 15.available_skillのvalueを選択
+    const available_skill = document.getElementById('available_skill');
+    input_insert(available_skill, user_info.available_skill);
+    // 16.historyのvalueを選択
+    const history = document.getElementById('history');
+    input_insert(history, user_info.history);
+    // 17.qualificationのvalueを選択
+    const qualification = document.getElementById('qualification');
+    input_insert(qualification, user_info.qualification);
+    // 18.free_spaceのvalueを選択
+    const free_space = document.getElementById('free_space');
+    input_insert(free_space, user_info.free_space);
+    // 19.nameのtextContent挿入
+    const name = document.getElementById('name');
+    name.textContent = user_info.name;
+
+    // ----------------------------------------------
+    // json_dataの取得
+    // ----------------------------------------------
+    // 1.user_occupationの取得
+    const json2 = <?= $user_occupation ?>;
+    const json2_str = JSON.stringify(json2);
+    const user_occupation = JSON.parse(json2_str);
+    const occupation = document.querySelectorAll('input[name="occupation[]"]');
+
+    // 2.チェックボックスのDOM操作
+    if (user_occupation != undefined) {
+      user_occupation.forEach(target => {
+        occupation.forEach(html_oc => {
+          if (target.occupation_id == html_oc.value) {
+            html_oc.checked = true;
+          }
+        })
+      })
+    }
+
+    // ----------------------------------------------
+    // json_dataの取得
+    // ----------------------------------------------
+    // 1.user_langの取得
+    const json3 = <?= $user_lang ?>;
+    const json3_str = JSON.stringify(json3);
+    const user_lang = JSON.parse(json3_str);
+    const lang = document.querySelectorAll('input[name="available_programming_language[]"]');
+
+    // 2.チェックボックスのDOM操作
+    if (user_lang != undefined) {
+      user_lang.forEach(target => {
+        lang.forEach(html_la => {
+          if (target.available_programming_language_id == html_la.value) {
+            html_la.checked = true;
+          }
+        })
+      })
+    }
+
+    // ----------------------------------------------
+    // checkboxの操作
+    // ----------------------------------------------
+    // occupation
+    occupation.forEach(target => {
+      target.addEventListener('change', (e) => {
+        const ck = document.querySelectorAll('input[name="occupation[]"]:checked');
+        if (ck.length >= 4) {
+          alert('選択できる項目は3つまでです。');
+          e.target.checked = false;
+        }
+      })
+    })
+    //
+    lang.forEach(target => {
+      target.addEventListener('change', (e) => {
+        const ck = document.querySelectorAll('input[name="available_programming_language[]"]:checked');
+        if (ck.length >= 7) {
+          alert('選択できる項目は6つまでです。');
+          e.target.checked = false;
+        }
+      })
+    })
   </script>
+
 </body>
 
 </html>

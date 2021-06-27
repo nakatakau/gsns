@@ -2,6 +2,15 @@ main{
   width: 960px;
   margin: 0 auto;
 }
+select{
+  border-bottom: 1px gray solid;
+}
+input{
+  border-bottom: 1px gray solid;
+}
+textarea{
+  border: 1px gray solid;
+}
 img{
   border: 1px gray solid;
 }
@@ -18,7 +27,6 @@ img{
 .left{
   width:33%;
   height:100vh;
-  pointer-events: none;
 }
 .right{
   width:64%;
@@ -30,7 +38,7 @@ img{
   justify-content: center;
 }
 .edit_button{
-  width: 160px;
+  width: 120px;
   height: 40px;
   text-align: center;
   border-radius: 15px;
@@ -164,10 +172,6 @@ img{
   width: 100%;
   margin-bottom: 10px;
   border-bottom: 1px gray solid;
-  pointer-events: auto;
-}
-.portfolio_area_title:hover{
-  color:blue;
 }
 .portfolio_area_url{
   width: 100%;
@@ -221,7 +225,6 @@ img{
   margin-top: 10px;
   margin-bottom: 30px;
   overflow: scroll;
-  pointer-events: none;
 }
 .profile_area_content4{
   width: 100%;
@@ -229,7 +232,6 @@ img{
   margin-top: 10px;
   margin-bottom: 30px;
   overflow: scroll;
-  pointer-events: none;
 }
 .profile_description{
   width: 100;
