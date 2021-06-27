@@ -105,3 +105,4 @@ function fileUpload($fname, $path)
     return 2; //失敗時：ファイル取得エラー
   }
 }
+
