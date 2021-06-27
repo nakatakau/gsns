@@ -44,6 +44,18 @@ $available_skill  = $_POST["available_skill"];
 $history  = $_POST["history"];
 $qualification  = $_POST["qualification"];
 $free_space  = $_POST["free_space"];
+// アイコン画像のアップロード処理
+// 1.file名の取得
+$profile_image = $_FILES["profile_image"]["name"];
+// 2.画像データをiconフォルダーにアップロード
+$upload = "../icon/";
+if(move_uploaded_file($_FILES["profile_image"]["tmp_name"],$upload.$profile_image)){
+  // アップロードが正常に完了
+}else{
+  // アップロードが失敗したらエラーを吐き出す
+  echo $_FILES["profile_image"]["error"];
+}
+
 
 // v($admission_area);
 // v($course_name);
@@ -114,7 +126,8 @@ SET
   available_skill = :available_skill,
   history = :history,
   qualification = :qualification,
-  free_space = :free_space
+  free_space = :free_space,
+  profile_image = :profile_image;
 WHERE  user_id = :my_id
 ;";
 $stmt = $pdo->prepare($sql);
@@ -145,6 +158,7 @@ $stmt->bindValue(':history', $history, PDO::PARAM_STR);
 $stmt->bindValue(':qualification', $qualification, PDO::PARAM_STR);
 $stmt->bindValue(':free_space', $free_space, PDO::PARAM_STR);
 $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
+$stmt->bindValue(':profile_image', $profile_image, PDO::PARAM_STR);
 $status = $stmt->execute();
 // v($status);
 
