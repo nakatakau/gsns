@@ -2,8 +2,11 @@
 session_start();
 include_once __DIR__ . "/../app/funcs.php";
 
-//SESSIONからmy_idを取得
-$my_id = $_SESSION["my_id"];
+// //SESSIONからmy_idを取得
+// $my_id = $_SESSION["my_id"];
+
+// index.phpから該当ユーザーのidを取得
+$my_id = $_POST['user_id'];
 
 //DB接続します
 $pdo = db_conn();
