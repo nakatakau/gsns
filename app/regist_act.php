@@ -1,5 +1,6 @@
 <?php
 // ここに会員登録処理を記入する
+session_start();
 include_once __DIR__ . "/funcs.php";
 
 //1. POSTデータ取得
@@ -27,5 +28,6 @@ $status = $stmt->execute(); //実行
 if ($status == false) {
   sql_error($stmt);
 } else {
+  $_SESSION["my_id"] = $pdo->lastInsertId();
   redirect("../view/index.php");
 }
