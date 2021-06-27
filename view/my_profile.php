@@ -87,7 +87,7 @@ $user_lang = json_encode($val);
   include('../parts/header.php');
   ?>
   <main>
-    <form action="../app/my_profile_act.php" method="POST">
+    <form action="../app/my_profile_act.php" method="POST" enctype="multipart/form-data">
       <div class="profile_flex">
         <!-- プロフィールの１番目のブロック（アイコンとメッセージ） -->
         <div class="left">
