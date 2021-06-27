@@ -6,7 +6,7 @@ $my_id = $_SESSION["my_id"];
 
 
 //POSTデータ取得
-// 職種に関する情報
+//職種に関する情報
 $occupation = isset($_POST['occupation']) ? $_POST['occupation'] : [];
 $occupation_count = count($occupation);
 // v($occupation);
@@ -18,48 +18,20 @@ $available_programming_language_id_count = count($available_programming_language
 // v($available_programming_language_id);
 // v($available_programming_language_id_count);
 
-// その他に関する情報
-$residence = isset($_POST['residence']) ? $_POST['residence'] : NULL;
-$birthplace = isset($_POST['birthplace']) ? $_POST['birthplace'] : NULL;
-$blood_type = isset($_POST['blood_type']) ? $_POST['blood_type'] : NULL;
-$personality = isset($_POST['personality']) ? $_POST['personality'] : NULL;
-$annual_income = isset($_POST['annual_income']) ? $_POST['annual_income'] : NULL;
-$english_skill = isset($_POST['english_skill']) ? $_POST['english_skill'] : NULL;
-// v($residence);
-// v($birthplace);
-// v($blood_type);
-// v($personality);
-// v($annual_income);
-// v($english_skill);
-
-// その他の情報を連想配列にまとめる
-$others = compact("residence", "birthplace", "blood_type", "personality", "annual_income", "english_skill");
-// 連想配列から空文字とnullの要素を削除
-$others = array_filter($others, "IsNonEmptyString");
-// print_r($others);
-$others_count = count($others);
-// v($others_count);
-
-
-
-
-
-
-
 
 // DB接続
-$pdo = db_conn();   //function内の$pdoを受け取る
+$pdo = db_conn();
 // 職種選択ボックスで何かしらあれば、職種を持つユーザーIDを取得する処理
 $occupations=[];
 if ($occupation_count !== 0) {
 
   $where_occupations = '';
   foreach ($occupation as $occupation_id) {
-    // v($occupation_id);
     $where_occupations .= "occupation_id =" . $occupation_id . " or ";
   }
-  $where_occupations .= 'occupation_id = 0';
+  $where_occupations = rtrim($where_occupations, " or ");
   // v($where_occupations);
+
   //user_occupationテーブルから検索対象のidを絞り込む
   $sql = "
   select
@@ -68,8 +40,8 @@ if ($occupation_count !== 0) {
     user_occupation
   WHERE
     $where_occupations
-  group by user_id;
-  ";
+  group by user_id
+  ;";
   //  v($sql);
   $stmt = $pdo->prepare($sql);
   // $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
@@ -91,11 +63,9 @@ if ($available_programming_language_id_count !== 0) {
 
   $where_available_programming_language = '';
   foreach ($available_programming_language_id as $lang_id) {
-    // v($occupation_id);
-    $where_available_programming_language .= "available_programming_language_id =" . $lang_id . " or ";
+    $where_available_programming_language .= "available_programming_language_id = " . $lang_id . " or ";
   }
-  $where_available_programming_language .= 'available_programming_language_id = 0';
-  // v($where_available_programming_language);
+  $where_available_programming_language = rtrim($where_available_programming_language, " or ");
   //user_occupationテーブルから検索対象のidを絞り込む
   $sql = "
   select
@@ -106,7 +76,7 @@ if ($available_programming_language_id_count !== 0) {
     $where_available_programming_language
   group by user_id;
   ";
-  //  v($sql);
+  // v($sql);
   $stmt = $pdo->prepare($sql);
   // $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
   $status = $stmt->execute();
@@ -125,25 +95,18 @@ $search_target_users_id=array_merge($occupations,$langs);
 // v($search_target_users_id);
 // 結合した配列から重複を排除
 $search_target_users_id = array_unique($search_target_users_id);
-// v($search_target_users_id);
+v($search_target_users_id);
 $search_target_users_id_count =count($search_target_users_id);
-v($search_target_users_id_count);
+// v($search_target_users_id_count);
 
-// 職種と使用可能言語で絞り込んだユーザーIDが0で、その他の選択が1つ以上なら検索する
-if ($search_target_users_id_count===0 && $others_count >=1) {
-  echo "職種と使用可能言語で絞り込んだユーザーIDが0で、その他の選択が1以上の検索";
-  $where_others = '';
-  foreach ($others as $key => $val) {
-    $where_others .= "$key ". "= " . $val . " and ";
+// 職種と利用可能言語を持つユーザーが一人以上なら検索処理(usersテーブルから基本情報を取得する処理)
+if ($search_target_users_id_count>=1) {
+  $where_users_id='';
+  foreach ($search_target_users_id as $user_id) {
+    $where_users_id .= "user_id = " . $user_id . " or ";
   }
-  // その他条件が一つだった場合はandが不要なので消去する
-  if ($others_count === 1) {
-      $where_others = str_replace("and","",$where_others);
-      // v($where_others);
-  }
-  // その他が2つ以上ある場合に、最後のandを取り除く
-  $where_others =trim($where_others, " and");
-
+  $where_users_id = rtrim($where_users_id, " or ");
+  // v($where_users_id);
 
   $sql = "
     select
@@ -151,109 +114,68 @@ if ($search_target_users_id_count===0 && $others_count >=1) {
     from
       users
     WHERE
-      $where_others
+      $where_users_id
   ;";
-  v($sql);
-
+  // v($sql);
   $stmt = $pdo->prepare($sql);
-  // $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
   $status = $stmt->execute();
 
-  $result1 =$stmt->fetchAll(PDO::FETCH_ASSOC);
-  v($result1);
-}
+  $result_users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  // v($result_users);
+  $result_json_users = json_encode($result_users);
+  v($result_json_users);
 
-  // 職種と使用可能言語で絞り込んだユーザーIDが1以上で、その他の選択が0の検索
-  if ($search_target_users_id_count >= 1 && $others_count === 0) {
-    echo "職種と使用可能言語で絞り込んだユーザーIDが1以上で、その他の選択が0の検索";
-    $where_users_id = '';
-    foreach ($search_target_users_id as $val) {
-      $where_users_id .= "user_id" . "= " . $val . " or ";
-    }
+  // ユーザに紐づく職種の取得処理
+  $where_users_id = '';
+  foreach ($search_target_users_id as $user_id) {
+    $where_users_id .= "user_id = " . $user_id . " or ";
+  }
+  $where_users_id = rtrim($where_users_id, " or ");
+  // v($where_users_id);
 
-    // 最後のorを取り除く
-    $where_users_id = trim($where_users_id, " or");
-
-
-    $sql = "
+  $sql = "
     select
-      *
+      user_id, occupation_id
     from
-      users
+      user_occupation
     WHERE
       $where_users_id
   ;";
-    v($sql);
+  // v($sql);
+  $stmt = $pdo->prepare($sql);
+  $status = $stmt->execute();
 
-    $stmt = $pdo->prepare($sql);
-    // $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
-    $status = $stmt->execute();
+  $result_occupation = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  // v($result_occupation);
+  $result_json_occupations = json_encode($result_occupation);
+  v($result_json_occupations);
 
-    $result2 = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    v($result2);
+
+  // ユーザに紐づく職種の取得処理
+  $where_users_id = '';
+  foreach ($search_target_users_id as $user_id) {
+    $where_users_id .= "user_id = " . $user_id . " or ";
   }
+  $where_users_id = rtrim($where_users_id, " or ");
+  // v($where_users_id);
 
-  // 職種と使用可能言語で絞り込んだユーザーIDが1以上で、その他の選択も1つ以上なら検索する
-  if ($search_target_users_id_count >= 1 && $others_count >= 1) {
-    echo "職種と使用可能言語で絞り込んだユーザーIDが1以上で、その他の選択が1以上の検索";
-    //ユーザID用のクエリパーツ作成(or検索)
-    $where_users_id = '';
-    foreach ($search_target_users_id as $val) {
-      $where_users_id .= "user_id" . "= " . $val . " or ";
-    }
-    // その他条件が一つだった場合はandが不要なので消去する
-    // if ($others_count === 1) {
-      //   $where_others = str_replace("and", "", $where_others);
-      // }
-      // ユーザIDが2つ以上ある場合に、最後のorを取り除く
-      $where_users_id = trim($where_users_id, " or");
-      v($where_users_id);
-
-  //その他の選択のクエリパーツ作成(and検索)
-  $where_others = '';
-  foreach ($others as $key => $val) {
-    $where_others .= "$key " . "= " . $val . " and ";
-  }
-  // その他条件が一つだった場合はandが不要なので消去する
-  // if ($others_count === 1) {
-  //   $where_others = str_replace("and", "", $where_others);
-  //   // v($where_others);
-  // }
-  // その他が2つ以上ある場合に、最後のandを取り除く
-  $where_others = trim($where_others, " and");
-  v($where_others);
-
-
-    $sql = "
+  $sql = "
     select
-      *
+      user_id, available_programming_language_id
     from
-      users
+      user_available_programming_language
     WHERE
-      $where_users_id AND $where_others
-    ;";
-    v($sql);
+      $where_users_id
+  ;";
+  // v($sql);
+  $stmt = $pdo->prepare($sql);
+  $status = $stmt->execute();
 
-    $stmt = $pdo->prepare($sql);
-    // $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
-    $status = $stmt->execute();
-
-    $result3 = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    v($result3);
-  }
-
-
-
-
-
-// ４．データ登録処理後
-// if ($status == false) {
-//   sql_error($stmt);
-// } else {
-//   redirect("../view/index.php");
-// }
-
-
+  $result_langs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  // v($result_langs);
+  $result_json_langs = json_encode($result_langs);
+  v($result_json_langs);
+}
 
 ?>
 
