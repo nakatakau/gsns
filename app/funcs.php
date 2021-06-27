@@ -103,4 +103,9 @@ function fileUpload($fname, $path)
   } else {
     return 2; //失敗時：ファイル取得エラー
   }
-} 
+}
+
+function IsNonEmptyString($x)
+{
+  return $x !== "" || null;
+}
