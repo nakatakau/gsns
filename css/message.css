@@ -8,12 +8,25 @@ select{
 input{
   border-bottom: 1px gray solid;
 }
-textarea{
-  border: 1px gray solid;
+
+/* -------------------------------------------------- */
+/* チャットコンテンツ全体*/
+/* -------------------------------------------------- */
+
+.oll{
+  display:flex;
+  justify-content: center;
+  height: 700px;
+  margin-bottom: 30px;
 }
-img{
-  border: 1px gray solid;
+/* ※カード全体の影を入れる（message.phpをいじらなければいけない） */
+
+ .hogehoge{
+  border-radius: 1%;
+  box-shadow: 0 0 3px 0 rgba(0,0,0,.12), 0 2px 3px 0 rgba(0,0,0,.22);
+	transition: .3s;
 }
+
 
 /* -------------------------------------------------- */
 /* サイドバー*/
@@ -24,8 +37,8 @@ img{
   height: auto;
   width: 300px;
   padding: 20px;
-  border: 1px gray solid;
   overflow: scroll;
+  background: #fff;
 }
 .prof_img{
   width: 50px;
@@ -49,17 +62,6 @@ img{
 .user_card{
   margin-top: 20px;
   border-bottom: 0.5px solid #6F7681;
-}
-
-/* -------------------------------------------------- */
-/* チャットコンテンツ全体*/
-/* -------------------------------------------------- */
-
-body #display{
-  display:flex;
-  justify-content: center;
-  height: 700px;
-  margin-bottom: 30px;
 }
 
 /* -------------------------------------------------- */
@@ -87,9 +89,9 @@ body #display{
 /* -------------------------------------------------- */
 
 .message_box{
-  border: 1px solid;
   height: 25%;
   padding: 10px;
+  background: #fff;
 }
 .message-area {
   height: 10vh;
