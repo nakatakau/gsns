@@ -1,5 +1,6 @@
-
-/* ----------------- スタート → チェックボックス ----------------------*/
+/* -------------------------------------------------------------------- */
+/* チェックボックス */
+/* -------------------------------------------------------------------- */
 
 /* 元々のチェックボックス（非表示） */
 .check_box_design input[type="checkbox"]{
@@ -46,7 +47,9 @@
     border-left: 3px solid;
     border-color:  #585753; /* チェックの色変更 */
 }
-/* ----------------- ここまで → チェックボックス ----------------------*/
+/* -------------------------------------------------------------------- */
+/* 全体デザイン */
+/* -------------------------------------------------------------------- */
 
 main{
   width: 960px;
@@ -58,18 +61,54 @@ main{
 .display_card_second h1{
   font-size: 20px;
 }
-
-/* カードの名前、ひとこと---------------------------------------------------- */
-h2{
-  font-size: 15px;
-}
-/* -------------------------------------------------------------------- */
 .display_card_first{
-  border: 1px solid;
   border-radius: 5px;
   padding: 20px;
   margin-bottom: 30px;
+  background: #fff;
+  color: #383333;
 }
+.display_card_second{
+  border-radius: 5px;
+  margin-bottom: 30px;
+  max-width: 31%;
+  max-height: 35%;
+  background: #fff;
+  color: #383333;
+}
+
+/* -------------------------------------------------------------------- */
+/* カードの全体のデザイン*/
+/* -------------------------------------------------------------------- */
+
+ .display_card_first{
+  border-radius: 1%;
+  box-shadow: 0 0 3px 0 rgba(0,0,0,.12), 0 2px 3px 0 rgba(0,0,0,.22);
+	transition: .3s;
+}
+.display_card_second{
+  border-radius: 1%;
+  box-shadow: 0 0 3px 0 rgba(0,0,0,.12), 0 2px 3px 0 rgba(0,0,0,.22);
+	transition: .3s;
+}
+
+.display_card_second:hover {
+	box-shadow: 0 15px 30px -5px rgba(0,0,0,.15), 0 0 5px rgba(0,0,0,.1);
+	transform: translateY(-4px);
+}
+
+/* -------------------------------------------------------------------- */
+/* カードの名前、ひとこと */
+/* -------------------------------------------------------------------- */
+
+h2{
+  font-size: 15px;
+}
+
+/* -------------------------------------------------------------------- */
+/* プロフィールカード部分 */
+/* -------------------------------------------------------------------- */
+
 .tb_flex{
   display: flex;
   justify-content:space-around;
@@ -100,26 +139,23 @@ td{
 .btn{
   display: flex;
   margin: 0 auto;
-  border: 1px solid;
+  border: 1px solid #00478F;
+  color: #00478F;
   margin-top: 30px;
   margin-bottom:10px;
   padding:5px 70px 5px 70px;
   border-radius: 30px;
   background: #fff;
 }
-.display_card_second{
-  border: 1px solid;
-  border-radius: 5px;
-  margin-bottom: 30px;
-  max-width: 31%;
-  max-height: 35%;
+.btn:hover {
+  background: #C8D7E0;
 }
 .card_info{
   display: flex;
   padding: 20px;
 }
 .card_sub{
-  border-top: 1px solid;
+  border-top: 1px solid #6F7681;
   padding: 20px;
 }
 .prof_img{
@@ -148,4 +184,6 @@ td{
 .data-feather{
   color: #000
 }
+/* -------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------- */

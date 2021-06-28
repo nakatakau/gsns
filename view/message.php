@@ -33,17 +33,12 @@ include("../parts/header.php");
             <img class="prof_img" src="../img/test1.png" alt="">
           </div>
           <div class="prof_b">
-            <h3>東京LAB11</h3>
-            <a class="user_name">かくまあり</a>
+            <h3>かくまあり</h3>
+            <a class="user_name">東京LAB11</a>
           </div>
-        </div>
-        <div class="sub_con">
-          <p>ここにチャットの内容が入る：hogehoge</p>
-          <p>ここにチャットの内容が入る：hogehoge</p>
         </div>
       </a>
     </div>
-
     <div class="user_card">
       <a href="../view/index.php">
         <div class="main_con">
@@ -51,17 +46,12 @@ include("../parts/header.php");
             <img class="prof_img" src="../img/test1.png" alt="">
           </div>
           <div class="prof_b">
-            <h3>東京LAB11</h3>
-            <a class="user_name">かくまあり</a>
+            <h3>かくまあり</h3>
+            <a class="user_name">東京LAB11</a>
           </div>
-        </div>
-        <div class="sub_con">
-          <p>ここにチャットの内容が入る：hogehoge</p>
-          <p>ここにチャットの内容が入る：hogehoge</p>
         </div>
       </a>
     </div>
-
     <div class="user_card">
       <a href="../view/index.php">
         <div class="main_con">
@@ -69,17 +59,12 @@ include("../parts/header.php");
             <img class="prof_img" src="../img/test1.png" alt="">
           </div>
           <div class="prof_b">
-            <h3>東京LAB11</h3>
-            <a class="user_name">かくまあり</a>
+            <h3>かくまあり</h3>
+            <a class="user_name">東京LAB11</a>
           </div>
-        </div>
-        <div class="sub_con">
-          <p>ここにチャットの内容が入る：hogehoge</p>
-          <p>ここにチャットの内容が入る：hogehoge</p>
         </div>
       </a>
     </div>
-
     <div class="user_card">
       <a href="../view/index.php">
         <div class="main_con">
@@ -87,17 +72,12 @@ include("../parts/header.php");
             <img class="prof_img" src="../img/test1.png" alt="">
           </div>
           <div class="prof_b">
-            <h3>東京LAB11</h3>
-            <a class="user_name">かくまあり</a>
+            <h3>かくまあり</h3>
+            <a class="user_name">東京LAB11</a>
           </div>
-        </div>
-        <div class="sub_con">
-          <p>ここにチャットの内容が入る：hogehoge</p>
-          <p>ここにチャットの内容が入る：hogehoge</p>
         </div>
       </a>
     </div>
-
     <div class="user_card">
       <a href="../view/index.php">
         <div class="main_con">
@@ -105,16 +85,41 @@ include("../parts/header.php");
             <img class="prof_img" src="../img/test1.png" alt="">
           </div>
           <div class="prof_b">
-            <h3>東京LAB11</h3>
-            <a class="user_name">かくまあり</a>
+            <h3>かくまあり</h3>
+            <a class="user_name">東京LAB11</a>
           </div>
-        </div>
-        <div class="sub_con">
-          <p>ここにチャットの内容が入る：hogehoge</p>
-          <p>ここにチャットの内容が入る：hogehoge</p>
         </div>
       </a>
     </div>
+    <div class="user_card">
+      <a href="../view/index.php">
+        <div class="main_con">
+          <div class="prof_a">
+            <img class="prof_img" src="../img/test1.png" alt="">
+          </div>
+          <div class="prof_b">
+            <h3>かくまあり</h3>
+            <a class="user_name">東京LAB11</a>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="user_card">
+      <a href="../view/index.php">
+        <div class="main_con">
+          <div class="prof_a">
+            <img class="prof_img" src="../img/test1.png" alt="">
+          </div>
+          <div class="prof_b">
+            <h3>かくまあり</h3>
+            <a class="user_name">東京LAB11</a>
+          </div>
+        </div>
+      </a>
+    </div>
+
+
+
 
 <!-- /* -------------------------------------------------- */ -->
 <!-- ここまで -->
