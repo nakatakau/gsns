@@ -1,72 +1,73 @@
 <?php
-// session_start();
-// include_once __DIR__ . "/../app/funcs.php";
+session_start();
+include_once __DIR__ . "/../app/funcs.php";
 
-// //SESSIONからmy_idを取得
-// $my_id = $_SESSION["my_id"];
+//SESSIONからmy_idを取得
+$my_id = $_SESSION["my_id"];
 
-// //DB接続します
-// $pdo = db_conn();
+//DB接続します
+$pdo = db_conn();
 
-// //ユーザデータ取得のためのSQL作成
-// $sql = "SELECT * FROM users WHERE user_id=:my_id";
-// $stmt = $pdo->prepare($sql);
-// $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
-// $status = $stmt->execute();
+//ユーザデータ取得のためのSQL作成
+$sql = "SELECT * FROM users WHERE user_id=:my_id";
+$stmt = $pdo->prepare($sql);
+$stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
+$status = $stmt->execute();
 
-// //SQL実行時にエラーがある場合STOP
-// if ($status == false) {
-//   sql_error($stmt);
-// }
+//SQL実行時にエラーがある場合STOP
+if ($status == false) {
+  sql_error($stmt);
+}
 
-// //抽出データ連想配列形式で取得
-// $val = $stmt->fetch(PDO::FETCH_ASSOC);
+//抽出データ連想配列形式で取得
+$val = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// // userの基本情報をjsonに変換
-// $user_info = json_encode($val);
-// // v($user_info);
+// userの基本情報をjsonに変換
+$user_info = json_encode($val);
+// v($user_info);
 
 
-// //職種を取得のためのSQL作成
-// $sql = "SELECT * FROM user_occupation WHERE user_id=:my_id";
-// $stmt = $pdo->prepare($sql);
-// $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
-// $status = $stmt->execute();
+//職種を取得のためのSQL作成
+$sql = "SELECT * FROM user_occupation WHERE user_id=:my_id";
+$stmt = $pdo->prepare($sql);
+$stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
+$status = $stmt->execute();
 
-// //SQL実行時にエラーがある場合STOP
-// if ($status == false) {
-//   sql_error($stmt);
-// }
+//SQL実行時にエラーがある場合STOP
+if ($status == false) {
+  sql_error($stmt);
+}
 
-// //抽出データ連想配列形式で取得
-// $val = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//抽出データ連想配列形式で取得
+$val = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// //userの基本情報をjsonに変換
-// $user_occupation = json_encode($val);
-// // v($user_occupation);
+//userの基本情報をjsonに変換
+$user_occupation = json_encode($val);
+// v($user_occupation);
 
-// //利用可能言語を取得のためのSQL作成
-// $sql = "SELECT * FROM user_available_programming_language WHERE user_id=:my_id";
-// $stmt = $pdo->prepare($sql);
-// $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
-// $status = $stmt->execute();
+//利用可能言語を取得のためのSQL作成
+$sql = "SELECT * FROM user_available_programming_language WHERE user_id=:my_id";
+$stmt = $pdo->prepare($sql);
+$stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
+$status = $stmt->execute();
 
-// //SQL実行時にエラーがある場合STOP
-// if ($status == false) {
-//   sql_error($stmt);
-// }
+//SQL実行時にエラーがある場合STOP
+if ($status == false) {
+  sql_error($stmt);
+}
 
-// //抽出データ連想配列形式で取得
-// $val = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//抽出データ連想配列形式で取得
+$val = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// //userの基本情報をjsonに変換
-// $user_lang = json_encode($val);
-// // v($user_lang);
+//userの基本情報をjsonに変換
+$user_lang = json_encode($val);
+// v($user_lang);
 
 ?>
 
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -79,7 +80,7 @@
   <link rel="stylesheet" href="../css/common.css">
   <!-- ページ内のCSS読み込み -->
   <link rel="stylesheet" href="../css/my_profile.css">
-    <!-- line-awesome -->
+  <!-- line-awesome -->
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
   <title>マイプロフィール</title>
   <!-- featherアイコンの読み込み -->
@@ -135,6 +136,7 @@
                 <label for="profile_image" class="icon_select">
                   <input type="file" id="profile_image" name="profile_image" accept=".jpg,.png,.jpeg" style="display: none">
                   <i class="las la-camera" id="icon_select"></i>
+                  <input type="text" id="default_icon" name="default_icon" style="display:none">
                 </label>
               </div>
             </div>
@@ -828,6 +830,7 @@
     // 1.input[type=file]とアイコン画像のDOM
     const profile_image = document.getElementById('profile_image');
     const img = document.getElementById('img');
+    const default_icon = document.getElementById('default_icon');
 
     // プレビュー関数
     function imgPreview(file) {
@@ -859,7 +862,8 @@
     const json1_str = JSON.stringify(json1);
     const user_info = JSON.parse(json1_str);
     console.log(user_info);
-
+    // デフォルトの画像をセット
+    default_icon.value = user_info.profile_image;
     // selectに該当のvalueがあった際の関数
     function select_tab(option, object) {
       // objectがundefinedでなければ

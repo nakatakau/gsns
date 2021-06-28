@@ -1,107 +1,121 @@
 /* -------------------------------------------------------------------- */
 /* チェックボックス */
 /* -------------------------------------------------------------------- */
-
+.check_box_design {
+  width: 200px;
+}
 /* 元々のチェックボックス（非表示） */
-.check_box_design input[type="checkbox"]{
-    display: none;
+.check_box_design input[type="checkbox"] {
+  display: none;
 }
 /* チェックボックスの代わりを成すラベル */
-.check_box_design input[type="checkbox"]+label{
-    display: none;
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    padding-left: 25px;
-    padding-right: 10px;
+.check_box_design input[type="checkbox"] + label {
+  display: none;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  padding-left: 25px;
+  padding-right: 10px;
 }
 /* ラベルの左に表示させる正方形のボックス */
-.check_box_design input[type="checkbox"]+label::before{
-    border-radius: 15%;
-    content: "";
-    position: absolute;
-    display: block;
-    box-sizing: border-box;
-    width: 20px;
-    height: 20px;
-    margin-top: -10px;
-    left: 0;
-    top: 50%;
-    border: 1px solid;
-    border-color:  #585753; /* 枠の色変更 */
-    background-color: #FFF; /* 背景の色変更 */
+.check_box_design input[type="checkbox"] + label::before {
+  border-radius: 15%;
+  content: "";
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  left: 0;
+  top: 50%;
+  border: 1px solid;
+  border-color: #585753; /* 枠の色変更 */
+  background-color: #fff; /* 背景の色変更 */
 }
 /* チェックが入った時のレ点 */
-.check_box_design input[type="checkbox"]:checked+label::after{
-    content: "";
-    position: absolute;
-    display: block;
-    box-sizing: border-box;
-    width: 18px;
-    height: 9px;
-    margin-top: -9px;
-    top: 50%;
-    left: 3px;
-    transform: rotate(-45deg);
-    border-bottom: 3px solid;
-    border-left: 3px solid;
-    border-color:  #585753; /* チェックの色変更 */
+.check_box_design input[type="checkbox"]:checked + label::after {
+  content: "";
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+  width: 18px;
+  height: 9px;
+  margin-top: -9px;
+  top: 50%;
+  left: 3px;
+  transform: rotate(-45deg);
+  border-bottom: 3px solid;
+  border-left: 3px solid;
+  border-color: #585753; /* チェックの色変更 */
 }
 /* -------------------------------------------------------------------- */
 /* 全体デザイン */
 /* -------------------------------------------------------------------- */
 
-main{
+main {
   width: 960px;
   margin: 0 auto;
 }
-.display_card_first h1{
+.display_card_first h1 {
   font-size: 20px;
+  border-bottom: 1px solid gray;
+  padding-bottom: 5px;
 }
-.display_card_second h1{
+.display_card_second h1 {
   font-size: 20px;
+  border-bottom: 3px double gray;
+  width: 90%;
+  padding: 5px;
 }
-.display_card_first{
+.display_card_second h2 {
+  font-size: 12px;
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", 游ゴシック, "Yu Gothic", 游ゴシック体, YuGothic, "Meiryo UI", メイリオ, Meiryo, sans-serif;
+  margin-top: 0px;
+  width: auto;
+}
+.display_card_first {
   border-radius: 5px;
   padding: 20px;
   margin-bottom: 30px;
-  background: #fff;
+  background: #e1eaf8;
   color: #383333;
 }
-.display_card_second{
+.display_card_second {
   border-radius: 5px;
   margin-bottom: 30px;
-  max-width: 31%;
-  max-height: 35%;
-  background: #fff;
+  width: 300px;
+  height: auto;
+  background: #e1eaf8;
   color: #383333;
+  margin: 0 10px 20px;
 }
 
 /* -------------------------------------------------------------------- */
 /* カードの全体のデザイン*/
 /* -------------------------------------------------------------------- */
 
- .display_card_first{
+.display_card_first {
   border-radius: 1%;
-  box-shadow: 0 0 3px 0 rgba(0,0,0,.12), 0 2px 3px 0 rgba(0,0,0,.22);
-	transition: .3s;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.12), 0 2px 3px 0 rgba(0, 0, 0, 0.22);
+  transition: 0.3s;
 }
-.display_card_second{
+.display_card_second {
   border-radius: 1%;
-  box-shadow: 0 0 3px 0 rgba(0,0,0,.12), 0 2px 3px 0 rgba(0,0,0,.22);
-	transition: .3s;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.12), 0 2px 3px 0 rgba(0, 0, 0, 0.22);
+  transition: 0.3s;
 }
 
 .display_card_second:hover {
-	box-shadow: 0 15px 30px -5px rgba(0,0,0,.15), 0 0 5px rgba(0,0,0,.1);
-	transform: translateY(-4px);
+  box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15), 0 0 5px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
 }
 
 /* -------------------------------------------------------------------- */
 /* カードの名前、ひとこと */
 /* -------------------------------------------------------------------- */
 
-h2{
+h2 {
   font-size: 15px;
 }
 
@@ -109,86 +123,150 @@ h2{
 /* プロフィールカード部分 */
 /* -------------------------------------------------------------------- */
 
-.tb_flex{
+.tb_flex {
+  width: 100%;
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
 }
-label{
-  font-size:12px;
+label {
+  font-size: 12px;
 }
-td{
+td {
   margin-bottom: 5px;
 }
-.my_sentaku{
-  margin-bottom:30px;
+.my_sentaku {
+  margin-bottom: 30px;
 }
-.sonota_sentaku{
+.sonota_sentaku {
   display: flex;
   align-self: flex-start;
   margin-bottom: 10px;
   padding-left: 28px;
 }
-.kihon_info{
+.kihon_info {
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
 }
-.sonota{
+.sonota {
   display: flex;
   margin-right: 30px;
 }
-.card_info{
+.card_info {
+  margin-top: 10px;
+  padding: 0 10px;
   display: flex;
+  justify-content: space-evenly;
+  padding: 5px;
+  height: 130px;
+}
+.card_sub {
+  border-top: 1px solid #6f7681;
   padding: 20px;
 }
-.card_sub{
-  border-top: 1px solid #6F7681;
-  padding: 20px;
+.img {
+  width: 100%;
+  height: auto;
 }
-.prof_img{
+.prof_img1 {
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
+  border: 1px gray solid;
+  background-color: #f8fafd;
 }
-.one_item{
+.one_item {
   text-align-last: center;
+  width: 45%;
+  height: auto;
 }
-.mail_icon{
+.mail_icon {
   width: 30px;
   height: 30px;
   margin-top: 40px;
 }
-.hitokoto_area{
+.hitokoto_area {
   border: 0.5px solid;
+  background-color: #f8fafd;
 }
-.card_two{
+.card_two {
+  width: 960px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.data-feather {
+  color: #000;
+}
+.two_item {
+  width: 50%;
+  height: auto;
+  margin: 20px auto 0;
+}
+.area_title {
+  width: 100%;
+  border-bottom: 1px gray solid;
+}
+.occupation_area {
+  width: 100%;
+  margin-top: 0px;
+}
+.card_main_info > p {
+  margin-bottom: 0px;
+  font-size: 16px;
+}
+.card_main_info {
+  width: 85%;
+  margin: 0 auto;
+}
+.occupation_area {
   display: flex;
   justify-content: space-between;
+  height: 38px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
-.gengo_sentaku{
-  padding-left: 28px;
-  padding-right: 220px;
+.preview_tag1 {
+  border: 1px solid gray;
+  border-radius: 5%;
+  width: 80px;
+  height: auto;
+  font-size: 10px;
+  text-align: center;
+  overflow-wrap: break-word;
+  background-color: #f8fafd;
+}
+.lang_area {
+  display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  height: 45px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
-.data-feather{
-  color: #000
+.preview_tag2 {
+  border: 1px solid gray;
+  border-radius: 3%;
+  width: 80px;
+  height: 20px;
+  font-size: 10px;
+  text-align: center;
+  overflow-wrap: break-word;
+  background-color: #f8fafd;
 }
 /* -------------------------------------------------------------------- */
 /* ボタンデザイン */
 /* -------------------------------------------------------------------- */
 
-.btn{
+.btn {
   display: flex;
   margin: 0 auto;
-  border: 1px solid #00478F;
-  color: #00478F;
+  border: 1px solid #00478f;
+  color: #00478f;
   margin-top: 30px;
-  margin-bottom:10px;
-  padding:5px 70px 5px 70px;
+  margin-bottom: 10px;
+  padding: 5px 70px 5px 70px;
   border-radius: 30px;
   background: #fff;
 }
 .btn:hover {
-  background: #C8D7E0;
+  background: #c8d7e0;
 }
-
-/* -------------------------------------------------------------------- */
-
-/* -------------------------------------------------------------------- */

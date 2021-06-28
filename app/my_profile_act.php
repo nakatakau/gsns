@@ -46,14 +46,18 @@ $qualification  = $_POST["qualification"];
 $free_space  = $_POST["free_space"];
 // アイコン画像のアップロード処理
 // 1.file名の取得
-$profile_image = $_FILES["profile_image"]["name"];
-// 2.画像データをiconフォルダーにアップロード
-$upload = "../icon/";
-if(move_uploaded_file($_FILES["profile_image"]["tmp_name"],$upload.$profile_image)){
-  // アップロードが正常に完了
-}else{
-  // アップロードが失敗したらエラーを吐き出す
-  echo $_FILES["profile_image"]["error"];
+if($_FILES["profile_image"]["name"] != "" || null){
+  $profile_image = $_FILES["profile_image"]["name"];
+  // 2.画像データをiconフォルダーにアップロード
+  $upload = "../icon/";
+  if (move_uploaded_file($_FILES["profile_image"]["tmp_name"], $upload . $profile_image)) {
+    // アップロードが正常に完了
+  } else {
+    // アップロードが失敗したらエラーを吐き出す
+    echo $_FILES["profile_image"]["error"];
+  }
+} else {
+  $profile_image = $_POST["default_icon"];
 }
 
 
