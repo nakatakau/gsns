@@ -1,3 +1,6 @@
+/* -------------------------------------------------- */
+/* 全体の設定*/
+/* -------------------------------------------------- */
 main{
   width: 960px;
   margin: 0 auto;
@@ -8,15 +11,32 @@ select{
 input{
   border-bottom: 1px gray solid;
 }
-textarea{
-  border: 1px gray solid;
-}
+
 img{
   border: 1px gray solid;
 }
+
+/* -------------------------------------------------- */
+/* テキストエリアのデザイン*/
+/* -------------------------------------------------- */
+
+textarea{
+  border: none;
+  outline: none;
+  resize: none;
+  background:#fff;
+  padding: 10px;
+}
+textarea{
+  border-radius: 1%;
+  box-shadow: 0 0 1px 0 rgba(0,0,0,.12), 0 1px 2px 0 rgba(0,0,0,.22);
+	transition: .3s;
+}
+
 /* -------------------------------------------------- */
 /* コンテンツのflex*/
 /* -------------------------------------------------- */
+
 .profile_flex{
   width: 100%;
   height: auto;
@@ -37,17 +57,29 @@ img{
   display: flex;
   justify-content: center;
 }
+
+/* -------------------------------------------------- */
+/* ボタンのデザイン */
+/* -------------------------------------------------- */
+
 .edit_button{
-  width: 120px;
-  height: 40px;
-  text-align: center;
-  border-radius: 15px;
-  margin-bottom: 40px;
-  border: 1px gray solid;
+  display: flex;
+  margin: 0 auto;
+  border: 1px solid #00478F;
+  color: #00478F;
+  margin-top: 30px;
+  margin-bottom:50px;
+  padding:5px 70px 5px 70px;
+  border-radius: 30px;
 }
+.edit_button:hover {
+  background: #C8D7E0;
+}
+
 /* -------------------------------------------------- */
 /* プロフィールの１番目のブロック（アイコンとメッセージ） */
 /* -------------------------------------------------- */
+
 .icon{
   margin-bottom: 20px;
 }
@@ -170,12 +202,12 @@ img{
 }
 .portfolio_area_title{
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
   border-bottom: 1px gray solid;
 }
 .portfolio_area_url{
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
   border-bottom: 1px gray solid;
 }
 .portfolio_area_description{
@@ -238,7 +270,10 @@ img{
   height: auto;
 }
 
-/* ----------------- スタート → チェックボックス ----------------------*/
+/* -------------------------------------------------- */
+/* チェックボックス*/
+/* -------------------------------------------------- */
+
 /* 元々のチェックボックス（非表示） */
 .check_box_design input[type="checkbox"]{
     display: none;

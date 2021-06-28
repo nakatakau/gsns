@@ -5,9 +5,28 @@ main{
 img{
   border: 1px gray solid;
 }
+
+/* -------------------------------------------------- */
+/* テキストエリアのデザイン*/
+/* -------------------------------------------------- */
+
+textarea{
+  border: none;
+  outline: none;
+  resize: none;
+  background:#fff;
+  padding: 10px;
+}
+textarea{
+  border-radius: 1%;
+  box-shadow: 0 0 1px 0 rgba(0,0,0,.12), 0 1px 2px 0 rgba(0,0,0,.22);
+	transition: .3s;
+}
+
 /* -------------------------------------------------- */
 /* コンテンツのflex*/
 /* -------------------------------------------------- */
+
 .profile_flex{
   width: 100%;
   height: auto;
@@ -29,14 +48,26 @@ img{
   display: flex;
   justify-content: center;
 }
+
+/* -------------------------------------------------- */
+/* ボタンのデザイン */
+/* -------------------------------------------------- */
+
 .edit_button{
-  width: 160px;
-  height: 40px;
-  text-align: center;
-  border-radius: 15px;
-  margin-bottom: 40px;
-  border: 1px gray solid;
+  display: flex;
+  margin: 0 auto;
+  border: 1px solid #00478F;
+  color: #00478F;
+  margin-top: 30px;
+  margin-bottom:50px;
+  padding:5px 70px 5px 70px;
+  border-radius: 30px;
+  background: #fff;
 }
+.edit_button:hover {
+  background: #C8D7E0;
+}
+
 /* -------------------------------------------------- */
 /* プロフィールの１番目のブロック（アイコンとメッセージ） */
 /* -------------------------------------------------- */
@@ -152,6 +183,7 @@ img{
 /* -------------------------------------------------- */
 /* プロフィールの２番目のブロック（ポートフォリオ） */
 /* -------------------------------------------------- */
+
 .second{
   margin: 0 auto 60px;
 }
@@ -235,6 +267,7 @@ img{
   width: 100;
   height: auto;
 }
+
 
 /* ----------------- スタート → チェックボックス ----------------------*/
 /* 元々のチェックボックス（非表示） */

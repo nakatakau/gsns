@@ -1,181 +1,181 @@
 <?php
-session_start();
-include_once __DIR__ . "/../app/funcs.php";
-$my_id = $_SESSION["my_id"];
-// v($my_id);
+// session_start();
+// include_once __DIR__ . "/../app/funcs.php";
+// $my_id = $_SESSION["my_id"];
+// // v($my_id);
 
 
-//POSTデータ取得
-//職種に関する情報
-$occupation = isset($_POST['occupation']) ? $_POST['occupation'] : [];
-$occupation_count = count($occupation);
-// v($occupation);
-// v($occupation_count);
+// //POSTデータ取得
+// //職種に関する情報
+// $occupation = isset($_POST['occupation']) ? $_POST['occupation'] : [];
+// $occupation_count = count($occupation);
+// // v($occupation);
+// // v($occupation_count);
 
-// 利用可能言語に関する情報
-$available_programming_language_id = isset($_POST['available_programming_language_id']) ? $_POST['available_programming_language_id'] : [];
-$available_programming_language_id_count = count($available_programming_language_id);
-// v($available_programming_language_id);
-// v($available_programming_language_id_count);
+// // 利用可能言語に関する情報
+// $available_programming_language_id = isset($_POST['available_programming_language_id']) ? $_POST['available_programming_language_id'] : [];
+// $available_programming_language_id_count = count($available_programming_language_id);
+// // v($available_programming_language_id);
+// // v($available_programming_language_id_count);
 
 
-// DB接続
-$pdo = db_conn();
-// 職種選択ボックスで何かしらあれば、職種を持つユーザーIDを取得する処理
-$occupations=[];
-if ($occupation_count !== 0) {
+// // DB接続
+// $pdo = db_conn();
+// // 職種選択ボックスで何かしらあれば、職種を持つユーザーIDを取得する処理
+// $occupations=[];
+// if ($occupation_count !== 0) {
 
-  $where_occupations = '';
-  foreach ($occupation as $occupation_id) {
-    $where_occupations .= "occupation_id =" . $occupation_id . " or ";
-  }
-  $where_occupations = rtrim($where_occupations, " or ");
-  // v($where_occupations);
+//   $where_occupations = '';
+//   foreach ($occupation as $occupation_id) {
+//     $where_occupations .= "occupation_id =" . $occupation_id . " or ";
+//   }
+//   $where_occupations = rtrim($where_occupations, " or ");
+//   // v($where_occupations);
 
-  //user_occupationテーブルから検索対象のidを絞り込む
-  $sql = "
-  select
-    *
-  from
-    user_occupation
-  WHERE
-    $where_occupations
-  group by user_id
-  ;";
-  //  v($sql);
-  $stmt = $pdo->prepare($sql);
-  // $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
-  $status = $stmt->execute();
+//   //user_occupationテーブルから検索対象のidを絞り込む
+//   $sql = "
+//   select
+//     *
+//   from
+//     user_occupation
+//   WHERE
+//     $where_occupations
+//   group by user_id
+//   ;";
+//   //  v($sql);
+//   $stmt = $pdo->prepare($sql);
+//   // $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
+//   $status = $stmt->execute();
 
-  //SQL実行時にエラーがある場合STOP
-  if ($status == false) {
-    sql_error($stmt);
-  }
+//   //SQL実行時にエラーがある場合STOP
+//   if ($status == false) {
+//     sql_error($stmt);
+//   }
 
-  // 選択された職種を持つユーザーIDが$occupationsに入っている
-  $occupations = $stmt->fetchAll(PDO::FETCH_COLUMN, 1);
-  // v($occupations);
-}
+//   // 選択された職種を持つユーザーIDが$occupationsに入っている
+//   $occupations = $stmt->fetchAll(PDO::FETCH_COLUMN, 1);
+//   // v($occupations);
+// }
 
-// 利用可能言語選択ボックスで何かしらあれば、言語を持つユーザーIDを取得する処理
-$langs = [];
-if ($available_programming_language_id_count !== 0) {
+// // 利用可能言語選択ボックスで何かしらあれば、言語を持つユーザーIDを取得する処理
+// $langs = [];
+// if ($available_programming_language_id_count !== 0) {
 
-  $where_available_programming_language = '';
-  foreach ($available_programming_language_id as $lang_id) {
-    $where_available_programming_language .= "available_programming_language_id = " . $lang_id . " or ";
-  }
-  $where_available_programming_language = rtrim($where_available_programming_language, " or ");
-  //user_occupationテーブルから検索対象のidを絞り込む
-  $sql = "
-  select
-    *
-  from
-    user_available_programming_language
-  WHERE
-    $where_available_programming_language
-  group by user_id;
-  ";
-  // v($sql);
-  $stmt = $pdo->prepare($sql);
-  // $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
-  $status = $stmt->execute();
+//   $where_available_programming_language = '';
+//   foreach ($available_programming_language_id as $lang_id) {
+//     $where_available_programming_language .= "available_programming_language_id = " . $lang_id . " or ";
+//   }
+//   $where_available_programming_language = rtrim($where_available_programming_language, " or ");
+//   //user_occupationテーブルから検索対象のidを絞り込む
+//   $sql = "
+//   select
+//     *
+//   from
+//     user_available_programming_language
+//   WHERE
+//     $where_available_programming_language
+//   group by user_id;
+//   ";
+//   // v($sql);
+//   $stmt = $pdo->prepare($sql);
+//   // $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
+//   $status = $stmt->execute();
 
-  // 選択された言語を持つユーザーIDが$langsに入っている
-  $langs = $stmt->fetchAll(PDO::FETCH_COLUMN, 1);
-  // v($langs);
-  //SQL実行時にエラーがある場合STOP
-  if ($status == false) {
-    sql_error($stmt);
-  }
-}
+//   // 選択された言語を持つユーザーIDが$langsに入っている
+//   $langs = $stmt->fetchAll(PDO::FETCH_COLUMN, 1);
+//   // v($langs);
+//   //SQL実行時にエラーがある場合STOP
+//   if ($status == false) {
+//     sql_error($stmt);
+//   }
+// }
 
-// 職種と利用可能言語を持つユーザidを結合
-$search_target_users_id=array_merge($occupations,$langs);
+// // 職種と利用可能言語を持つユーザidを結合
+// $search_target_users_id=array_merge($occupations,$langs);
+// // v($search_target_users_id);
+// // 結合した配列から重複を排除
+// $search_target_users_id = array_unique($search_target_users_id);
 // v($search_target_users_id);
-// 結合した配列から重複を排除
-$search_target_users_id = array_unique($search_target_users_id);
-v($search_target_users_id);
-$search_target_users_id_count =count($search_target_users_id);
-// v($search_target_users_id_count);
+// $search_target_users_id_count =count($search_target_users_id);
+// // v($search_target_users_id_count);
 
-// 職種と利用可能言語を持つユーザーが一人以上なら検索処理(usersテーブルから基本情報を取得する処理)
-if ($search_target_users_id_count>=1) {
-  $where_users_id='';
-  foreach ($search_target_users_id as $user_id) {
-    $where_users_id .= "user_id = " . $user_id . " or ";
-  }
-  $where_users_id = rtrim($where_users_id, " or ");
-  // v($where_users_id);
+// // 職種と利用可能言語を持つユーザーが一人以上なら検索処理(usersテーブルから基本情報を取得する処理)
+// if ($search_target_users_id_count>=1) {
+//   $where_users_id='';
+//   foreach ($search_target_users_id as $user_id) {
+//     $where_users_id .= "user_id = " . $user_id . " or ";
+//   }
+//   $where_users_id = rtrim($where_users_id, " or ");
+//   // v($where_users_id);
 
-  $sql = "
-    select
-      *
-    from
-      users
-    WHERE
-      $where_users_id
-  ;";
-  // v($sql);
-  $stmt = $pdo->prepare($sql);
-  $status = $stmt->execute();
+//   $sql = "
+//     select
+//       *
+//     from
+//       users
+//     WHERE
+//       $where_users_id
+//   ;";
+//   // v($sql);
+//   $stmt = $pdo->prepare($sql);
+//   $status = $stmt->execute();
 
-  $result_users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-  // v($result_users);
-  $result_json_users = json_encode($result_users);
-  v($result_json_users);
+//   $result_users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//   // v($result_users);
+//   $result_json_users = json_encode($result_users);
+//   v($result_json_users);
 
-  // ユーザに紐づく職種の取得処理
-  $where_users_id = '';
-  foreach ($search_target_users_id as $user_id) {
-    $where_users_id .= "user_id = " . $user_id . " or ";
-  }
-  $where_users_id = rtrim($where_users_id, " or ");
-  // v($where_users_id);
+//   // ユーザに紐づく職種の取得処理
+//   $where_users_id = '';
+//   foreach ($search_target_users_id as $user_id) {
+//     $where_users_id .= "user_id = " . $user_id . " or ";
+//   }
+//   $where_users_id = rtrim($where_users_id, " or ");
+//   // v($where_users_id);
 
-  $sql = "
-    select
-      user_id, occupation_id
-    from
-      user_occupation
-    WHERE
-      $where_users_id
-  ;";
-  // v($sql);
-  $stmt = $pdo->prepare($sql);
-  $status = $stmt->execute();
+//   $sql = "
+//     select
+//       user_id, occupation_id
+//     from
+//       user_occupation
+//     WHERE
+//       $where_users_id
+//   ;";
+//   // v($sql);
+//   $stmt = $pdo->prepare($sql);
+//   $status = $stmt->execute();
 
-  $result_occupation = $stmt->fetchAll(PDO::FETCH_ASSOC);
-  // v($result_occupation);
-  $result_json_occupations = json_encode($result_occupation);
-  v($result_json_occupations);
+//   $result_occupation = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//   // v($result_occupation);
+//   $result_json_occupations = json_encode($result_occupation);
+//   v($result_json_occupations);
 
 
-  // ユーザに紐づく職種の取得処理
-  $where_users_id = '';
-  foreach ($search_target_users_id as $user_id) {
-    $where_users_id .= "user_id = " . $user_id . " or ";
-  }
-  $where_users_id = rtrim($where_users_id, " or ");
-  // v($where_users_id);
+//   // ユーザに紐づく職種の取得処理
+//   $where_users_id = '';
+//   foreach ($search_target_users_id as $user_id) {
+//     $where_users_id .= "user_id = " . $user_id . " or ";
+//   }
+//   $where_users_id = rtrim($where_users_id, " or ");
+//   // v($where_users_id);
 
-  $sql = "
-    select
-      user_id, available_programming_language_id
-    from
-      user_available_programming_language
-    WHERE
-      $where_users_id
-  ;";
-  // v($sql);
-  $stmt = $pdo->prepare($sql);
-  $status = $stmt->execute();
+//   $sql = "
+//     select
+//       user_id, available_programming_language_id
+//     from
+//       user_available_programming_language
+//     WHERE
+//       $where_users_id
+//   ;";
+//   // v($sql);
+//   $stmt = $pdo->prepare($sql);
+//   $status = $stmt->execute();
 
-  $result_langs = $stmt->fetchAll(PDO::FETCH_ASSOC);
-  // v($result_langs);
-  $result_json_langs = json_encode($result_langs);
-  v($result_json_langs);
-}
+//   $result_langs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//   // v($result_langs);
+//   $result_json_langs = json_encode($result_langs);
+//   v($result_json_langs);
+// }
 
 ?>
 
@@ -188,11 +188,16 @@ if ($search_target_users_id_count>=1) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- CSSを入れる -->
   <link rel="stylesheet" href="../css/reset.css">
-  <!-- CSS only -->
+  <!-- ヘッダーBootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <!-- common.cssの読み込み -->
   <link rel="stylesheet" href="../css/common.css">
+  <!-- ページ内のCSS読み込み -->
   <link rel="stylesheet" href="../css/index.css">
+    <!-- line-awesome -->
+  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
   <title>indexページ</title>
+  <!-- featherアイコンの読み込み -->
   <script src="https://unpkg.com/feather-icons"></script>
 </head>
 
