@@ -136,20 +136,6 @@ td{
   display: flex;
   margin-right: 30px;
 }
-.btn{
-  display: flex;
-  margin: 0 auto;
-  border: 1px solid #00478F;
-  color: #00478F;
-  margin-top: 30px;
-  margin-bottom:10px;
-  padding:5px 70px 5px 70px;
-  border-radius: 30px;
-  background: #fff;
-}
-.btn:hover {
-  background: #C8D7E0;
-}
 .card_info{
   display: flex;
   padding: 20px;
@@ -184,6 +170,25 @@ td{
 .data-feather{
   color: #000
 }
+/* -------------------------------------------------------------------- */
+/* ボタンデザイン */
+/* -------------------------------------------------------------------- */
+
+.btn{
+  display: flex;
+  margin: 0 auto;
+  border: 1px solid #00478F;
+  color: #00478F;
+  margin-top: 30px;
+  margin-bottom:10px;
+  padding:5px 70px 5px 70px;
+  border-radius: 30px;
+  background: #fff;
+}
+.btn:hover {
+  background: #C8D7E0;
+}
+
 /* -------------------------------------------------------------------- */
 
 /* -------------------------------------------------------------------- */

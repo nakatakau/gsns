@@ -1,87 +1,91 @@
 <?php
-session_start();
-include_once __DIR__ . "/../app/funcs.php";
+// session_start();
+// include_once __DIR__ . "/../app/funcs.php";
 
-// //SESSIONからmy_idを取得
-// $my_id = $_SESSION["my_id"];
+// // //SESSIONからmy_idを取得
+// // $my_id = $_SESSION["my_id"];
 
-// index.phpから該当ユーザーのidを取得
-$my_id = $_POST['user_id'];
+// // index.phpから該当ユーザーのidを取得
+// $my_id = $_POST['user_id'];
 
-//DB接続します
-$pdo = db_conn();
+// //DB接続します
+// $pdo = db_conn();
 
-//ユーザデータ取得のためのSQL作成
-$sql = "SELECT * FROM users WHERE user_id=:my_id";
-$stmt = $pdo->prepare($sql);
-$stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
-$status = $stmt->execute();
+// //ユーザデータ取得のためのSQL作成
+// $sql = "SELECT * FROM users WHERE user_id=:my_id";
+// $stmt = $pdo->prepare($sql);
+// $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
+// $status = $stmt->execute();
 
-//SQL実行時にエラーがある場合STOP
-if ($status == false) {
-  sql_error($stmt);
-}
+// //SQL実行時にエラーがある場合STOP
+// if ($status == false) {
+//   sql_error($stmt);
+// }
 
-//抽出データ連想配列形式で取得
-$val = $stmt->fetch(PDO::FETCH_ASSOC);
+// //抽出データ連想配列形式で取得
+// $val = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// userの基本情報をjsonに変換
-$user_info = json_encode($val);
-// v($user_info);
+// // userの基本情報をjsonに変換
+// $user_info = json_encode($val);
+// // v($user_info);
 
 
-//職種を取得のためのSQL作成
-$sql = "SELECT * FROM user_occupation WHERE user_id=:my_id";
-$stmt = $pdo->prepare($sql);
-$stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
-$status = $stmt->execute();
+// //職種を取得のためのSQL作成
+// $sql = "SELECT * FROM user_occupation WHERE user_id=:my_id";
+// $stmt = $pdo->prepare($sql);
+// $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
+// $status = $stmt->execute();
 
-//SQL実行時にエラーがある場合STOP
-if ($status == false) {
-  sql_error($stmt);
-}
+// //SQL実行時にエラーがある場合STOP
+// if ($status == false) {
+//   sql_error($stmt);
+// }
 
-//抽出データ連想配列形式で取得
-$val = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// //抽出データ連想配列形式で取得
+// $val = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-//userの基本情報をjsonに変換
-$user_occupation = json_encode($val);
-// v($user_occupation);
+// //userの基本情報をjsonに変換
+// $user_occupation = json_encode($val);
+// // v($user_occupation);
 
-//利用可能言語を取得のためのSQL作成
-$sql = "SELECT * FROM user_available_programming_language WHERE user_id=:my_id";
-$stmt = $pdo->prepare($sql);
-$stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
-$status = $stmt->execute();
+// //利用可能言語を取得のためのSQL作成
+// $sql = "SELECT * FROM user_available_programming_language WHERE user_id=:my_id";
+// $stmt = $pdo->prepare($sql);
+// $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
+// $status = $stmt->execute();
 
-//SQL実行時にエラーがある場合STOP
-if ($status == false) {
-  sql_error($stmt);
-}
+// //SQL実行時にエラーがある場合STOP
+// if ($status == false) {
+//   sql_error($stmt);
+// }
 
-//抽出データ連想配列形式で取得
-$val = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// //抽出データ連想配列形式で取得
+// $val = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-//userの基本情報をjsonに変換
-$user_lang = json_encode($val);
-// v($user_lang);
+// //userの基本情報をjsonに変換
+// $user_lang = json_encode($val);
+// // v($user_lang);
 
 ?>
 
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- CSSの取り込み -->
+  <!-- CSSを入れる -->
   <link rel="stylesheet" href="../css/reset.css">
+  <!-- ヘッダーBootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <!-- common.cssの読み込み -->
   <link rel="stylesheet" href="../css/common.css">
+  <!-- ページ内のCSS読み込み -->
   <link rel="stylesheet" href="../css/profile.css">
-  <!-- line-awesome -->
+    <!-- line-awesome -->
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-  <title>my_profile</title>
+  <title>プロフィール</title>
+  <!-- featherアイコンの読み込み -->
   <script src="https://unpkg.com/feather-icons"></script>
 </head>
 

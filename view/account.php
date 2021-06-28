@@ -26,12 +26,18 @@ if ($status == false) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSSを入れる -->
   <link rel="stylesheet" href="../css/reset.css">
-  <!-- CSS only -->
+  <!-- ヘッダーBootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <!-- common.cssの読み込み -->
   <link rel="stylesheet" href="../css/common.css">
+  <!-- ページ内のCSS読み込み -->
   <link rel="stylesheet" href="../css/account.css">
-  <title>アカウント</title>
+    <!-- line-awesome -->
+  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+  <title>アカウントページ</title>
+  <!-- featherアイコンの読み込み -->
   <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
