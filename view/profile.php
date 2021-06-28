@@ -1,70 +1,70 @@
 <?php
-// session_start();
-// include_once __DIR__ . "/../app/funcs.php";
+session_start();
+include_once __DIR__ . "/../app/funcs.php";
 
 // // //SESSIONからmy_idを取得
 // // $my_id = $_SESSION["my_id"];
 
-// // index.phpから該当ユーザーのidを取得
-// $my_id = $_POST['user_id'];
+// index.phpから該当ユーザーのidを取得
+$my_id = $_POST['user_id'];
 
-// //DB接続します
-// $pdo = db_conn();
+//DB接続します
+$pdo = db_conn();
 
-// //ユーザデータ取得のためのSQL作成
-// $sql = "SELECT * FROM users WHERE user_id=:my_id";
-// $stmt = $pdo->prepare($sql);
-// $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
-// $status = $stmt->execute();
+//ユーザデータ取得のためのSQL作成
+$sql = "SELECT * FROM users WHERE user_id=:my_id";
+$stmt = $pdo->prepare($sql);
+$stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
+$status = $stmt->execute();
 
-// //SQL実行時にエラーがある場合STOP
-// if ($status == false) {
-//   sql_error($stmt);
-// }
+//SQL実行時にエラーがある場合STOP
+if ($status == false) {
+  sql_error($stmt);
+}
 
-// //抽出データ連想配列形式で取得
-// $val = $stmt->fetch(PDO::FETCH_ASSOC);
+//抽出データ連想配列形式で取得
+$val = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// // userの基本情報をjsonに変換
-// $user_info = json_encode($val);
-// // v($user_info);
+// userの基本情報をjsonに変換
+$user_info = json_encode($val);
+// v($user_info);
 
 
-// //職種を取得のためのSQL作成
-// $sql = "SELECT * FROM user_occupation WHERE user_id=:my_id";
-// $stmt = $pdo->prepare($sql);
-// $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
-// $status = $stmt->execute();
+//職種を取得のためのSQL作成
+$sql = "SELECT * FROM user_occupation WHERE user_id=:my_id";
+$stmt = $pdo->prepare($sql);
+$stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
+$status = $stmt->execute();
 
-// //SQL実行時にエラーがある場合STOP
-// if ($status == false) {
-//   sql_error($stmt);
-// }
+//SQL実行時にエラーがある場合STOP
+if ($status == false) {
+  sql_error($stmt);
+}
 
-// //抽出データ連想配列形式で取得
-// $val = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//抽出データ連想配列形式で取得
+$val = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// //userの基本情報をjsonに変換
-// $user_occupation = json_encode($val);
-// // v($user_occupation);
+//userの基本情報をjsonに変換
+$user_occupation = json_encode($val);
+// v($user_occupation);
 
-// //利用可能言語を取得のためのSQL作成
-// $sql = "SELECT * FROM user_available_programming_language WHERE user_id=:my_id";
-// $stmt = $pdo->prepare($sql);
-// $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
-// $status = $stmt->execute();
+//利用可能言語を取得のためのSQL作成
+$sql = "SELECT * FROM user_available_programming_language WHERE user_id=:my_id";
+$stmt = $pdo->prepare($sql);
+$stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
+$status = $stmt->execute();
 
-// //SQL実行時にエラーがある場合STOP
-// if ($status == false) {
-//   sql_error($stmt);
-// }
+//SQL実行時にエラーがある場合STOP
+if ($status == false) {
+  sql_error($stmt);
+}
 
-// //抽出データ連想配列形式で取得
-// $val = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//抽出データ連想配列形式で取得
+$val = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// //userの基本情報をjsonに変換
-// $user_lang = json_encode($val);
-// // v($user_lang);
+//userの基本情報をjsonに変換
+$user_lang = json_encode($val);
+// v($user_lang);
 
 ?>
 
