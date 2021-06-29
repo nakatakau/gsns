@@ -17,7 +17,7 @@ body {
   /*幅*/
   margin: 0 0 0;
   min-width: 960px;
-  background:#F2F2F2;
+  background:#F2F5F7;
 }
 
 /*表示領域 .inner*/
@@ -31,7 +31,7 @@ body {
 /* -------------------------------------------------------------------- */
 
 /* 見出し */
-h1,
+/* h1,
 h2,
 h3,
 h4,
@@ -44,7 +44,7 @@ h6 {
   clear: both;
   letter-spacing: 1px;
   color:#434445;
-}
+} */
 
 a,
 p,
@@ -150,49 +150,61 @@ header .drop_flex{
 /* -------------------------------------------------------------------- */
 /* footer */
 /* -------------------------------------------------------------------- */
-footer{
-  width: 100%;
-  background-color: #01A6EA;
-  color: #fff;
-  text-align: center;
-  padding: 20px 0;
-}
-footer .display {
+
+.footer_main{
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-left: 230px;
-  margin-right:230px;
-  margin-bottom: 40px;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  border-top: 2px solid #F2F2F2;
+  background: #fff;
 }
-footer .sub {
-  padding-right: 20px;
-}
-footer .banner {
-  padding-left: 20px;
-}
-footer a {
-  list-style: none;
-  font-size: 12px;
-  letter-spacing: 1px;
-  font-weight: bold;
-  font-family: "Alfa Slab One", cursive;
-  margin-left: 50px;
-  color: #fff;
-}
-footer ul{
+footer .title{
   display: flex;
-}
-footer .favorite_icon {
-  padding: 20px 0 0 10px;
-}
-footer .copyright {
-  text-align: center;
-  border-top: solid 1px #707070;
-}
-a {
+  align-items:center;
   color: #000000;
-  text-decoration: none;
+}
+.footer_masse{
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  margin-left: 180px;
+}
+.team_logo{
+  width: 70px;
+  height: 70px;
+  margin-right: 20px;
+}
+.footer_lite{
+  letter-spacing: 1pt;
+  line-height: 15pt;
+  color: #00478f;
+  font-weight: bold;
+  font-size: 10px;
+}
+footer .img_head{
+  width: 150px;
+  height: 50px;
+  margin: 0 auto;
+}
+
+.left_head:hover{
+  color: #00478f;
+  background: #00478F;
+}
+ .tl_2{
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.tl_3{
+  margin-left: 10px;
+  font-size: 23px;
+  font-weight: bold;
+}
+.img_head{
+  width: 150px;
+  height: 50px;
 }
 
 /* -------------------------------------------------- */
