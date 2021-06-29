@@ -1026,7 +1026,7 @@ if ($search_target_users_id_count >= 1) {
           card_sub.appendChild(hitokoto_area);
           // 20.p3
           const p3 = document.createElement('p');
-          p3.textContent = user[i].free_space;
+          p3.textContent = user[i].comment;
           hitokoto_area.appendChild(p3);
           // 21.form
           const form = document.createElement('form');
