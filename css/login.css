@@ -1,77 +1,259 @@
-/* ---------------------------------------------------------------- */
-/* １. 基本設計 */
-/* メインコンテンツの幅は960px */
-/* ---------------------------------------------------------------- */
-html{
-  width: 960px;
-  margin: 0 auto;
+* {
+  box-sizing: border-box;
 }
 
-/* ---------------------------------------------------------------- */
-/* 2. ログインコンテンツ */
-/* ---------------------------------------------------------------- */
-/* ーーーーーーーーーーーーーーーーーーーーーー */
-/* 2-1. 全体の装飾 */
-/* ーーーーーーーーーーーーーーーーーーーーーー */
-.login{
-  width: 420px;
-  height: auto;
-  margin: 0 auto;
-}
-/* ーーーーーーーーーーーーーーーーーーーーーー */
-/* 2-2. ロゴ部分 */
-/* ーーーーーーーーーーーーーーーーーーーーーー */
-.login_logo{
-  width: 180px;
-  height: 40px;
-  text-align: center;
-  margin: 0 auto;
-  border: 1px solid gray;
-  margin-top: 50px;
-}
-/* ーーーーーーーーーーーーーーーーーーーーーー */
-/* 2-3. 入力部分 */
-/* ーーーーーーーーーーーーーーーーーーーーーー */
-/* 入力エリア */
-.input_box{
-  width: 100%;
-  border: 1px solid gray;
-  margin-top: 50px;
-  padding: 60px 70px;
-}
-.input_form{
-  width: 95%;
-  margin: 0 auto;
-}
-.login_text{
-  margin-bottom: 10px;
-}
-input[type="email"],
-input[type="password"],
-input[type="text"]{
-  width: 100%;
-  height: 40px;
-  border: 1px solid gray;
-  margin-bottom: 20px;
-}
-/* ボタンと距離を空けるため追加 */
-.ma{
-  margin-bottom: 40px;
+button, input[type="submit"] {
+  outline: none;
 }
 
-/* 登録ボタン */
-.submit_btn{
-  width: 80%;
-  height: 40px;
-  border: 1px solid gray;
-  border-radius: 15px;
-  text-align: center;
-  margin: 0 auto 40px;
-  padding-top: 8px;
+.clear {
+  clear: both;
 }
-/* リンク */
-.link{
-  width: 80%;
+
+hr {
+  margin-top: 45px;
+  margin-bottom: 45px;
+  border: 1px solid rgba(128, 128, 128, 0.673);
+}
+
+body {
+  color: #2b546a;
+  background-color: #F2F5F7;
+  font-family:"Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体";
+}
+
+.acount_title{
+  font-size: 24px;
+  margin: 0;
+}
+.content {
+  position: relative;
+  margin: 10px auto;
+  background-color: #fff;
+  border: 1px solid #d1d1d1;
+  max-width: 600px;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid #d1d1d1;
+  font-size: 1.2em;
+  width: 100%;
+  padding: 8px;
+}
+
+.btn {
+  width: 100%;
+  background-color: #3C7CDD;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 5px 2px rgba(0, 0, 0, .4);
+  cursor: pointer;
   text-align: center;
-  margin: 0 auto;
+}
+
+.btn:hover {
+  background-color: #00478f;
+}
+
+.btn:active {
+  position: relative;
+  top: 5px;
+  box-shadow: none;
+}
+
+.next-btn {
+  float: right;
+  width: 48%;
+}
+
+.back-btn {
+  width: 48%;
+  text-decoration: none;
+  text-align: center;
+  background-color: rgba(27, 177, 112, 0.8);
+  border-radius: 5px;
+  box-shadow: 0 5px 2px rgba(0, 0, 0, .4);
+  padding: 15px;
+  cursor: pointer;
+  display: block;
+  color: #fff;
+  cursor: pointer;
+  float: left;
+  font-size: 14px;
+}
+
+.back-btn:hover {
+  background-color: rgba(27, 177, 112, 1.0);
+}
+
+.back-btn:active {
+  position: relative;
+  top: 5px;
+  box-shadow: none;
+}
+
+.control {
+  margin-bottom: 3em;
+}
+
+label {
+  display: block;
+  margin-bottom: .5em;
+}
+
+.required {
+  margin-left: .3em;
+  color: #f33;
+  font-size: .9em;
+  padding: 3px;
+  background-color: #fee;
+  font-weight: bold;
+}
+
+.error {
+  color: #d60e0e;
+  font-size: 60%;
+}
+
+.check-info {
+  color: #2b546a;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  h1 {
+      font-size: 18px;
+  }
+
+  p {
+      font-size: .8em;
+  }
+
+  .login-btn {
+      padding: 4px 3px 4px 8px;;
+      top: 28px;
+      line-height: 21px;
+  }
+
+  .login-btn:active {
+      top: 30px;
+  }
+}
+.uploadButton {
+  display:inline-block;
+  position:relative;
+  overflow:hidden;
+  border-radius:3px;
+  background:#099;
+  color:#fff;
+  text-align:center;
+  padding:10px;
+  line-height:30px;
+  width:180px;
+  cursor:pointer;
+}
+.uploadButton:hover {
+  background:#0aa;
+}
+.uploadButton input[type=file] {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  cursor:pointer;
+  opacity:0;
+}
+.uploadValue {
+  display:none;
+  background:rgba(255,255,255,0.2);
+  border-radius:3px;
+  padding:3px;
+  color:#ffffff;
+}
+.lg_ttl{
+  margin-bottom: 30px;
+}
+.title{
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+  margin-left:40px;
+  align-items:center;
+}
+.img_head{
+  width: 200px;
+  height: 70px;
+}
+ .tl_2{
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+}
+.tl_3{
+  margin-left: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #000;
+}
+.shinki_tag{
+  text-align: center;
+  margin-top: 30px;
+}
+.shinki{
+  font-size: 15px;
+  color: #000;
+}
+.shinki:hover{
+  color: #00478f;
+}
+.pass_font{
+  font-size: 12px;
+}
+.top_head{
+  display: flex;
+  justify-content:space-between;
+  margin:20px 50px 40px 40px;
+}
+.one_head{
+  display: flex;
+  color: #3C7CDD;
+}
+.icon{
+  width: 50px;
+  height: 50px;
+}
+.top_title{
+  font-size:40px;
+}
+.leftbtn{
+  display: flex;
+}
+.loginbtn1{
+  color: #2b546a;
+}
+.loginbtn2{
+  margin-left:20px;
+  color: #3C7CDD;
+}
+.loginbtn1:hover{
+  color: #3C7CDD;
+}
+.loginbtn2:hover{
+  color: #2b546a;
+}
+a{
+  text-decoration: none;
+}
+.logo_icon{
+  margin-right: 10px;
+  width: 75px;
+  height: 70px;
 }
