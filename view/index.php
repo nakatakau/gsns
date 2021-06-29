@@ -177,6 +177,61 @@ if ($search_target_users_id_count >= 1) {
   // v($result_json_langs);
 }
 
+// 職種と利用可能言語を持つユーザーが0なら検索処理(usersテーブルから全てのデータを取得する処理)
+if ($search_target_users_id_count === 0) {
+
+
+  $sql = "
+    select
+      *
+    from
+      users
+  ;";
+  // v($sql);
+  $stmt = $pdo->prepare($sql);
+  $status = $stmt->execute();
+
+  $result_users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  // v($result_users);
+  $result_json_users = json_encode($result_users);
+  // v($result_json_users);
+
+  // ユーザに紐づく職種の取得処理
+
+  $sql = "
+    select
+      user_id, occupation_id
+    from
+      user_occupation
+  ;";
+  // v($sql);
+  $stmt = $pdo->prepare($sql);
+  $status = $stmt->execute();
+
+  $result_occupation = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  // v($result_occupation);
+  $result_json_occupations = json_encode($result_occupation);
+  // v($result_json_occupations);
+
+
+  // ユーザに紐づく利用可能言語の取得処理
+
+  $sql = "
+    select
+      user_id, available_programming_language_id
+    from
+      user_available_programming_language
+  ;";
+  // v($sql);
+  $stmt = $pdo->prepare($sql);
+  $status = $stmt->execute();
+
+  $result_langs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  // v($result_langs);
+  $result_json_langs = json_encode($result_langs);
+  // v($result_json_langs);
+}
+
 ?>
 
 <!DOCTYPE html>
