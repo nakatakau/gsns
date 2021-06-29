@@ -1,6 +1,7 @@
 /* -------------------------------------------------------------------- */
 /* チェックボックス */
 /* -------------------------------------------------------------------- */
+
 .check_box_design {
   width: 200px;
 }
@@ -78,7 +79,7 @@ main {
   border-radius: 5px;
   padding: 20px;
   margin-bottom: 30px;
-  background: #e1eaf8;
+  background: #fff;
   color: #383333;
 }
 .display_card_second {
@@ -86,7 +87,7 @@ main {
   margin-bottom: 30px;
   width: 300px;
   height: auto;
-  background: #e1eaf8;
+  background: #fff;
   color: #383333;
   margin: 0 10px 20px;
 }
@@ -107,7 +108,7 @@ main {
 }
 
 .display_card_second:hover {
-  box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15), 0 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.15), 0 0 5px rgba(0, 0, 0, 0.1);
   transform: translateY(-4px);
 }
 
@@ -153,10 +154,8 @@ td {
 }
 .card_info {
   margin-top: 10px;
-  padding: 0 10px;
   display: flex;
   justify-content: space-evenly;
-  padding: 5px;
   height: 130px;
 }
 .card_sub {
@@ -168,8 +167,8 @@ td {
   height: auto;
 }
 .prof_img1 {
-  width: 110px;
-  height: 110px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   border: 1px gray solid;
   background-color: #f8fafd;
@@ -186,7 +185,6 @@ td {
 }
 .hitokoto_area {
   border: 0.5px solid;
-  background-color: #f8fafd;
 }
 .card_two {
   width: 960px;
@@ -199,7 +197,7 @@ td {
 .two_item {
   width: 50%;
   height: auto;
-  margin: 20px auto 0;
+
 }
 .area_title {
   width: 100%;
@@ -232,7 +230,6 @@ td {
   font-size: 10px;
   text-align: center;
   overflow-wrap: break-word;
-  background-color: #f8fafd;
 }
 .lang_area {
   display: flex;
@@ -250,8 +247,8 @@ td {
   font-size: 10px;
   text-align: center;
   overflow-wrap: break-word;
-  background-color: #f8fafd;
 }
+
 /* -------------------------------------------------------------------- */
 /* ボタンデザイン */
 /* -------------------------------------------------------------------- */
@@ -259,14 +256,19 @@ td {
 .btn {
   display: flex;
   margin: 0 auto;
-  border: 1px solid #00478f;
-  color: #00478f;
+  color: #fff;
   margin-top: 30px;
   margin-bottom: 10px;
   padding: 5px 70px 5px 70px;
   border-radius: 30px;
-  background: #fff;
+  background: #00478f;
 }
 .btn:hover {
-  background: #c8d7e0;
+  border: 1px solid #00478f;
+  background: #fff;
+  color: #00478f;
+  font-weight: bold;
+}
+.btn_margin{
+  margin-bottom: 30px;
 }
