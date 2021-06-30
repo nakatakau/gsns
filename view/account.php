@@ -2,15 +2,13 @@
 session_start();
 include_once __DIR__ . "/../app/funcs.php";
 sschk();
-
-//SESSIONからmy_idを取得
 $my_id = $_SESSION["my_id"];
 // v($my_id);
 
 //DB接続します
 $pdo = db_conn();
 
-//ユーザデータ取得のためのSQL作成
+//ユーザテーブルからデータを取得するためのクエリを作成
 $sql = "
   SELECT
     mail,pass,name
@@ -20,10 +18,10 @@ $sql = "
     user_id=:my_id;
 ";
 $stmt = $pdo->prepare($sql);
-$stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
+$stmt->bindValue(':my_id', $my_id, PDO::PARAM_INT);
 $status = $stmt->execute();
 
-//SQL実行時にエラーがある場合STOP
+//SQL実行時にエラーがある場合は停止
 if ($status == false) {
   sql_error($stmt);
 }
