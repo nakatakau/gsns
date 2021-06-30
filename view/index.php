@@ -251,6 +251,8 @@ if ($search_target_users_id_count === 0) {
   <link rel="stylesheet" href="../css/index.css">
   <!-- line-awesome -->
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <!-- アイコン設定 -->
+  <link rel="shortcut icon" href="../icon/icon_48.png"/>
   <title>indexページ</title>
   <!-- featherアイコンの読み込み -->
   <script src="https://unpkg.com/feather-icons"></script>
@@ -272,9 +274,8 @@ if ($search_target_users_id_count === 0) {
 
           <!-- -----職種選択----- -->
           <div class="my_sentaku">
-            <h1 class="#">職種</h1>
+            <h1 class="my_sentaku_title">職種</h1>
             <div class="tb_flex">
-
               <div class="check_box_design">
                 <table>
                   <tr class="cell_tb">
@@ -419,9 +420,8 @@ if ($search_target_users_id_count === 0) {
 
           <!-- -----プログラミング言語選択----- -->
           <div class="my_sentaku">
-            <h1 class="#">使用可能プログラミング言語</h1>
+            <h1 class="my_sentaku_title">使用可能プログラミング言語</h1>
             <div class="tb_flex gengo_sentaku">
-
               <div class="check_box_design">
                 <table>
                   <tr class="cell_tb gengo_a">
@@ -658,7 +658,7 @@ if ($search_target_users_id_count === 0) {
       <div class="card_two" id="card_two">
       </div>
       <!-- /////////////////ここまでがプロフィールカード//////////////////// -->
-      <button class="btn" id="next" onclick="user_get()">ユーザーを取得</button>
+      <button class="btn btn_user" id="next" onclick="user_get()">ユーザーを取得</button>
     </div>
   </main>
   <?php

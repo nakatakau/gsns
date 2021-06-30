@@ -84,6 +84,8 @@ $user_lang = json_encode($val);
   <link rel="stylesheet" href="../css/profile.css">
     <!-- line-awesome -->
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <!-- アイコン設定 -->
+  <link rel="shortcut icon" href="../icon/icon_48.png"/>
   <title>プロフィール</title>
   <!-- featherアイコンの読み込み -->
   <script src="https://unpkg.com/feather-icons"></script>
