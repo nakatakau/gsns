@@ -30,8 +30,8 @@ function db_conn()
       //db接続情報は自分のパソコンの環境に合わせて変更してね
       $db_name = "gtalk";    //データベース名
       $db_id   = "root";      //アカウント名
-      // $db_pw   = "12345";      //パスワード：XAMPPはパスワード無しに修正してください。
-      $db_pw   = "root";      //パスワード：XAMPPはパスワード無しに修正してください。//中村(ローカル用)
+      $db_pw   = "12345";      //パスワード：XAMPPはパスワード無しに修正してください。
+      // $db_pw   = "root";      //パスワード：XAMPPはパスワード無しに修正してください。//中村(ローカル用)
       $db_host = "localhost"; //DBホスト
       return new PDO('mysql:dbname=' . $db_name . ';charset=utf8;host=' . $db_host, $db_id, $db_pw);
     } catch (PDOException $e) {
@@ -39,9 +39,9 @@ function db_conn()
     }
   } else {
     // さくらへのdb接続
-    $dsn = 'mysql:dbname=ここにさくらのデータベース名;charset=utf8;host=ここはDBサーバのホスト';
-    $user = 'ユーザ名';
-    $pass = 'パスワード';
+    $dsn = 'mysql:dbname=na7esan_gtalk;charset=utf8;host=mysql57.na7esan.sakura.ne.jp';
+    $user = 'na7esan';
+    $pass = '0218Masa1225';
 
     try {
       $pdo = new PDO($dsn, $user, $pass);
@@ -105,4 +105,3 @@ function fileUpload($fname, $path)
     return 2; //失敗時：ファイル取得エラー
   }
 }
-
