@@ -1,6 +1,7 @@
 main{
   width: 460px;
   margin: 0 auto;
+  margin-top: 120px;
 }
 .btn_edit{
   display: list-item;
