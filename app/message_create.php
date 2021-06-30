@@ -35,16 +35,22 @@ if ($status == false) {
   sql_error($stmt);
 }
 
+//挿入したレコードの最新のmessage_idを取得
 $last_inserted_id=$pdo->lastInsertId();
 
-
+//挿入したレコードを取得するためのクエリを作成
 $sql = "
-  select * from messages where message_id=$last_inserted_id;
+  SELECT
+    *
+  FROM
+    messages
+  WHERE
+    message_id=:my_id;
 ";
 // v($sql);
 
 $stmt = $pdo->prepare($sql);
-// $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
+$stmt->bindValue(':my_id', $my_id, PDO::PARAM_INT);
 $status = $stmt->execute();
 
 //SQL実行時にエラーがある場合STOP
