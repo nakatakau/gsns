@@ -1,52 +1,63 @@
 <?php
-sschk();
-include_once __DIR__ . "/funcs.php";
 session_start();
-
-//SESSIONからmy_idを取得
+include_once __DIR__ . "/funcs.php";
+sschk();
 $my_id = $_SESSION["my_id"];
 // v($my_id);
 
-//POSTデータ取得
-$mail  = $_POST["email"];
-$pass  = $_POST["password"];
-$name  = $_POST["name"];
-// v($mail);
-// v($pass);
-// v($name);
+//account.phpからのPOSTデータ取得
+$name = isset($_POST['name']) ? $_POST['name'] : NULL;
+$mail = isset($_POST['email']) ? $_POST['email'] : NULL;
+$pass = isset($_POST['password']) ? $_POST['password'] : NULL;
 
-//本来はここでバリデーションを入れるべき
-
-
-//2. DB接続します
+//DB接続します
 $pdo = db_conn();
 
-
-//passが空か否かの場合で分岐、基本情報更新SQL作成
-if($pass===""){
-    $sql = "UPDATE users SET mail=:mail,name=:name WHERE user_id=:my_id";
-}else{
-    $sql = "UPDATE users SET mail=:mail,name=:name,pass=:pass WHERE user_id=:my_id";
-  }
-  // v($sql);
+//パスワードが空文字もしくはNULLの場合で分岐
+if ($pass === "" || NULL) {
+  // パスワードが空もしくはNULLの場合のクエリの作成、更新対象は名前とメールアドレス
+  $sql = "
+    UPDATE
+      users
+    SET
+      name=:name,
+      mail=:mail
+    WHERE
+      user_id=:my_id;
+  ";
+} else {
+  // パスワードが入力されていた場合のクエリ作成。更新対象は名前、メール、パスワード
+  $sql = "
+    UPDATE
+      users
+    SET
+      name=:name,
+      mail=:mail,
+      pass=:pass
+    WHERE
+      user_id=:my_id;
+  ";
+}
+// v($sql);
 
 $stmt = $pdo->prepare($sql);
 
-//Bind変数へ代入
-if($pass!==""){
-$stmt->bindValue(':pass', $pass, PDO::PARAM_STR);
-}
 
-$stmt->bindValue(':mail', $mail, PDO::PARAM_STR);    //Integer（数値の場合 PDO::PARAM_INT)
-// $stmt->bindValue(':pass', $pass, PDO::PARAM_STR);    //Integer（数値の場合 PDO::PARAM_INT)
-$stmt->bindValue(':name', $name, PDO::PARAM_STR);    //Integer（数値の場合 PDO::PARAM_INT)
-$stmt->bindValue(':my_id', $my_id, PDO::PARAM_INT);    //Integer（数値の場合 PDO::PARAM_INT)
+$stmt->bindValue(':name', $name, PDO::PARAM_STR);
+$stmt->bindValue(':mail', $mail, PDO::PARAM_STR);
+//$passが空文字でなければ:passに$passをバインド
+if ($pass !== "") {
+  $stmt->bindValue(':pass', $pass, PDO::PARAM_STR);
+}
+$stmt->bindValue(':my_id', $my_id, PDO::PARAM_INT);
+
 $status = $stmt->execute();
 
-//データ登録処理後
-if ($status == false) {
+// クエリの実行時にエラーが発生していれば処理の停止
+if ($status === false) {
   sql_error($stmt);
 } else {
+  // クエリ実行に成功していれば、$nameをセッションに代入してマイプロフィールページにリダイレクト
   $_SESSION["name"]  = $name;
   redirect("../view/my_profile.php");
 }
