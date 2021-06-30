@@ -5,30 +5,44 @@ $my_id = $_SESSION["my_id"];
 // v($my_id);
 // DB接続
 $pdo = db_conn();
+
+if ($destination_user_id !== NULL) {
+  $sql = "
+INSERT INTO
+  messages (text,user_id,destination_user_id,created_at)
+VALUES
+ ('',$my_id,$destination_user_id,sysdate());";
+  //  v($sql);
+  $stmt = $pdo->prepare($sql);
+  // $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
+  $status = $stmt->execute();
+  //SQL実行時にエラーがある場合STOP
+  if ($status == false) {
+    sql_error($stmt);
+  }
+} else {
 $sql = "
-SELECT
-  messages.user_id,destination_user_id,name,admission_area,course_name,admission_period,profile_image,max(created_at)
-FROM
-  messages
-JOIN
-  users on messages.destination_user_id=users.user_id
-WHERE
-  messages.user_id=$my_id
-GROUP BY
-  destination_user_id
-ORDER BY
-  max(created_at) DESC";
-// v($sql);
-
-$stmt = $pdo->prepare($sql);
-// $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
-$status = $stmt->execute();
-
-//SQL実行時にエラーがある場合STOP
-if ($status == false) {
-  sql_error($stmt);
+  SELECT
+    messages.user_id,destination_user_id,name,admission_area,course_name,admission_period,profile_image,max(created_at)
+  FROM
+    messages
+  JOIN
+    users on messages.destination_user_id=users.user_id
+  WHERE
+    messages.user_id=$my_id
+  GROUP BY
+    destination_user_id
+  ORDER BY
+    max(created_at) DESC";
+    // v($sql);
+  $stmt = $pdo->prepare($sql);
+  // $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
+  $status = $stmt->execute();
+  //SQL実行時にエラーがある場合STOP
+  if ($status == false) {
+    sql_error($stmt);
+  }
 }
-
 $destination_users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // v($destination_users);
 $result_json_destination_users = json_encode($destination_users);

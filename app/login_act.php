@@ -40,6 +40,11 @@ if ($val["user_id"] != "") {
   // $_SESSION["kanri_flg"] = $val['kanri_flg'];
   $_SESSION["my_id"]      = $val['user_id'];
   $_SESSION["name"]      = $val['name'];
+  if($val['profile_image'] != "" || null){
+    $_SESSION["icon"]      = $val['profile_image'];
+  } else {
+    $_SESSION["icon"] = "../img/default_icon.png";
+  }
   // echo 'login succeed';
   redirect("../view/index.php");
 } else {

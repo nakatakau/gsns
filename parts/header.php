@@ -17,12 +17,19 @@
 
     <!-- ログインした人のnameが入る -->
     <div class="lefttag">
-      <p>user_name さん</p>
+      <p><?php echo $_SESSION["name"]; ?>さん</p>
       <!-- ここにユーザーのプロフィール写真が入る -->
       <div class="btn-group dropend">
-      <img class="prof_img dropdown-toggle" src="../img/test1.png" alt="" width="50" height="50" data-bs-toggle="dropdown" aria-expanded="false">
-      <a id="#" href="#"></a>
-          <!-- ドロップダウンメニュー -->
+        <?php
+          if($_SESSION['icon'] != "../img/default_icon.png"){
+            $src = "../icon/".$_SESSION['icon'];
+          } else {
+            $src = $_SESSION['icon'];
+          }
+            echo "<img class='prof_img dropdown-toggle' src='". $src ."'alt='' width='50' height='50' data-bs-toggle='dropdown' aria-expanded='false' id='header_icon_img'>"
+        ?>
+        <a id="#" href="#"></a>
+        <!-- ドロップダウンメニュー -->
         <ul class="dropdown-menu">
           <!-- Dropdown menu links -->
           <div class="drop_flex">
@@ -45,3 +52,7 @@
 
   </div>
 </header>
+<script>
+  const get_icon_img = <?= $_SESSION['icon'] ?>
+  alert("header_icon_img");
+</script>

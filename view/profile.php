@@ -561,7 +561,7 @@ $user_lang = json_encode($val);
       </div>
     </div>
     <div class="button_area">
-      <input type="submit" class="edit_button" value="メッセージを送る">
+      <input type="submit" class="edit_button" value="メッセージを送る" id="message_btn">
     </div>
   </main>
   <?php
@@ -840,14 +840,12 @@ $user_lang = json_encode($val);
         })
       }
     }
-
     // inputに該当のvalueを挿入する関数
     function input_insert(input, object) {
       if (object != undefined) {
         input.value = object;
       }
     }
-
     // portfolio内のaタグとpタグを操作する関数
     function portfolio_ap(a, p, url, title) {
       if (title != undefined || url != undefined) {
@@ -984,25 +982,25 @@ $user_lang = json_encode($val);
     // checkboxの操作
     // ----------------------------------------------
     // occupationが変化する度に監視
-    occupation.forEach(target => {
-      target.addEventListener('change', (e) => {
-        const ck = document.querySelectorAll('input[name="occupation[]"]:checked');
-        if (ck.length >= 4) {
-          alert('選択できる項目は3つまでです。');
-          e.target.checked = false;
-        }
-      })
-    })
-    //langが変化する度に監視
-    lang.forEach(target => {
-      target.addEventListener('change', (e) => {
-        const ck = document.querySelectorAll('input[name="available_programming_language[]"]:checked');
-        if (ck.length >= 7) {
-          alert('選択できる項目は6つまでです。');
-          e.target.checked = false;
-        }
-      })
-    })
+    // occupation.forEach(target => {
+    //   target.addEventListener('change', (e) => {
+    //     const ck = document.querySelectorAll('input[name="occupation[]"]:checked');
+    //     if (ck.length >= 4) {
+    //       alert('選択できる項目は3つまでです。');
+    //       e.target.checked = false;
+    //     }
+    //   })
+    // })
+    // //langが変化する度に監視
+    // lang.forEach(target => {
+    //   target.addEventListener('change', (e) => {
+    //     const ck = document.querySelectorAll('input[name="available_programming_language[]"]:checked');
+    //     if (ck.length >= 7) {
+    //       alert('選択できる項目は6つまでです。');
+    //       e.target.checked = false;
+    //     }
+    //   })
+    // })
   </script>
 
 </body>

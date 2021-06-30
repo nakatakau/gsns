@@ -51,7 +51,8 @@ if ($_FILES["profile_image"]["name"] != "" || null) {
   // 2.画像データをiconフォルダーにアップロード
   $upload = "../icon/";
   if (move_uploaded_file($_FILES["profile_image"]["tmp_name"], $upload . $profile_image)) {
-    // アップロードが正常に完了
+    // アップロードが正常に完了したらセッションのimgを変更する
+    $_SESSION["icon"]      = $profile_image;
   } else {
     // アップロードが失敗したらエラーを吐き出す
     echo $_FILES["profile_image"]["error"];
