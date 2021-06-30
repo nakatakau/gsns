@@ -9,8 +9,8 @@
         <p class="tl_3">G Talk</p>
       </a>
 
-      <a class="top_menu" href="../view/my_profile.php">在学生</a>
-      <a class="top_menu" href="../view/profile.php">卒業生</a>
+      <a class="top_menu" href="../view/current_student.php">在学生</a>
+      <a class="top_menu" href="../view/graduate.php">卒業生</a>
       <a class="top_menu" href="../view/message.php">メッセージ</a>
 
     </div>

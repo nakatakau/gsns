@@ -50,6 +50,7 @@
   border-left: 3px solid;
   border-color: #585753; /* チェックの色変更 */
 }
+
 /* -------------------------------------------------------------------- */
 /* 全体デザイン */
 /* -------------------------------------------------------------------- */
@@ -66,7 +67,6 @@ main {
 }
 .display_card_second h1 {
   font-size: 20px;
-  border-bottom: 3px double gray;
   width: 90%;
   padding: 5px;
 }
@@ -157,13 +157,12 @@ td {
   margin-right: 30px;
 }
 .card_info {
-  margin-top: 10px;
+  margin-top: 30px;
   display: flex;
   justify-content: space-evenly;
-  height: 130px;
+  height: 100px;
 }
 .card_sub {
-  border-top: 1px solid #6f7681;
   padding: 20px;
 }
 .img {
@@ -174,16 +173,19 @@ td {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  border: 1px gray solid;
   background-color: #f8fafd;
 }
 .one_item {
   text-align-last: center;
   width: 45%;
-  height: auto;
 }
 .hitokoto_area {
-  border: 0.5px solid;
+  border-color:  #CCD6E0;
+  border-width: 1px;
+  border-radius: 2px;
+  padding: 2px;
+  height: 80px;
+  font-size: 13px;
 }
 .card_two {
   width: 960px;
@@ -195,7 +197,7 @@ td {
 }
 .two_item {
   width: 50%;
-  height: auto;
+  height: 20px;
 }
 .area_title {
   width: 100%;
@@ -212,6 +214,7 @@ td {
 .card_main_info {
   width: 85%;
   margin: 0 auto;
+  margin-bottom: 20px;
 }
 .occupation_area {
   display: flex;
@@ -250,11 +253,9 @@ td {
   overflow-wrap: break-word;
 }
 
-
 /* -------------------------------------------------------------------- */
 /* ボタンデザイン */
 /* -------------------------------------------------------------------- */
-
 
 .btn {
   display: flex;
