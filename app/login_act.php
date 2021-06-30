@@ -1,5 +1,4 @@
 <?php
-//最初にSESSIONを開始！！ココ大事！！
 session_start();
 include_once __DIR__ . "/funcs.php";
 
@@ -10,7 +9,7 @@ $lpw = $_POST["password"]; //login Password
 // v($lpw);
 
 
-//1.  DB接続します
+//DB接続します
 $pdo = db_conn();
 
 //2. データ登録SQL作成
@@ -45,10 +44,10 @@ if ($val["user_id"] != "") {
   } else {
     $_SESSION["icon"] = "../img/default_icon.png";
   }
-  // echo 'login succeed';
+  echo 'login succeed';
   redirect("../view/index.php");
 } else {
   //Login失敗時(Logout経由)
-  // echo 'login failed';
+  echo 'login failed';
   redirect("../view/login.php");
 }
