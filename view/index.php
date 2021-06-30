@@ -3,16 +3,12 @@ session_start();
 include_once __DIR__ . "/../app/funcs.php";
 $my_id = $_SESSION["my_id"];
 // v($my_id);
-$occupations_no_found_flag=false;
-$langs_no_found_flag=false;
 
 
 //POSTデータ取得
 //職種に関する情報
 $occupation = isset($_POST['occupation']) ? $_POST['occupation'] : [];
 $occupation_count = count($occupation);
-// $flag = isset($_POST['flag']) ? $_POST['flag'] : null;
-// $flag=1;
 // v($occupation);
 // v($occupation_count);
 
@@ -28,7 +24,6 @@ $pdo = db_conn();
 // 職種選択ボックスで何かしらあれば、職種を持つユーザーIDを取得する処理
 $occupations = [];
 if ($occupation_count !== 0) {
-  // echo "職種選択ボックスが選ばれました";
 
   $where_occupations = '';
   foreach ($occupation as $occupation_id) {
@@ -60,14 +55,12 @@ if ($occupation_count !== 0) {
   // 選択された職種を持つユーザーIDが$occupationsに入っている
   $occupations = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
   // v($occupations);
-  $occupations_no_found_flag=empty($occupations);
-  // v($occupations_no_found_flag);
 }
+
 
 // 利用可能言語選択ボックスで何かしらあれば、言語を持つユーザーIDを取得する処理
 $langs = [];
 if ($available_programming_language_id_count !== 0) {
-  // echo "利用可能ボックスが選ばれました";
 
   $where_available_programming_language = '';
   foreach ($available_programming_language_id as $lang_id) {
@@ -96,8 +89,6 @@ if ($available_programming_language_id_count !== 0) {
   if ($status == false) {
     sql_error($stmt);
   }
-  $langs_no_found_flag = empty($langs);
-  // v($langs_no_found_flag);
 }
 
 // 職種と利用可能言語を持つユーザidを結合
@@ -188,67 +179,60 @@ if ($search_target_users_id_count >= 1) {
 }
 
 // 職種と利用可能言語を持つユーザーが0なら検索処理(usersテーブルから全てのデータを取得する処理)
-if ($search_target_users_id_count === 0 ) {
-  if ($occupations_no_found_flag || $langs_no_found_flag) {
-    // echo "no-flagが有効です";
-    $result_occupation=[];
-    $result_langs = [];
-    $result_json_occupations = json_encode($result_occupation);
-    $result_json_langs = json_encode($result_langs);
-  }else{
-    // echo "未選択で全表示";
-    $sql = "
+if ($search_target_users_id_count === 0) {
+
+
+  $sql = "
     select
       *
     from
       users
   ;";
+  // v($sql);
+  $stmt = $pdo->prepare($sql);
+  $status = $stmt->execute();
 
-    // v($sql);
-    $stmt = $pdo->prepare($sql);
-    $status = $stmt->execute();
+  $result_users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  // v($result_users);
+  $result_json_users = json_encode($result_users);
+  // v($result_json_users);
 
-    $result_users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    // v($result_users);
-    $result_json_users = json_encode($result_users);
-    // v($result_json_users);
+  // ユーザに紐づく職種の取得処理
 
-    // ユーザに紐づく職種の取得処理
-
-    $sql = "
+  $sql = "
     select
       user_id, occupation_id
     from
       user_occupation
   ;";
-    // v($sql);
-    $stmt = $pdo->prepare($sql);
-    $status = $stmt->execute();
+  // v($sql);
+  $stmt = $pdo->prepare($sql);
+  $status = $stmt->execute();
 
-    $result_occupation = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    // v($result_occupation);
-    $result_json_occupations = json_encode($result_occupation);
-    // v($result_json_occupations);
+  $result_occupation = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  // v($result_occupation);
+  $result_json_occupations = json_encode($result_occupation);
+  // v($result_json_occupations);
 
 
-    // ユーザに紐づく利用可能言語の取得処理
+  // ユーザに紐づく利用可能言語の取得処理
 
-    $sql = "
+  $sql = "
     select
       user_id, available_programming_language_id
     from
       user_available_programming_language
   ;";
-    // v($sql);
-    $stmt = $pdo->prepare($sql);
-    $status = $stmt->execute();
+  // v($sql);
+  $stmt = $pdo->prepare($sql);
+  $status = $stmt->execute();
 
-    $result_langs = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    // v($result_langs);
-    $result_json_langs = json_encode($result_langs);
+  $result_langs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  // v($result_langs);
+  $result_json_langs = json_encode($result_langs);
   // v($result_json_langs);
-  }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -268,6 +252,8 @@ if ($search_target_users_id_count === 0 ) {
   <link rel="stylesheet" href="../css/index.css">
   <!-- line-awesome -->
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <!-- アイコン設定 -->
+  <link rel="shortcut icon" href="../icon/icon_48.png"/>
   <title>indexページ</title>
   <!-- featherアイコンの読み込み -->
   <script src="https://unpkg.com/feather-icons"></script>
@@ -289,9 +275,8 @@ if ($search_target_users_id_count === 0 ) {
 
           <!-- -----職種選択----- -->
           <div class="my_sentaku">
-            <h1 class="#">職種</h1>
+            <h1 class="my_sentaku_title">職種</h1>
             <div class="tb_flex">
-
               <div class="check_box_design">
                 <table>
                   <tr class="cell_tb">
@@ -436,9 +421,8 @@ if ($search_target_users_id_count === 0 ) {
 
           <!-- -----プログラミング言語選択----- -->
           <div class="my_sentaku">
-            <h1 class="#">使用可能プログラミング言語</h1>
+            <h1 class="my_sentaku_title">使用可能プログラミング言語</h1>
             <div class="tb_flex gengo_sentaku">
-
               <div class="check_box_design">
                 <table>
                   <tr class="cell_tb gengo_a">
@@ -675,7 +659,7 @@ if ($search_target_users_id_count === 0 ) {
       <div class="card_two" id="card_two">
       </div>
       <!-- /////////////////ここまでがプロフィールカード//////////////////// -->
-      <button class="btn" id="next" onclick="user_get()">ユーザーを取得</button>
+      <button class="btn btn_user" id="next" onclick="user_get()">ユーザーを取得</button>
     </div>
   </main>
   <?php

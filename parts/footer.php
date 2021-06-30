@@ -1,10 +1,10 @@
 <footer>
 
 <div class="footer_main">
-  <div class="title">
+  <div class="footer_title">
     <img class="img_head" src="../img/id.svg" alt="">
-    <h1 class="tl_2">For</h1>
-    <h1 class="tl_3">G Talk</h1>
+    <p class="tl_2">For</p>
+    <p class="tl_3">G Talk</p>
   </div>
 
   <div class="footer_masse">

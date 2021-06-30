@@ -30,22 +30,6 @@ body {
 /* タグ共通設定 */
 /* -------------------------------------------------------------------- */
 
-/* 見出し */
-/* h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Alfa Slab One", cursive;
-  font-size: 1.6rem;
-  font-weight: bold;
-  margin: 2em 0 1em;
-  clear: both;
-  letter-spacing: 1px;
-  color:#434445;
-} */
-
 a,
 p,
 i,
@@ -83,11 +67,6 @@ img {
   max-width: 100%;
 }
 
-​/* -------------------------------------------------------------------- */
-/* 共通設定END */
-/* -------------------------------------------------------------------- */
-
-
 /* -------------------------------------------------------------------- */
 /* header */
 /* -------------------------------------------------------------------- */
@@ -103,39 +82,82 @@ header {
 header .display{
   box-shadow: 1px 1px 1px #DDDDDD;
   background-color: #fff;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
 }
 header .header {
-  margin-left: 200px;
-  margin-right:200px;
   height: 77px;
   color: #383333;
   display: flex;
   justify-content:space-around;
   align-items: center;
 }
+header .header_title{
+  display: flex;
+  align-items:center;
+  color: #000000;
+  text-decoration: none;
+}
+header .img_head{
+  width: 150px;
+  height: 50px;
+  margin: 0 auto;
+  border: none;
+}
+header .tl_2{
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+header .tl_3{
+  margin-left: 10px;
+  font-size: 23px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+header .img_head{
+  width: 150px;
+  height: 50px;
+}
 header .prof_img{
   border-radius: 50%;
   margin-left: 10px;
 }
-header.maintag{
-  margin-left: 35px;
-  font-size: 12px;
-}
 header .lefttag{
   display: flex;
   align-items: center;
-  margin-left: 50px;
+  margin-left: 265px;
   font-size: 12px;
   align-items: flex-end;
 }
 /* リンク */
 header .top_menu{
-  color: #383333;
+  color: #00478f;
+  font-size: 12px;
+  margin-left: 40px;
   text-decoration: none;
   font-size: 12px;
   font-weight: bold;
+  position: relative;
+  display: inline-block;
+  transition: .3s;
+}
+header .top_menu::after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  content: '';
+  width: 0;
+  height: 1px;
+  background-color: #00478f;
+  transition: .3s;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+header .top_menu:hover::after {
+  width: 100%;
 }
 header .drop_icon{
   width: 20px;
@@ -147,6 +169,10 @@ header .drop_flex{
   text-align: left;
   padding-left: 10px;
 }
+header.boot_atag{
+  text-decoration: none;
+}
+
 /* -------------------------------------------------------------------- */
 /* footer */
 /* -------------------------------------------------------------------- */
@@ -159,7 +185,7 @@ header .drop_flex{
   border-top: 2px solid #F2F2F2;
   background: #fff;
 }
-footer .title{
+footer .footer_title{
   display: flex;
   align-items:center;
   color: #000000;
@@ -181,13 +207,16 @@ footer .title{
   color: #00478f;
   font-weight: bold;
   font-size: 10px;
+  margin-bottom: 0;
 }
 footer .img_head{
   width: 150px;
   height: 50px;
   margin: 0 auto;
 }
-
+footer img{
+  border: none;
+}
 .left_head:hover{
   color: #00478f;
   background: #00478F;
@@ -196,16 +225,21 @@ footer .img_head{
   margin-left: 10px;
   font-size: 16px;
   font-weight: bold;
+  margin-bottom: 0;
+  color: #000;
 }
 .tl_3{
   margin-left: 10px;
   font-size: 23px;
   font-weight: bold;
+  margin-bottom: 0;
+  color: #000;
 }
 .img_head{
   width: 150px;
   height: 50px;
 }
+
 
 /* -------------------------------------------------- */
 

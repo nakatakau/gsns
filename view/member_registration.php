@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/login.css">
   <link href="https://unpkg.com/sanitize.css" rel="stylesheet"/>
-  <link rel="shortcut icon" href="../img/icons/icon-48×48.png"/>
+    <!-- アイコン設定 -->
+  <link rel="shortcut icon" href="../icon/icon_48.png"/>
   <title>新規ユーザー登録</title>
   <script src="https://unpkg.com/feather-icons"></script>
 </head>
