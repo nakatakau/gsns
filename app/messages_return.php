@@ -2,12 +2,14 @@
 session_start();
 include_once __DIR__ . "/../app/funcs.php";
 $my_id = $_SESSION["my_id"];
-v($my_id);
+
+// v($my_id);
 
 //POSTデータ取得
-$destination_user_id = isset($_POST['destination_user_id']) ? $_POST['destination_user_id'] : NULL;
+$destination_user_id = isset($_GET['destination_user_id']) ? $_GET['destination_user_id'] : NULL;
 // 下記は本番環境ではコメントアウト
-$destination_user_id=2;
+// $destination_user_id=2;
+
 
 // DB接続
 $pdo = db_conn();
@@ -24,7 +26,9 @@ $sql = "
   ORDER BY
     created_at ASC;
 ";
-v($sql);
+
+// v($sql);
+
 
 $stmt = $pdo->prepare($sql);
 // $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
@@ -36,10 +40,11 @@ if ($status == false) {
 }
 
 $destination_users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-v($destination_users);
+
+// v($destination_users);
 $result_json_destination_users = json_encode($destination_users);
-v($result_json_destination_users);
+// v($result_json_destination_users);
 
 
 echo $result_json_destination_users;
-?>
+
