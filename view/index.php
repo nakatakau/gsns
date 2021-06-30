@@ -1006,7 +1006,7 @@ if ($search_target_users_id_count === 0 ) {
           // 5.prof_img
           const prof_img = document.createElement('img');
           if (user[0].profile_image != null || undefined || "") {
-            prof_img.src = "../icon/" + user[0].profile_image; //ここ取得したソース
+            prof_img.src = "../icon/" + user[i].profile_image; //ここ取得したソース
             prof_img.className = "prof_img1";
             img.appendChild(prof_img);
           } else {

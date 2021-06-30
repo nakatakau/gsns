@@ -20,11 +20,16 @@ $sql = "
   FROM
     messages
   WHERE
-    user_id=$my_id
+    (user_id=$my_id
   AND
-    destination_user_id=$destination_user_id
+    destination_user_id=$destination_user_id)
+  OR
+    (user_id=$destination_user_id
+  AND
+    destination_user_id=$my_id)
   ORDER BY
     created_at ASC;
+
 ";
 
 // v($sql);
@@ -47,4 +52,3 @@ $result_json_destination_users = json_encode($destination_users);
 
 
 echo $result_json_destination_users;
-

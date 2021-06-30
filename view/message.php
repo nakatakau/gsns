@@ -73,7 +73,7 @@ $result_json_destination_users = json_encode($destination_users);
     <main id="main">
       <!-- <form action="" method="POST"> -->
       <!-- ここにチャットの内容が入る -->
-      <div class="chat-area">
+      <div class="chat-area" id="chat-area">
         <!-- text -->
         <!-- text -->
         <!-- text -->
@@ -118,45 +118,45 @@ $result_json_destination_users = json_encode($destination_users);
     feather.replace();
     $(function() {
       // ENTERで送信
-      $('.message-area-text').on('keypress', (e) => {
-        if (e.which === 13) {
-          addChat();
-          return false;
-        }
-      })
-      // 送信ボタンで送信
-      $('#send').on('click', function() {
-        addChat();
-      })
+      // $('.message-area-text').on('keypress', (e) => {
+      //   if (e.which === 13) {
+      //     addChat();
+      //     return false;
+      //   }
+      // })
+      // // 送信ボタンで送信
+      // $('#send').on('click', function() {
+      //   addChat();
+      // })
       // 送信処理
-      function addChat() {
-        const messageText = $('#text').val()
-        if (messageText === '') {
-          return false;
-        }
-        const chatArea = $('.chat-area')
-        const messageContainer = $('<div></div>').addClass('message-container')
-        // 自分 か 相手どちらにメッセージを送る予定かを取得
-        const messagePerson = $('input[name="person"]:checked').val()
-        if (messagePerson === 'me') {
-          messageContainer.addClass('message-container-me')
-        } else {
-          messageContainer.addClass('message-container-you')
-        }
-        // チャットメッセージ用の装飾をしたクラスを当てたpタグを追加
-        const message = $('<p></p>').addClass('chat-message').text(messageText)
-        //時間を表示
-        const nowDate = new Date()
-        const hour = (nowDate.getHours() >= 10) ? nowDate.getHours() : '0' + nowDate.getHours()
-        const minutes = (nowDate.getMinutes() >= 10) ? nowDate.getMinutes() : '0' + nowDate.getMinutes()
-        const nowTime = hour + ':' + minutes
-        const sendTime = $('<p></p>').text(nowTime).addClass('chat-time')
-        messageContainer.append(sendTime).append(message)
-        chatArea.append(messageContainer)
-        // 常に最下部までスクロールしておく
-        chatArea.scrollTop(chatArea[0].scrollHeight)
-        $('#text').val('')
-      }
+      // function addChat() {
+      //   const messageText = $('#text').val()
+      //   if (messageText === '') {
+      //     return false;
+      //   }
+      //   const chatArea = $('.chat-area')
+      //   const messageContainer = $('<div></div>').addClass('message-container')
+      //   // 自分 か 相手どちらにメッセージを送る予定かを取得
+      //   const messagePerson = $('input[name="person"]:checked').val()
+      //   if (messagePerson === 'me') {
+      //     messageContainer.addClass('message-container-me')
+      //   } else {
+      //     messageContainer.addClass('message-container-you')
+      //   }
+      //   // チャットメッセージ用の装飾をしたクラスを当てたpタグを追加
+      //   const message = $('<p></p>').addClass('chat-message').text(messageText)
+      //   //時間を表示
+      //   const nowDate = new Date()
+      //   const hour = (nowDate.getHours() >= 10) ? nowDate.getHours() : '0' + nowDate.getHours()
+      //   const minutes = (nowDate.getMinutes() >= 10) ? nowDate.getMinutes() : '0' + nowDate.getMinutes()
+      //   const nowTime = hour + ':' + minutes
+      //   const sendTime = $('<p></p>').text(nowTime).addClass('chat-time')
+      //   messageContainer.append(sendTime).append(message)
+      //   chatArea.append(messageContainer)
+      //   // 常に最下部までスクロールしておく
+      //   chatArea.scrollTop(chatArea[0].scrollHeight)
+      //   $('#text').val('')
+      // }
     });
 
     // ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
@@ -186,7 +186,6 @@ $result_json_destination_users = json_encode($destination_users);
     const json1 = <?= $result_json_destination_users ?>;
     const json1_str = JSON.stringify(json1);
     const message_user = JSON.parse(json1_str);
-    console.log(message_user);
     // side_bar
     const side_bar = document.getElementById('side_bar');
     for (let i = 0; i < message_user.length; i++) {
@@ -226,6 +225,8 @@ $result_json_destination_users = json_encode($destination_users);
       a.textContent = area[Number(message_user[i].admission_area)] + "/" + course[Number(message_user[i].course_name)] + message_user[i].admission_period + "期";
       prof_b.appendChild(a);
       user_card.addEventListener('click', () => {
+        destination_user_id = message_user[i].destination_user_id;
+        console.log(destination_user_id);
         const data = {
           destination_user_id: message_user[i].destination_user_id
         }
@@ -235,45 +236,107 @@ $result_json_destination_users = json_encode($destination_users);
           const msg = response.data;
           const msg_str = JSON.stringify(msg);
           message = JSON.parse(msg_str);
-          destination_user_id = message_user[i].destination_user_id;
-          icon = message_user[i].profile_image
-          console.log(message);
-          console.log(destination_user_id);
-
-          function add_chat_all() {
-            for (let i = 0; i < message.length; i++) {
-              // const messageText = $('#text').val()
-              // if (messageText === '') {
-              //   return false;
-              // }
-              // const chatArea = $('.chat-area')
-              // const messageContainer = $('<div></div>').addClass('message-container')
-              // // 自分 か 相手どちらにメッセージを送る予定かを取得
-              // const messagePerson = $('input[name="person"]:checked').val()
-              // if (messagePerson === 'me') {
-              //   messageContainer.addClass('message-container-me')
-              // } else {
-              //   messageContainer.addClass('message-container-you')
-              // }
-              // // チャットメッセージ用の装飾をしたクラスを当てたpタグを追加
-              // const message = $('<p></p>').addClass('chat-message').text(messageText)
-              // //時間を表示
-              // const nowDate = new Date()
-              // const hour = (nowDate.getHours() >= 10) ? nowDate.getHours() : '0' + nowDate.getHours()
-              // const minutes = (nowDate.getMinutes() >= 10) ? nowDate.getMinutes() : '0' + nowDate.getMinutes()
-              // const nowTime = hour + ':' + minutes
-              // const sendTime = $('<p></p>').text(nowTime).addClass('chat-time')
-              // messageContainer.append(sendTime).append(message)
-              // chatArea.append(messageContainer)
-              // // 常に最下部までスクロールしておく
-              // chatArea.scrollTop(chatArea[0].scrollHeight)
-              // $('#text').val('')
-            }
-          }
+          add_chat_all(message);
         }).catch(function(error) {
-          alert(error);
+          alert("エラー:" + error);
         })
       })
+    }
+    // ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    // テキストメッセージ
+    // ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    const send = document.getElementById('send');
+    send.addEventListener('click', () => {
+      if (destination_user_id != null) {
+        const messageText = document.getElementById('text');
+        if (!(messageText.value === "")) {
+          const data = {
+            destination_user_id: destination_user_id,
+            message: messageText.value
+          }
+          axios.get("../app/message_create.php", {
+            params: data
+          }).then(function(response) {
+            const message_json = response.data;
+            const message_json1 = JSON.stringify(message_json);
+            const new_message = JSON.parse(message_json1);
+            console.log(new_message);
+            add_chat(new_message);
+          })
+        }
+      } else {
+        alert("送信先のユーザーを選択してください。")
+      }
+    })
+    // ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    // messageを送信する関数
+    // ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    function add_chat_all(message) {
+      const chatArea = $('.chat-area');
+      const chatArea_id = document.getElementById('chat-area');
+      while (chatArea_id.firstChild) {
+        chatArea_id.removeChild(chatArea_id.firstChild);
+      }
+      for (let i = 0; i < message.length; i++) {
+        const messageText = document.getElementById('text');
+        messageText.value = message[i].text;
+        if (messageText.value != '' || null || undefined) {
+          const messageContainer = $('<div></div>').addClass('message-container')
+          // 自分 か 相手どちらにメッセージを送る予定かを取得
+          if (message[i].user_id == destination_user_id) {
+            messageContainer.addClass('message-container-you')
+          } else {
+            messageContainer.addClass('message-container-me')
+          }
+          // チャットメッセージ用の装飾をしたクラスを当てたpタグを追加
+          const message_area = $('<p></p>').addClass('chat-message').text(messageText.value)
+          //時間を表示
+          const date_time = message[i].created_at;
+          const date_array = date_time.split(" ");
+          const time_array = date_array[1].split(":");
+          const hour = time_array[0];
+          const minutes = time_array[1];
+          const nowTime = hour + ':' + minutes
+          const sendTime = $('<p></p>').text(nowTime).addClass('chat-time')
+          messageContainer.append(sendTime).append(message_area)
+          chatArea.append(messageContainer)
+          // 常に最下部までスクロールしておく
+          chatArea.scrollTop(chatArea[0].scrollHeight)
+          $('#text').val('')
+        } else {
+          return false;
+        }
+      }
+    }
+
+    function add_chat(message) {
+      const chatArea = $('.chat-area');
+      for (let i = 0; i < message.length; i++) {
+        const messageText = document.getElementById('text');
+        messageText.value = message[i].text;
+        if (messageText.value != '' || null || undefined) {
+          const messageContainer = $('<div></div>').addClass('message-container')
+          // 自分 か 相手どちらにメッセージを送る予定かを取得
+          messageContainer.addClass('message-container-me')
+          // チャットメッセージ用の装飾をしたクラスを当てたpタグを追加
+          const message_area = $('<p></p>').addClass('chat-message').text(messageText.value)
+          //時間を表示
+          const date_time = message[i].created_at;
+          const date_array = date_time.split(" ");
+          const time_array = date_array[1].split(":");
+          const hour = time_array[0];
+          const minutes = time_array[1];
+          const nowTime = hour + ':' + minutes
+          const sendTime = $('<p></p>').text(nowTime).addClass('chat-time')
+          messageContainer.append(sendTime).append(message_area)
+          chatArea.append(messageContainer)
+          // 常に最下部までスクロールしておく
+          chatArea.scrollTop(chatArea[0].scrollHeight)
+          $('#text').val('')
+        } else {
+          return false;
+        }
+      }
     }
   </script>
 </body>
