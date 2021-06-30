@@ -58,7 +58,7 @@ $user_data = $stmt->fetch(PDO::FETCH_ASSOC);
 
 <body>
   <?php
-  // include("../parts/header.php");
+  include("../parts/header.php");
   ?>
   <main>
     <!-- 編集ページ -->
@@ -66,22 +66,22 @@ $user_data = $stmt->fetch(PDO::FETCH_ASSOC);
       <form action="../app/account_act.php" method="post">
 
         <div class="form">
+          <input id="" value="<?php echo $user_data['name']; ?>" class="form_line " type="text" name="name">
+        </div>
+
+        <div class="form">
           <input id="" value="<?php echo $user_data['mail']; ?>" class="form_line" type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
         </div>
 
         <div class="form">
           <input id="" class="form_line" type="password" name="password" pattern="^([a-zA-Z0-9]{6,})$" placeholder="パスワード">
-        </div>
-        <font class="fontsize" color="#0000ff">半角英数字6文字以上で入力ください。</font>
-
-        <div class="form">
-          <input id="" value="<?php echo $user_data['name']; ?>" class="form_line " type="text" name="name">
+          <font class="fontsize" color="#0000ff">半角英数字6文字以上で入力ください。</font>
         </div>
 
 
         <input type="hidden" name="id" value="<?php echo $my_id ?>">
 
-        <button type="btn" class="btn_edit">更新</button>
+        <button type="btn" class="btn">更新</button>
       </form>
     </div>
 
