@@ -162,7 +162,7 @@ $user_lang = json_encode($val);
           </div>
         </div>
         <div class="message_area">
-          <textarea id="comment" cols="30" rows="2" placeholder="一言お願いします。" maxlength='42' name="comment"></textarea>
+          <textarea id="comment" cols="30" rows="2" placeholder="未記入" maxlength='42' name="comment"></textarea>
         </div>
         <div class="other">
           <table class="other_table">

@@ -1028,7 +1028,7 @@ if ($search_target_users_id_count === 0) {
           two_item.appendChild(card_user_name);
           // 11.h2
           const h2 = document.createElement('h2');
-          h2.textContent = area[Number(user[i].admission_area)] + "/" + course[Number(user[i].course_name)] + user[i].admission_period + "期"; //ここに記述
+          h2.textContent = area[Number(user[i].admission_area)] + " / " + course[Number(user[i].course_name)] + user[i].admission_period + "期"; //ここに記述
           card_user_name.appendChild(h2);
           // 12.card_main_info
           const card_main_info = document.createElement('div');

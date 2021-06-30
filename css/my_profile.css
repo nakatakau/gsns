@@ -1,6 +1,7 @@
 /* -------------------------------------------------- */
 /* 全体の設定*/
 /* -------------------------------------------------- */
+
 main{
   width: 960px;
   margin: 0 auto;
@@ -12,7 +13,6 @@ select{
 input{
   border-bottom: 1px gray solid;
 }
-
 
 img{
   border: 1px gray solid;
@@ -66,15 +66,18 @@ textarea{
 .edit_button{
   display: flex;
   margin: 0 auto;
-  border: 1px solid #00478F;
-  color: #00478F;
+  background: #00478F;
+  border: 1px solid #00478f;
+  color: #fff;
   margin-top: 30px;
   margin-bottom:50px;
   padding:5px 70px 5px 70px;
   border-radius: 30px;
 }
 .edit_button:hover {
-  background: #C8D7E0;
+  background: #fff;
+  color: #00478F;
+  font-weight: bold;
 }
 
 /* -------------------------------------------------- */
@@ -116,8 +119,9 @@ textarea{
   height: 30px;
   display: flex;
   justify-content: center;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   font-size: 1.2rem;
+  align-items: baseline;
 }
 .gs_year > p{
   padding-top: 5px;
@@ -131,6 +135,7 @@ textarea{
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
+  align-items: self-start;
 }
 .gs_course > select{
   width: 50px;
@@ -144,6 +149,7 @@ textarea{
   margin-bottom: 20px;
   display: flex;
   justify-content: center;
+  align-items: self-start;
 }
 .graduate > p{
   margin-right: 3px;
@@ -162,6 +168,7 @@ textarea{
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: self-start;
 }
 .birth > p{
   margin-right: 5px;
@@ -198,7 +205,6 @@ textarea{
 }
 .portfolio_title{
   font-size: 1.2rem;
-  border-bottom: 1px gray solid;
   margin-bottom: 30px;
 }
 .portfolio_area_title{
@@ -300,9 +306,9 @@ textarea{
     margin-top: -10px;
     left: 0;
     top: 50%;
-    border: 1px solid;
-    border-color:  #585753; /* 枠の色変更 */
-    background-color: #FFF; /* 背景の色変更 */
+    border-color:  #CCD6E0;
+    border-width: 1px;
+    background-color: #fff;
 }
 /* チェックが入った時のレ点 */
 .check_box_design input[type="checkbox"]:checked+label::after{

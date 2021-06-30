@@ -136,7 +136,7 @@ header .lefttag{
 header .top_menu{
   color: #00478f;
   font-size: 12px;
-  margin-left: 40px;
+  margin-left: 50px;
   text-decoration: none;
   font-size: 12px;
   font-weight: bold;
@@ -194,7 +194,7 @@ footer .footer_title{
   display: flex;
   align-items: center;
   justify-content:center;
-  margin-left: 180px;
+  margin-left: 210px;
 }
 .team_logo{
   width: 70px;
@@ -239,7 +239,6 @@ footer img{
   width: 150px;
   height: 50px;
 }
-
 
 /* -------------------------------------------------- */
 

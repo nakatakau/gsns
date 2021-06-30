@@ -162,7 +162,7 @@ $user_lang = json_encode($val);
             </div>
           </div>
           <div class="message_area">
-            <textarea id="comment" cols="30" rows="2" placeholder="一言お願いします。" maxlength='42' name="comment"></textarea>
+            <textarea id="comment" cols="30" rows="2" placeholder="ひとこと" maxlength='42' name="comment"></textarea>
           </div>
           <div class="other">
             <table class="other_table">
@@ -281,7 +281,7 @@ $user_lang = json_encode($val);
               <p class="profile_area_name"> なぜG'sに入学したか? </p>
             </div>
             <div class="profile_area_content">
-              <textarea name="why_gs" id="why_gs" cols="62" rows="5" placeholder="背景・経緯などを教えてください" class="profile_description" maxlength='400'></textarea>
+              <textarea name="why_gs" id="why_gs" cols="62" rows="5" placeholder="背景・経緯など" class="profile_description" maxlength='400'></textarea>
             </div>
           </div>
           <!-- プロフィールの２番目のブロック（ポートフォリオ） -->
@@ -289,8 +289,8 @@ $user_lang = json_encode($val);
             <p class="portfolio_title">ポートフォリオ・作品（３点まで）</p>
             <!-- １つ目のポートフォリオ -->
             <div class="portfolio_area" id="portfolio_area_1">
-              <input type="text" name="portfolio_title1" class="portfolio_area_title" id="portfolio_area_title1" placeholder="タイトルを入力">
-              <input type="text" name="portfolio_url1" class="portfolio_area_url" id="portfolio_area_url1" placeholder="URLを入力">
+              <input type="text" name="portfolio_title1" class="portfolio_area_title" id="portfolio_area_title1" placeholder="Title">
+              <input type="text" name="portfolio_url1" class="portfolio_area_url" id="portfolio_area_url1" placeholder="URL">
               <textarea name="portfolio_comment1" cols="50" rows="4" class="portfolio_area_description" id="portfolio_area_description1" placeholder="説明"></textarea>
               <!-- <div class="portfolio_area_content" id="portfolio_area_content1">
             <img src="" alt="" class="portfolio_area_content_img" id="portfolio_area_content_img1">
@@ -298,8 +298,8 @@ $user_lang = json_encode($val);
             </div>
             <!-- ２つ目のポートフォリオ -->
             <div class="portfolio_area" id="portfolio_area_2">
-              <input type="text" name="portfolio_title2" class="portfolio_area_title" id="portfolio_area_title2" placeholder="タイトルを入力">
-              <input type="text" name="portfolio_url2" class="portfolio_area_url" id="portfolio_area_url2" placeholder="URLを入力">
+              <input type="text" name="portfolio_title2" class="portfolio_area_title" id="portfolio_area_title2" placeholder="Title">
+              <input type="text" name="portfolio_url2" class="portfolio_area_url" id="portfolio_area_url2" placeholder="URL">
               <textarea name="portfolio_comment2" cols="50" rows="4" class="portfolio_area_description" id="portfolio_area_description2" placeholder="説明"></textarea>
               <!-- <div class="portfolio_area_content" id="portfolio_area_content2">
             <img src="" alt="" class="portfolio_area_content_img" id="portfolio_area_content_img2">
@@ -307,8 +307,8 @@ $user_lang = json_encode($val);
             </div>
             <!-- ３つ目のポートフォリオ -->
             <div class="portfolio_area" id="portfolio_area_3">
-              <input type="text" name="portfolio_title3" class="portfolio_area_title" id="portfolio_area_title3" placeholder="タイトルを入力">
-              <input type="text" name="portfolio_url3" class="portfolio_area_url" id="portfolio_area_url3" placeholder="URLを入力">
+              <input type="text" name="portfolio_title3" class="portfolio_area_title" id="portfolio_area_title3" placeholder="Title">
+              <input type="text" name="portfolio_url3" class="portfolio_area_url" id="portfolio_area_url3" placeholder="URL">
               <textarea name="portfolio_comment3" cols="50" rows="4" class="portfolio_area_description" id="portfolio_area_description3" placeholder="説明"></textarea>
               <!-- <div class="portfolio_area_content" id="portfolio_area_content3">
             <img src="" alt="" class="portfolio_area_content_img" id="portfolio_area_content_img3">
