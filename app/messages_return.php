@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once __DIR__ . "/../app/funcs.php";
+sschk();
 $my_id = $_SESSION["my_id"];
 
 // v($my_id);

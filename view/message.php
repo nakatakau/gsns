@@ -1,12 +1,16 @@
 <?php
 session_start();
 include_once __DIR__ . "/../app/funcs.php";
+sschk();
 $my_id = $_SESSION["my_id"];
+$destination_user_id = isset($_POST['destination_user_id']) ? $_POST['destination_user_id'] : NULL;
+$destination_user_id =2;
 // v($my_id);
+// v($destination_user_id);
+
 // DB接続
 $pdo = db_conn();
-$destination_user_id = $_POST['destination_user_id'];
-// $destination_user_id = 2;
+
 
 if ($destination_user_id !== NULL) {
   $sql = "

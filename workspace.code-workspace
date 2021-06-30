@@ -4,5 +4,19 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"cSpell.words": [
+			"chk",
+			"flg",
+			"gtalk",
+			"hoge",
+			"id",
+			"insert",
+			"kanri",
+			"last",
+			"sschk",
+			"ssid",
+			"sysdate"
+		]
+	}
 }

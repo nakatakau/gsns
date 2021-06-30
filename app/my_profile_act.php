@@ -1,7 +1,7 @@
 <?php
-// my_profile保存処理を記述
 session_start();
 include_once __DIR__ . "/funcs.php";
+sschk();
 // SESSIONからmy_idを取り出し
 $my_id = $_SESSION["my_id"];
 // テストでユーザーID2を登録
@@ -168,7 +168,7 @@ $stmt->bindValue(':my_id', $my_id, PDO::PARAM_INT);
 $status = $stmt->execute();
 // v($status);
 
-//SQL実行時にエラーがある場合STOP
+//クエリ実行時にエラーがある場合は停止
 if ($status == false) {
   sql_error($stmt);
 }

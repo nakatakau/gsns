@@ -1,7 +1,7 @@
 <?php
-// ここに会員登録処理を記入する
 session_start();
 include_once __DIR__ . "/funcs.php";
+sschk();
 
 //POSTデータ取得
 $name = isset($_POST['name']) ? $_POST['name'] : NULL;
@@ -30,6 +30,7 @@ if ($status == false) {
   sql_error($stmt);
   redirect('../view/member_registration.php');
 }else{
+  $_SESSION["chk_ssid"]  = session_id();
   $_SESSION["my_id"] = $pdo->lastInsertId();
   $_SESSION["name"]  = $name;
   $_SESSION["icon"]  = "../img/default_icon.png";
