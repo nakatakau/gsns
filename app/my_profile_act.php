@@ -15,7 +15,7 @@ $admission_period  = $_POST["admission_period"];
 $graduation_date_year  = $_POST["graduation_date_year"];
 $graduation_date_month  = $_POST["graduation_date_month"];
 // graduation_dateは文字列結合で作成。形式'2020-10-1'
-$graduation_date=$graduation_date_year . '-' . $graduation_date_month . '-' . 01;
+$graduation_date = $graduation_date_year . '-' . $graduation_date_month . '-' . 01;
 $birthday_year  = $_POST["birthday_year"];
 $birthday_month  = $_POST["birthday_month"];
 $birthday_day  = $_POST["birthday_day"];
@@ -46,7 +46,7 @@ $qualification  = $_POST["qualification"];
 $free_space  = $_POST["free_space"];
 // アイコン画像のアップロード処理
 // 1.file名の取得
-if($_FILES["profile_image"]["name"] != "" || null){
+if ($_FILES["profile_image"]["name"] != "" || null) {
   $profile_image = $_FILES["profile_image"]["name"];
   // 2.画像データをiconフォルダーにアップロード
   $upload = "../icon/";
@@ -163,7 +163,7 @@ $stmt->bindValue(':history', $history, PDO::PARAM_STR);
 $stmt->bindValue(':qualification', $qualification, PDO::PARAM_STR);
 $stmt->bindValue(':free_space', $free_space, PDO::PARAM_STR);
 $stmt->bindValue(':profile_image', $profile_image, PDO::PARAM_STR);
-$stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
+$stmt->bindValue(':my_id', $my_id, PDO::PARAM_INT);
 $status = $stmt->execute();
 // v($status);
 
@@ -175,9 +175,9 @@ if ($status == false) {
 
 //user_occupationテーブルへのデータ削除、登録処理
 // ユーザに紐づく職種の削除処理
-$occupationCount=count($occupation);
+$occupationCount = count($occupation);
 // 選択職種が0個でなければ、idに紐づく職種を削除する
-if ($occupationCount!==0) {
+if ($occupationCount !== 0) {
   $sql = "DELETE FROM user_occupation WHERE user_id = :my_id;";
   $stmt = $pdo->prepare($sql);
   $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);

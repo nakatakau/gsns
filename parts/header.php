@@ -4,11 +4,11 @@
       <h1 class="logo">G talk</h1>
 
       <div class="maintag">
-        <a class="top_menu" href="#">在学生</a>
+        <a class="top_menu" href="current_student.php">在学生</a>
       </div>
 
       <div class="maintag">
-        <a class="top_menu" href="#">卒業生</a>
+        <a class="top_menu" href="graduate.php">卒業生</a>
       </div>
 
       <div class="maintag">
