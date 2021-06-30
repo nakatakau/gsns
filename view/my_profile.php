@@ -82,8 +82,8 @@ $user_lang = json_encode($val);
   <link rel="stylesheet" href="../css/my_profile.css">
   <!-- line-awesome -->
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <!-- アイコン設定 -->
-  <link rel="shortcut icon" href="../icon/icon_48.png"/>
+  <!-- アイコン設定 -->
+  <link rel="shortcut icon" href="../icon/icon_48.png" />
   <title>マイプロフィール</title>
   <!-- featherアイコンの読み込み -->
   <script src="https://unpkg.com/feather-icons"></script>
@@ -101,7 +101,7 @@ $user_lang = json_encode($val);
           <div class="icon">
             <div class="gs_year">
               <p>地域</p>
-              <select name="admission_area" id="admission_area">
+              <select name="admission_area" id="admission_area" required>
                 <option value="1"></option>
                 <option value="3">東京</option>
                 <option value="4">福岡</option>
@@ -111,22 +111,22 @@ $user_lang = json_encode($val);
             </div>
             <div class="gs_course">
               <p>コース</p>
-              <select id="course_name" name="course_name">
+              <select id="course_name" name="course_name" required>
                 <option value="1"></option>
                 <option value="3">LAB</option>
                 <option value="4">DEV</option>
                 <option value="5">BIZ</option>
                 <option value="2">その他</option>
               </select>
-              <input type="text" pattern="\d{2}" maxlength="2" name="admission_period" id="admission_period">
+              <input type="text" pattern="\d{2}" maxlength="2" name="admission_period" id="admission_period" required>
               <p>期</p>
             </div>
             <div class="graduate">
-              <select id="year" name="graduation_date_year">
+              <select id="year" name="graduation_date_year" required>
                 <option value=""></option>
               </select>
               <p>年</p>
-              <select id="month" name="graduation_date_month">
+              <select id="month" name="graduation_date_month" required>
                 <option value=""></option>
               </select>
               <p>月</p>
@@ -169,7 +169,7 @@ $user_lang = json_encode($val);
               <tr class="cell">
                 <td class="cell_left">血液型</td>
                 <td class="cell_right">
-                  <select name="blood_type" id="blood_type">
+                  <select name="blood_type" id="blood_type" required>
                     <option value="1"></option>
                     <option value="3">A型</option>
                     <option value="4">B型</option>
@@ -182,7 +182,7 @@ $user_lang = json_encode($val);
               <tr class="cell">
                 <td class="cell_left">居住地</td>
                 <td class="cell_right">
-                  <select name="residence" id="address">
+                  <select name="residence" id="address" required>
                     <option value=""></option>
                   </select>
                 </td>
@@ -190,7 +190,7 @@ $user_lang = json_encode($val);
               <tr class="cell">
                 <td class="cell_left">出身地</td>
                 <td class="cell_right">
-                  <select name="birthplace" id="from">
+                  <select name="birthplace" id="from" required>
                     <option value=""></option>
                   </select>
                 </td>
@@ -593,7 +593,8 @@ $user_lang = json_encode($val);
     }
     for (let i = 1; i <= 12; i++) {
       const option = document.createElement('option');
-      option.value = i;
+      const i_0 = ('00' + i).slice(-2);
+      option.value = i_0;
       option.textContent = i;
       month.appendChild(option);
     }
@@ -606,13 +607,15 @@ $user_lang = json_encode($val);
     }
     for (let i = 1; i <= 12; i++) {
       const option = document.createElement('option');
-      option.value = i;
+      const i_0 = ('00' + i).slice(-2);
+      option.value = i_0;
       option.textContent = i;
       birth_month.appendChild(option);
     }
     for (let i = 1; i <= 31; i++) {
       const option = document.createElement('option');
-      option.value = i;
+      const i_0 = ('00' + i).slice(-2);
+      option.value = i_0;
       option.textContent = i;
       birth_day.appendChild(option);
     }
@@ -914,6 +917,7 @@ $user_lang = json_encode($val);
     const birth = user_info.birthday.split('-');
     select_tab(select_birth_year, birth[0]);
     select_tab(select_birth_month, birth[1]);
+    console.log(birth[1]);
     select_tab(select_birth_day, birth[2]);
     //7.birthのvalueを選択
     const comment = document.getElementById('comment');

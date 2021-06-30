@@ -48,5 +48,6 @@ $status = $stmt->execute();
 if ($status == false) {
   sql_error($stmt);
 } else {
+  $_SESSION["name"]  = $name;
   redirect("../view/my_profile.php");
 }

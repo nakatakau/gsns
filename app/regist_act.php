@@ -29,5 +29,7 @@ if ($status == false) {
   sql_error($stmt);
 } else {
   $_SESSION["my_id"] = $pdo->lastInsertId();
+  $_SESSION["name"]  = $name;
+  $_SESSION["icon"]  = "../img/default_icon.png";
   redirect("../view/index.php");
 }
