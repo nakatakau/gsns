@@ -1,41 +1,49 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- CSSの取り込み -->
   <link rel="stylesheet" href="../css/reset.css">
-  <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="../css/login.css">
-  <title>login</title>
+  <link href="https://unpkg.com/sanitize.css" rel="stylesheet"/>
+  <link rel="shortcut icon" href="../img/icons/icon-48×48.png"/>
+  <title>新規ユーザー登録</title>
+  <script src="https://unpkg.com/feather-icons"></script>
 </head>
-
 <body>
-  <main>
-    <!-- ログインコンテンツ -->
-    <div class="login">
-      <!-- ロゴの配置 -->
-      <div class="login_logo">
-        <img src="" alt="">ロゴ
-      </div>
-      <!-- ログイン入力エリア -->
-      <div class="input_box">
-        <form action="../app/regist_act.php" method="POST" class="input_form">
-          <p class="login_text">メールアドレス</p>
-          <input type="email" name="email">
-          <p class="login_text">パスワード</p>
-          <input type="password" name="password">
-          <p class="login_text">名前</p>
-          <input type="text" name="name" class="margin_bottom_add">
-          <div class="submit_btn">
-            <input type="submit" value="登録">
-          </div>
-        </form>
-      </div>
-    </div>
-  </main>
-</body>
 
+  <div class="title">
+    <img class="img_head" src="../img/id.svg" alt="">
+    <p class="tl_2">For</p>
+    <p class="tl_3">G Talk</p>
+  </div>
+
+  <div class="content">
+    <h1 class="lg_ttl">新規ユーザー登録</h1>
+
+    <form action="../app/regist_act.php" method="POST" class="input_form">
+
+    <label for="userid" class="sr-only">名前（フルネーム）</label>
+    <input type="text" class="bottom" id="userid" name="name" required autofocus>
+
+    <label for="userid" class="sr-only">メールアドレス</label>
+    <input type="email" class="bottom" id="userid" name="email" required autofocus pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+
+    <label for="password" class="sr-only">パスワード</label>
+    <input type="password" class="bottom" id="password" name="password" required pattern="^([a-zA-Z0-9]{6,})$">
+    <div><font class="pass_font" color="#0000ff">半角英数字6文字以上で入力ください。</font></div>
+
+    <div class="control">
+    </div>
+    <input class="btn" type="submit" id="login" value="新規登録">
+
+    <div class="shinki_tag">
+      <a class="shinki" href="../view/login.php">ログインはこちらから</a>
+    </div>
+
+  </div>
+
+</body>
 </html>

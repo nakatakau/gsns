@@ -131,9 +131,10 @@ SET
   history = :history,
   qualification = :qualification,
   free_space = :free_space,
-  profile_image = :profile_image;
+  profile_image = :profile_image
 WHERE  user_id = :my_id
 ;";
+// v($sql);
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':admission_area', $admission_area, PDO::PARAM_STR);
 $stmt->bindValue(':course_name', $course_name, PDO::PARAM_STR);
@@ -161,8 +162,8 @@ $stmt->bindValue(':available_skill', $available_skill, PDO::PARAM_STR);
 $stmt->bindValue(':history', $history, PDO::PARAM_STR);
 $stmt->bindValue(':qualification', $qualification, PDO::PARAM_STR);
 $stmt->bindValue(':free_space', $free_space, PDO::PARAM_STR);
-$stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
 $stmt->bindValue(':profile_image', $profile_image, PDO::PARAM_STR);
+$stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
 $status = $stmt->execute();
 // v($status);
 
