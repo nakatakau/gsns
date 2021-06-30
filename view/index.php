@@ -57,6 +57,7 @@ if ($occupation_count !== 0) {
   // v($occupations);
 }
 
+
 // 利用可能言語選択ボックスで何かしらあれば、言語を持つユーザーIDを取得する処理
 $langs = [];
 if ($available_programming_language_id_count !== 0) {
