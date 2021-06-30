@@ -32,7 +32,7 @@
           <br>
           <div class="drop_flex">
             <p class="drop_icon" data-feather="settings"></p>
-            <a class="boot_atag" href="../view/index.php">アカウント</a>
+            <a class="boot_atag" href="../view/account.php">アカウント</a>
           </div>
           <br>
           <div class="drop_flex">
