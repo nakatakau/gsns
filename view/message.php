@@ -5,6 +5,8 @@ $my_id = $_SESSION["my_id"];
 // v($my_id);
 // DB接続
 $pdo = db_conn();
+$destination_user_id = $_POST['destination_user_id'];
+// $destination_user_id = 2;
 
 if ($destination_user_id !== NULL) {
   $sql = "
@@ -20,7 +22,7 @@ VALUES
   if ($status == false) {
     sql_error($stmt);
   }
-} else {
+}
 $sql = "
   SELECT
     messages.user_id,destination_user_id,name,admission_area,course_name,admission_period,profile_image,max(created_at)
@@ -42,7 +44,6 @@ $sql = "
   if ($status == false) {
     sql_error($stmt);
   }
-}
 $destination_users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // v($destination_users);
 $result_json_destination_users = json_encode($destination_users);
@@ -317,8 +318,6 @@ $result_json_destination_users = json_encode($destination_users);
           // 常に最下部までスクロールしておく
           chatArea.scrollTop(chatArea[0].scrollHeight)
           $('#text').val('')
-        } else {
-          return false;
         }
       }
     }
@@ -347,8 +346,6 @@ $result_json_destination_users = json_encode($destination_users);
           // 常に最下部までスクロールしておく
           chatArea.scrollTop(chatArea[0].scrollHeight)
           $('#text').val('')
-        } else {
-          return false;
         }
       }
     }

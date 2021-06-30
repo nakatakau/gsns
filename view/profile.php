@@ -70,6 +70,7 @@ $user_lang = json_encode($val);
 
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -82,10 +83,10 @@ $user_lang = json_encode($val);
   <link rel="stylesheet" href="../css/common.css">
   <!-- ページ内のCSS読み込み -->
   <link rel="stylesheet" href="../css/profile.css">
-    <!-- line-awesome -->
+  <!-- line-awesome -->
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <!-- アイコン設定 -->
-  <link rel="shortcut icon" href="../icon/icon_48.png"/>
+  <!-- アイコン設定 -->
+  <link rel="shortcut icon" href="../icon/icon_48.png" />
   <title>プロフィール</title>
   <!-- featherアイコンの読み込み -->
   <script src="https://unpkg.com/feather-icons"></script>
@@ -560,7 +561,7 @@ $user_lang = json_encode($val);
         </div>
       </div>
     </div>
-    <div class="button_area">
+    <div class="button_area" id="button_area">
       <input type="submit" class="edit_button" value="メッセージを送る" id="message_btn">
     </div>
   </main>
@@ -1001,6 +1002,24 @@ $user_lang = json_encode($val);
     //     }
     //   })
     // })
+    // ----------------------------------------------
+    // checkboxの操作
+    // ----------------------------------------------
+    const message_btn = document.getElementById('message_btn');
+    message_btn.addEventListener('click', () => {
+      const id = user_info.user_id;
+      const form = document.createElement('form');
+      form.action = "message.php";
+      form.method = "post";
+      form.style.display = "none";
+      const input = document.createElement('input');
+      input.value = id;
+      input.name = "destination_user_id";
+      form.appendChild(input);
+      const button_area = document.getElementById('button_area');
+      button_area.appendChild(form);
+      form.submit();
+    })
   </script>
 
 </body>
