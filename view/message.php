@@ -5,7 +5,7 @@ include_once __DIR__ . "/../app/funcs.php";
 sschk();
 $my_id = $_SESSION["my_id"];
 $destination_user_id = isset($_POST['destination_user_id']) ? $_POST['destination_user_id'] : NULL;
-$destination_user_id =2;
+$destination_user_id = 2;
 // v($my_id);
 // v($destination_user_id);
 
@@ -41,14 +41,14 @@ $sql = "
     destination_user_id
   ORDER BY
     max(created_at) DESC";
-    // v($sql);
-  $stmt = $pdo->prepare($sql);
-  // $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
-  $status = $stmt->execute();
-  //SQL実行時にエラーがある場合STOP
-  if ($status == false) {
-    sql_error($stmt);
-  }
+// v($sql);
+$stmt = $pdo->prepare($sql);
+// $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
+$status = $stmt->execute();
+//SQL実行時にエラーがある場合STOP
+if ($status == false) {
+  sql_error($stmt);
+}
 $destination_users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // v($destination_users);
 $result_json_destination_users = json_encode($destination_users);
@@ -74,8 +74,8 @@ $result_json_destination_users = json_encode($destination_users);
   <link rel="stylesheet" href="../css/message.css">
   <!-- line-awesome -->
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <!-- アイコン設定 -->
-  <link rel="shortcut icon" href="../icon/icon_48.png"/>
+  <!-- アイコン設定 -->
+  <link rel="shortcut icon" href="../icon/icon_48.png" />
   <title>メッセージ</title>
   <!-- featherアイコンの読み込み -->
   <script src="https://unpkg.com/feather-icons"></script>
@@ -286,9 +286,10 @@ $result_json_destination_users = json_encode($destination_users);
             params: data
           }).then(function(response) {
             const message_json = response.data;
+            console.log(message_json);
             const message_json1 = JSON.stringify(message_json);
             const new_message = JSON.parse(message_json1);
-            console.log(new_message);
+            // console.log(new_message);
             add_chat(new_message);
           })
         }
