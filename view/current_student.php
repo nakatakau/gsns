@@ -8,7 +8,6 @@ $occupations_no_found_flag = false;
 $langs_no_found_flag = false;
 
 
-
 //POSTデータ取得
 //職種に関する情報
 $occupation = isset($_POST['occupation']) ? $_POST['occupation'] : [];

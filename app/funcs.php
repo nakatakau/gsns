@@ -21,7 +21,6 @@ function v($val)
   var_dump($val);
   echo '</pre>';
 }
-
 //DB接続
 function db_conn()
 {

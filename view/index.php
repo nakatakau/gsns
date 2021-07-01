@@ -269,6 +269,7 @@ if ($search_target_users_id_count === 0) {
   <main>
     <div class="main">
 
+
       <!-- ///////////////////ここから検索カード////////////////////// -->
 
       <form action="index.php" method="post" class="input_form">
