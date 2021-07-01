@@ -3,7 +3,7 @@ session_start();
 include_once __DIR__ . "/funcs.php";
 sschk();
 $my_id = $_SESSION["my_id"];
-// v($my_id);
+
 
 //POSTデータからプロフィール情報を取得
 $admission_area         = isset($_POST['admission_area'])         ? $_POST['admission_area']  : NULL;
@@ -100,7 +100,7 @@ SET
   profile_image = :profile_image
 WHERE  user_id = :my_id
 ;";
-// v($sql);
+
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':admission_area', $admission_area, PDO::PARAM_INT);
 $stmt->bindValue(':course_name', $course_name, PDO::PARAM_INT);
@@ -131,7 +131,7 @@ $stmt->bindValue(':free_space', $free_space, PDO::PARAM_STR);
 $stmt->bindValue(':profile_image', $profile_image, PDO::PARAM_STR);
 $stmt->bindValue(':my_id', $my_id, PDO::PARAM_INT);
 $status = $stmt->execute();
-// v($status);
+
 
 //クエリ実行時にエラーがある場合は停止
 if ($status == false) {
@@ -153,7 +153,6 @@ if ($occupationCount !== 0 || NULL) {
   $stmt = $pdo->prepare($sql);
   $stmt->bindValue(':my_id', $my_id, PDO::PARAM_INT);
   $status = $stmt->execute();
-  // v($status);
 
   //SQL実行時にエラーがある場合STOP
   if ($status === false) {
@@ -174,7 +173,6 @@ if ($occupationCount !== 0 || NULL) {
     $stmt->bindValue(':user_id', $my_id, PDO::PARAM_INT);
     $stmt->bindValue(':occupation_id', $occupation_id, PDO::PARAM_INT);
     $status = $stmt->execute();
-    // v($status);
 
     //SQL実行時にエラーがある場合は停止
     if ($status == false) {
@@ -197,7 +195,7 @@ if ($available_programming_language_count !== 0 || NULL) {
   $stmt = $pdo->prepare($sql);
   $stmt->bindValue(':my_id', $my_id, PDO::PARAM_INT);
   $status = $stmt->execute();
-  // v($status);
+
 
   //SQL実行時にエラーがある場合は停止
   if ($status == false) {
@@ -217,7 +215,7 @@ if ($available_programming_language_count !== 0 || NULL) {
     $stmt->bindValue(':user_id', $my_id, PDO::PARAM_INT);
     $stmt->bindValue(':available_programming_language_id', $available_programming_language_id, PDO::PARAM_INT);
     $status = $stmt->execute();
-    // v($status);
+
 
     //SQL実行時にエラーがある場合は停止
     if ($status == false) {
