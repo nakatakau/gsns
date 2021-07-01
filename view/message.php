@@ -1,53 +1,67 @@
 <?php
 session_start();
-include_once __DIR__ . "/../app/funcs.php";
-$my_id = $_SESSION["my_id"];
-// v($my_id);
-// DB接続
-$pdo = db_conn();
-
-if ($destination_user_id !== NULL) {
-  $sql = "
-INSERT INTO
-  messages (text,user_id,destination_user_id,created_at)
-VALUES
- ('',$my_id,$destination_user_id,sysdate());";
-  //  v($sql);
-  $stmt = $pdo->prepare($sql);
-  // $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
-  $status = $stmt->execute();
-  //SQL実行時にエラーがある場合STOP
-  if ($status == false) {
-    sql_error($stmt);
-  }
-} else {
-$sql = "
-  SELECT
-    messages.user_id,destination_user_id,name,admission_area,course_name,admission_period,profile_image,max(created_at)
-  FROM
-    messages
-  JOIN
-    users on messages.destination_user_id=users.user_id
-  WHERE
-    messages.user_id=$my_id
-  GROUP BY
-    destination_user_id
-  ORDER BY
-    max(created_at) DESC";
-    // v($sql);
-  $stmt = $pdo->prepare($sql);
-  // $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
-  $status = $stmt->execute();
-  //SQL実行時にエラーがある場合STOP
-  if ($status == false) {
-    sql_error($stmt);
-  }
-}
-$destination_users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-// v($destination_users);
-$result_json_destination_users = json_encode($destination_users);
-// v($result_json_destination_users);
-
+// include_once __DIR__ . "/../app/funcs.php";
+// $my_id = $_SESSION["my_id"];
+// // v($my_id);
+// // DB接続
+// $pdo = db_conn();
+// $destination_user_id = $_POST['destination_user_id'];
+// // $destination_user_id = 2;
+// ​
+// if ($destination_user_id !== NULL) {
+//   $sql = "
+// INSERT INTO
+//   messages (text,user_id,destination_user_id,created_at)
+// VALUES
+//  ('',$my_id,$destination_user_id,sysdate());";
+//   //  v($sql);
+//   $stmt = $pdo->prepare($sql);
+//   // $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
+//   $status = $stmt->execute();
+//   //SQL実行時にエラーがある場合STOP
+//   if ($status == false) {
+//     sql_error($stmt);
+//   }
+//   $sql1 = "
+// INSERT INTO
+//   messages (text,user_id,destination_user_id,created_at)
+// VALUES
+//  ('',$destination_user_id,$my_id,sysdate());";
+//   //  v($sql);
+//   $stmt = $pdo->prepare($sql1);
+//   // $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
+//   $status = $stmt->execute();
+//   //SQL実行時にエラーがある場合STOP
+//   if ($status == false) {
+//     sql_error($stmt);
+//   }
+// }
+// $sql = "
+//   SELECT
+//     messages.user_id,destination_user_id,name,admission_area,course_name,admission_period,profile_image,max(created_at)
+//   FROM
+//     messages
+//   JOIN
+//     users on messages.destination_user_id=users.user_id
+//   WHERE
+//     messages.user_id=$my_id
+//   GROUP BY
+//     destination_user_id
+//   ORDER BY
+//     max(created_at) DESC";
+//     // v($sql);
+//   $stmt = $pdo->prepare($sql);
+//   // $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
+//   $status = $stmt->execute();
+//   //SQL実行時にエラーがある場合STOP
+//   if ($status == false) {
+//     sql_error($stmt);
+//   }
+// $destination_users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// // v($destination_users);
+// $result_json_destination_users = json_encode($destination_users);
+// // v($result_json_destination_users);
+// ​
 ?>
 
 <!DOCTYPE html>
@@ -57,14 +71,21 @@ $result_json_destination_users = json_encode($destination_users);
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- CSS only -->
+  <!-- CSSを入れる -->
   <link rel="stylesheet" href="../css/reset.css">
-  <link rel="stylesheet" href="../css/common.css">
-  <link rel="stylesheet" href="../css/message.css">
+  <!-- ヘッダーBootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-  <title>Document</title>
+  <!-- common.cssの読み込み -->
+  <link rel="stylesheet" href="../css/common.css">
+  <!-- ページ内のCSS読み込み -->
+  <link rel="stylesheet" href="../css/message.css">
+  <!-- line-awesome -->
+  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <!-- アイコン設定 -->
+  <link rel="shortcut icon" href="../icon/icon_48.png"/>
+  <title>メッセージ</title>
+  <!-- featherアイコンの読み込み -->
   <script src="https://unpkg.com/feather-icons"></script>
-
 </head>
 
 <body>
@@ -107,7 +128,7 @@ $result_json_destination_users = json_encode($destination_users);
 
       <div class="message-area">
         <div class="message-area-text">
-          <textarea id="text" placeholder="メッセージを入力"></textarea>
+          <textarea id="text" placeholder="メッセージを入力してください。"></textarea>
         </div>
         <div class="btn_chat">
           <button id="send" class="disabled-button">

@@ -172,6 +172,9 @@ header .drop_flex{
 header.boot_atag{
   text-decoration: none;
 }
+.session_name{
+  margin-bottom: 15px;
+}
 
 /* -------------------------------------------------------------------- */
 /* footer */

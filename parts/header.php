@@ -17,7 +17,7 @@
 
     <!-- ログインした人のnameが入る -->
     <div class="lefttag">
-      <p><?php echo $_SESSION["name"]; ?>さん</p>
+      <p class="session_name"><?php echo $_SESSION["name"]; ?>さん</p>
       <!-- ここにユーザーのプロフィール写真が入る -->
       <div class="btn-group dropend">
         <?php

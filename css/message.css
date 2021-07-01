@@ -1,13 +1,19 @@
 /* -------------------------------------------------- */
-/* 今は使用していないが必要ならば使うCSS */
+/* header ＆ footer */
 /* -------------------------------------------------- */
 
-select{
-  border-bottom: 1px gray solid;
+/* header {
+  display:none;
+} */
+
+footer{
+  display: none;
 }
-input{
-  border-bottom: 1px gray solid;
+
+.session_name{
+  margin-bottom: 20px;
 }
+
 
 /* -------------------------------------------------- */
 /* チャットコンテンツ全体*/
@@ -16,8 +22,8 @@ input{
 .oll{
   display:flex;
   justify-content: center;
-  height: 600px;
-  margin-bottom: 30px;
+  height: 86.5vh;
+  margin-top: 77px;
 }
 /* ※カード全体の影を入れる（message.phpをいじらなければいけない） */
 
@@ -27,6 +33,15 @@ input{
 	transition: .3s;
 }
 
+/* -------------------------------------------------- */
+/* サイドバー*/
+/* -------------------------------------------------- */
+
+.blue{
+  height: 790px;
+  width: 120px;
+  background: #00478f;
+}
 
 /* -------------------------------------------------- */
 /* サイドバー*/
@@ -34,12 +49,13 @@ input{
 
 #side_bar {
   box-sizing: border-box;
-  height: 86.5vh;
+  height: 710px;
   width: 300px;
   padding: 20px;
   overflow: scroll;
+  border-color: #CCD6E0;
+  border-width: 1px;
   background: #fff;
-  border: 1px solid gray;
 }
 .prof_img{
   width: 60px;
@@ -90,11 +106,13 @@ input{
   overflow-wrap: break-word;
 }
 .chat-area {
-  height: 81.6%;
+  height: 560px;
   width: 650px;
   overflow: scroll;
   padding: 20px 20px 10px 10px;
-  background: #8DB4E5;
+  border-color: #CCD6E0;
+  border-width: 1px;
+  background: #EFEFEF;
 }
 
 /* -------------------------------------------------- */
@@ -107,10 +125,10 @@ input{
   background: #fff;
 }
 .message-area {
-  height: 10vh;
+  height: 150px;
   display: flex;
-  border-bottom: 1px solid gray;
-  border-right: 1px solid gray;
+  border-color: #CCD6E0;
+  border-width: 1px;
 }
 
 .message-area-text {
@@ -124,6 +142,8 @@ input{
   resize: none;
   border: none;
   box-sizing: border-box;
+  background: #fff;
+  padding: 10px;
 }
 .message-container {
   display: flex;
@@ -162,11 +182,15 @@ input{
 /* -------------------------------------------------- */
 
 .message-container-you .chat-message {
-  background: #fff;
+  border-color: #CCD6E0;
+  border-width: 1px;
+  background-color: #fff;
 }
 
 .message-container-me .chat-message {
-  background: #61cf3f;
+  border-color: #CCD6E0;
+  border-width: 1px;
+  background-color: #C5DFFF;
 }
 
 .message-person {
@@ -190,16 +214,32 @@ input{
   color: #fff;
   border-radius: 5px;
 }
-/* チェックが入ってる方のラジオボタンの隣のlabelを背景緑にする */
-.message-person input[type="radio"]:checked + label {
-  background: #61cf3f;
-}
+
 /* ボタンを押した時の線を非表示にする */
 .btn_chat {
-  color: #01A6EA;
+  color: #00478f;
   outline: none;
+  background: #fff;
+  padding-right: 10px;
+  padding-top: 10px;
 }
 
-/* -------------------------------------------------- */
+/* チェックが入ってる方のラジオボタンの隣のlabelを背景緑にする
+.message-person input[type="radio"]:checked + label {
+  background: #61cf3f;
+} */
 
-/* -------------------------------------------------- */
+/* -------------------------------------------------------------------- */
+/* ヘッダーのデザイン変更する場合コメントアウトをOFF */
+/* -------------------------------------------------------------------- */
+
+footer .footer_title{
+  display:none;
+}
+footer .footer_masse{
+  margin: 0 auto;
+}
+
+/* -------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------- */
