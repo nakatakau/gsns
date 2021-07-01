@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 include_once __DIR__ . "/../app/funcs.php";
 sschk();
 $my_id = $_SESSION["my_id"];
@@ -53,6 +54,7 @@ $destination_users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $result_json_destination_users = json_encode($destination_users);
 // v($result_json_destination_users);
 
+
 ?>
 
 <!DOCTYPE html>
@@ -62,14 +64,21 @@ $result_json_destination_users = json_encode($destination_users);
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- CSS only -->
+  <!-- CSSを入れる -->
   <link rel="stylesheet" href="../css/reset.css">
-  <link rel="stylesheet" href="../css/common.css">
-  <link rel="stylesheet" href="../css/message.css">
+  <!-- ヘッダーBootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-  <title>Document</title>
+  <!-- common.cssの読み込み -->
+  <link rel="stylesheet" href="../css/common.css">
+  <!-- ページ内のCSS読み込み -->
+  <link rel="stylesheet" href="../css/message.css">
+  <!-- line-awesome -->
+  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <!-- アイコン設定 -->
+  <link rel="shortcut icon" href="../icon/icon_48.png"/>
+  <title>メッセージ</title>
+  <!-- featherアイコンの読み込み -->
   <script src="https://unpkg.com/feather-icons"></script>
-
 </head>
 
 <body>
@@ -112,7 +121,7 @@ $result_json_destination_users = json_encode($destination_users);
 
       <div class="message-area">
         <div class="message-area-text">
-          <textarea id="text" placeholder="メッセージを入力"></textarea>
+          <textarea id="text" placeholder="メッセージを入力してください。"></textarea>
         </div>
         <div class="btn_chat">
           <button id="send" class="disabled-button">

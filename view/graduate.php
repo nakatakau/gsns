@@ -334,7 +334,7 @@ if ($search_target_users_id_count === 0) {
 
           <!-- -----職種選択----- -->
           <div class="my_sentaku">
-            <h1 class="#">職種</h1>
+            <h1 class="my_sentaku_title">職種</h1>
             <div class="tb_flex">
 
               <div class="check_box_design">
@@ -481,7 +481,7 @@ if ($search_target_users_id_count === 0) {
 
           <!-- -----プログラミング言語選択----- -->
           <div class="my_sentaku">
-            <h1 class="#">使用可能プログラミング言語</h1>
+            <h1 class="my_sentaku_title">使用可能プログラミング言語</h1>
             <div class="tb_flex gengo_sentaku">
 
               <div class="check_box_design">
@@ -720,7 +720,7 @@ if ($search_target_users_id_count === 0) {
       <div class="card_two" id="card_two">
       </div>
       <!-- /////////////////ここまでがプロフィールカード//////////////////// -->
-      <button class="btn" id="next" onclick="user_get()">ユーザーを取得</button>
+      <button class="btn_user" id="next" onclick="user_get()">ユーザーを取得</button>
     </div>
   </main>
   <?php
