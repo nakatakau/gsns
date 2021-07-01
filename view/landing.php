@@ -25,9 +25,7 @@
 <div class="header">
 
   <div class="title">
-    <img class="img_head" src="../img/id.svg" alt="">
-    <h1 class="tl_2">For</h1>
-    <h1 class="tl_3">G Talk</h1>
+    <img class="img_head" src="../img/rogo.png" alt="">
   </div>
 
   <div class="menu">
@@ -95,10 +93,10 @@
   <div class="card1">
     <div class="card_head">
       <div class="card_moya">
-        <p class="tp_icon">モヤモヤ#2</p>
+        <p class="tp_icon">モヤモヤ#1</p>
       </div>
       <div class="top_tl">
-        <p class="tp_masse">同じ期以外の人と繋がりにくい...</p>
+        <p class="tp_masse">課題で悩んでいて相談したい...</p>
       </div>
     </div>
     <div class="border_sankaku"></div>
@@ -110,7 +108,7 @@
         <p class="sub_icon">カイケツ！</p>
       </div>
       <div class="sub_tl">
-        <p>プロフィールでつながる</p>
+        <p>メッセージでつながる</p>
       </div>
       <div class="sub_com">
         <p>気軽にコミュニケーションをとってみよう！<br>
@@ -209,7 +207,7 @@
         <p>プロフィールでつながる</p>
       </div>
       <div class="sub_com">
-        <p>気軽にコミュニケーションをとってみよう！<br>
+        <p>G Talkを通して<br>
         G’s生ならではの会話で繋がれる！</p>
       </div>
     </div>
@@ -259,7 +257,7 @@
   <h1 class="shinki_1">G's 生のみんなで同じ感動、プログラミングの楽しさを分かち合おう！</h1>
   <img class="sankaku" src="../img/sankaku.png" alt="">
   <div class="shinki_2">
-    <a id="logout_btn" href="../view/member_registration.php"><h5>登録がまだの人はこちらから</h5></a>
+    <a class="touroku_btn" id="logout_btn" href="../view/member_registration.php"><h5>登録がまだの人はこちらから</h5></a>
   </div>
 </div>
 
@@ -272,9 +270,7 @@
 
 <div class="footer_main">
   <div class="title">
-    <img class="img_head" src="../img/id.svg" alt="">
-    <h1 class="tl_2">For</h1>
-    <h1 class="tl_3">G Talk</h1>
+    <img class="img_head" src="../img/rogo.png" alt="">
   </div>
 
   <div class="footer_masse">
