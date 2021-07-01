@@ -47,20 +47,9 @@ header .menu{
   color: #fff;
   background: #00478F;
 }
-.tl_2{
-  margin-left: 10px;
-  font-size: 16px;
-  font-weight: bold;
-}
-.tl_3{
-  margin-left: 10px;
-  font-size: 23px;
-  font-weight: bold;
-}
 .img_head{
-  width: 150px;
-  height: 50px;
-  margin: 0 auto;
+  width: 300px;
+  height: 30px;
 }
 
 /* -------------------------------------------------------------------- */
@@ -84,7 +73,7 @@ footer .title{
   display: flex;
   align-items: center;
   justify-content:center;
-  margin-left: 150px;
+  margin-left: 200px;
 }
 .team_logo{
   width: 70px;
@@ -92,16 +81,18 @@ footer .title{
   margin-right: 20px;
 }
 .footer_lite{
-  letter-spacing: 1pt;
-  line-height: 10pt;
+  font-size: 12px;
+  letter-spacing: 2pt;
+  line-height: 12pt;
   color: #fff;
   font-weight: bold;
 }
 footer .img_head{
-  width: 150px;
-  height: 50px;
+  width: 300px;
+  height: 30px;
   margin: 0 auto;
 }
+
 
 /* -------------------------------------------------------------------- */
 /* トップ写真*/
@@ -304,6 +295,7 @@ footer .img_head{
   letter-spacing: 1pt;
   line-height: 15pt;
   color: #383333;
+  font-size: 12px;
 }
 .end{
   margin-bottom: 100px;
@@ -318,7 +310,7 @@ footer .img_head{
   margin-bottom: 90px;
 }
 .shinki_1{
-  font-size: 1.2rem;
+  font-size: 15px;
   font-weight: bold;
   margin-bottom:20px;
   color: #383333;
@@ -341,4 +333,7 @@ footer .img_head{
 .shinki_2:hover{
   color: #fff;
   background: #00478F;
+}
+.touroku_btn{
+  font-size: 12px;
 }

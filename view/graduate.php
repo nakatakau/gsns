@@ -3,7 +3,7 @@ session_start();
 include_once __DIR__ . "/../app/funcs.php";
 sschk();
 $my_id = $_SESSION["my_id"];
-// v($my_id);
+
 $occupations_no_found_flag = false;
 $langs_no_found_flag = false;
 
@@ -13,16 +13,13 @@ $langs_no_found_flag = false;
 //職種に関する情報
 $occupation = isset($_POST['occupation']) ? $_POST['occupation'] : [];
 $occupation_count = count($occupation);
-// $flag = isset($_POST['flag']) ? $_POST['flag'] : null;
-// $flag=1;
-// v($occupation);
-// v($occupation_count);
+
+
 
 // 利用可能言語に関する情報
 $available_programming_language_id = isset($_POST['available_programming_language_id']) ? $_POST['available_programming_language_id'] : [];
 $available_programming_language_id_count = count($available_programming_language_id);
-// v($available_programming_language_id);
-// v($available_programming_language_id_count);
+
 
 
 // DB接続
@@ -30,25 +27,12 @@ $pdo = db_conn();
 // 職種選択ボックスで何かしらあれば、職種を持つユーザーIDを取得する処理
 $occupations = [];
 if ($occupation_count !== 0) {
-  // echo "職種選択ボックスが選ばれました";
 
   $where_occupations = '';
   foreach ($occupation as $occupation_id) {
     $where_occupations .= "occupation_id =" . $occupation_id . " or ";
   }
   $where_occupations = rtrim($where_occupations, " or ");
-  // v($where_occupations);
-
-  //user_occupationテーブルから検索対象のidを絞り込む
-  // $sql = "
-  // select
-  //   user_id
-  // from
-  //   user_occupation
-  // WHERE
-  //   $where_occupations
-  // group by user_id
-  // ;";
   $sql = "
   select
     user_occupation.user_id
@@ -63,7 +47,7 @@ if ($occupation_count !== 0) {
   group by
     user_occupation.user_id;
   ";
-  // v($sql);
+
   $stmt = $pdo->prepare($sql);
   // $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
   $status = $stmt->execute();
@@ -75,9 +59,9 @@ if ($occupation_count !== 0) {
 
   // 選択された職種を持つユーザーIDが$occupationsに入っている
   $occupations = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
-  // v($occupations);
+
   $occupations_no_found_flag = empty($occupations);
-  // v($occupations_no_found_flag);
+
 
 }
 
@@ -105,30 +89,30 @@ if ($available_programming_language_id_count !== 0) {
   group by
     user_available_programming_language.user_id;
   ";
-  // v($sql);
+
   $stmt = $pdo->prepare($sql);
   // $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
   $status = $stmt->execute();
 
   // 選択された言語を持つユーザーIDが$langsに入っている
   $langs = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
-  // v($langs);
+
   //SQL実行時にエラーがある場合STOP
   if ($status == false) {
     sql_error($stmt);
   }
   $langs_no_found_flag = empty($langs);
-  // v($langs_no_found_flag);
+
 }
 
 // 職種と利用可能言語を持つユーザidを結合
 $search_target_users_id = array_merge($occupations, $langs);
-// v($search_target_users_id);
+
 // 結合した配列から重複を排除
 $search_target_users_id = array_unique($search_target_users_id);
-// v($search_target_users_id);
+
 $search_target_users_id_count = count($search_target_users_id);
-v($search_target_users_id_count);
+
 
 // 職種と利用可能言語を持つユーザーが一人以上なら検索処理(usersテーブルから基本情報を取得する処理)
 if ($search_target_users_id_count >= 1) {
@@ -138,7 +122,7 @@ if ($search_target_users_id_count >= 1) {
     $where_users_id .= "user_id = " . $user_id . " or ";
   }
   $where_users_id = rtrim($where_users_id, " or ");
-  // v($where_users_id);
+
 
   $sql = "
     select
@@ -148,14 +132,14 @@ if ($search_target_users_id_count >= 1) {
     WHERE
       graduation_date <= DATE_FORMAT(now(), '%Y-%m-%d') AND ($where_users_id);
     ";
-  // v($sql);
+
   $stmt = $pdo->prepare($sql);
   $status = $stmt->execute();
 
   $result_users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-  // v($result_users);
+
   $result_json_users = json_encode($result_users);
-  // v($result_json_users);
+
 
   // ユーザに紐づく職種の取得処理
   $where_users_id = '';
@@ -163,7 +147,7 @@ if ($search_target_users_id_count >= 1) {
     $where_users_id .= "users.user_id = " . $user_id . " or ";
   }
   $where_users_id = rtrim($where_users_id, " or ");
-  // v($where_users_id);
+
 
   $sql = "
   SELECT
@@ -176,14 +160,14 @@ if ($search_target_users_id_count >= 1) {
     user_occupation.user_id=users.user_id
   WHERE graduation_date <= DATE_FORMAT(now(), '%Y-%m-%d') AND ($where_users_id);
   ";
-  // v($sql);
+
   $stmt = $pdo->prepare($sql);
   $status = $stmt->execute();
 
   $result_occupation = $stmt->fetchAll(PDO::FETCH_ASSOC);
-  // v($result_occupation);
+
   $result_json_occupations = json_encode($result_occupation);
-  // v($result_json_occupations);
+
 
 
   // ユーザに紐づく利用可能言語の取得処理
@@ -192,7 +176,6 @@ if ($search_target_users_id_count >= 1) {
     $where_users_id .= "users.user_id = " . $user_id . " or ";
   }
   $where_users_id = rtrim($where_users_id, " or ");
-  // v($where_users_id);
 
   $sql = "
   SELECT
@@ -205,26 +188,23 @@ if ($search_target_users_id_count >= 1) {
     user_available_programming_language.user_id=users.user_id
   WHERE graduation_date <= DATE_FORMAT(now(), '%Y-%m-%d') AND ($where_users_id);
   ";
-  // v($sql);
   $stmt = $pdo->prepare($sql);
   $status = $stmt->execute();
 
   $result_langs = $stmt->fetchAll(PDO::FETCH_ASSOC);
-  // v($result_langs);
+
   $result_json_langs = json_encode($result_langs);
-  // v($result_json_langs);
+
 }
 
 // 職種と利用可能言語を持つユーザーが0なら検索処理(usersテーブルから全てのデータを取得する処理)
 if ($search_target_users_id_count === 0) {
   if ($occupations_no_found_flag || $langs_no_found_flag) {
-    // echo "no-flagが有効です";
     $result_occupation = [];
     $result_langs = [];
     $result_json_occupations = json_encode($result_occupation);
     $result_json_langs = json_encode($result_langs);
   } else {
-    // echo '卒業生一覧が表示されましたか？';
     $sql = "
     SELECT
       *
@@ -236,14 +216,13 @@ if ($search_target_users_id_count === 0) {
 
 
 
-    // v($sql);
     $stmt = $pdo->prepare($sql);
     $status = $stmt->execute();
 
     $result_users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    // v($result_users);
+
     $result_json_users = json_encode($result_users);
-    // v($result_json_users);
+
 
     // ユーザに紐づく職種の取得処理（在校生）
 
@@ -259,14 +238,14 @@ if ($search_target_users_id_count === 0) {
     where
       graduation_date <= DATE_FORMAT(now(), '%Y-%m-%d');
     ";
-    // v($sql);
+
     $stmt = $pdo->prepare($sql);
     $status = $stmt->execute();
 
     $result_occupation = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    // v($result_occupation);
+
     $result_json_occupations = json_encode($result_occupation);
-    // v($result_json_occupations);
+
 
 
     // ユーザに紐づく利用可能言語の取得処理（在校生）
@@ -283,14 +262,13 @@ if ($search_target_users_id_count === 0) {
     where
       graduation_date <= DATE_FORMAT(now(), '%Y-%m-%d');
     ";
-    // v($sql);
+
     $stmt = $pdo->prepare($sql);
     $status = $stmt->execute();
 
     $result_langs = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    // v($result_langs);
+
     $result_json_langs = json_encode($result_langs);
-    // v($result_json_langs);
   }
 }
 
@@ -715,12 +693,11 @@ if ($search_target_users_id_count === 0) {
 
       <!-- ///////////////////ここまでが検索カード////////////////////// -->
 
-
       <!-- /////////////////ここからプロフィールカード//////////////////// -->
       <div class="card_two" id="card_two">
       </div>
       <!-- /////////////////ここまでがプロフィールカード//////////////////// -->
-      <button class="btn_user" id="next" onclick="user_get()">ユーザーを取得</button>
+      <button class="btn btn_user" id="next" onclick="user_get()">ユーザーを取得</button>
     </div>
   </main>
   <?php

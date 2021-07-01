@@ -27,7 +27,6 @@ $val = $stmt->fetch(PDO::FETCH_ASSOC);
 $user_info = json_encode($val);
 // v($user_info);
 
-
 //職種を取得のためのSQL作成
 $sql = "SELECT * FROM user_occupation WHERE user_id=:my_id";
 $stmt = $pdo->prepare($sql);
