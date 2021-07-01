@@ -5,9 +5,7 @@ include_once __DIR__ . "/../app/funcs.php";
 sschk();
 $my_id = $_SESSION["my_id"];
 $destination_user_id = isset($_POST['destination_user_id']) ? $_POST['destination_user_id'] : NULL;
-$destination_user_id = 2;
-// v($my_id);
-// v($destination_user_id);
+
 
 // DB接続
 $pdo = db_conn();
@@ -18,8 +16,7 @@ if ($destination_user_id !== NULL) {
 INSERT INTO
   messages (text,user_id,destination_user_id,created_at)
 VALUES
- ('',$my_id,$destination_user_id,sysdate());";
-  //  v($sql);
+  ('',$my_id,$destination_user_id,sysdate());";
   $stmt = $pdo->prepare($sql);
   // $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
   $status = $stmt->execute();
@@ -41,7 +38,7 @@ $sql = "
     destination_user_id
   ORDER BY
     max(created_at) DESC";
-// v($sql);
+
 $stmt = $pdo->prepare($sql);
 // $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
 $status = $stmt->execute();
@@ -50,11 +47,9 @@ if ($status == false) {
   sql_error($stmt);
 }
 $destination_users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-// v($destination_users);
+
 $result_json_destination_users = json_encode($destination_users);
 // v($result_json_destination_users);
-
-
 ?>
 
 <!DOCTYPE html>
