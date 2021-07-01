@@ -1,7 +1,5 @@
 <?php
-//必ずsession_startは最初に記述
 session_start();
-//共通関数の読み込み
 include_once __DIR__ . "/funcs.php";
 
 //SESSIONを初期化（空っぽにする）
@@ -15,6 +13,6 @@ if (isset($_COOKIE[session_name()])) { //session_name()は、セッションID�
 //サーバ側での、セッションIDの破棄
 session_destroy();
 
-//処理後、index.phpへリダイレクト
+//処理後、landing.phpへリダイレクト
 redirect("../view/landing.php");
 exit();

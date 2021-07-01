@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once __DIR__ . "/../app/funcs.php";
+sschk();
 
 //SESSIONからmy_idを取得
 $my_id = $_SESSION["my_id"];
