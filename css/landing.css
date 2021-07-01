@@ -42,6 +42,7 @@ header .menu{
   border-radius: 50px;
   padding:10px 20px 10px 20px;
   color: #00478F;
+  font-size: 12px;
 }
 .left_head:hover{
   color: #fff;
