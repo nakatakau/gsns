@@ -719,7 +719,7 @@ if ($search_target_users_id_count === 0) {
       <div class="card_two" id="card_two">
       </div>
       <!-- /////////////////ここまでがプロフィールカード//////////////////// -->
-      <button class="btn_user" id="next" onclick="user_get()">ユーザーを取得</button>
+      <button class="btn btn_user" id="next" onclick="user_get()">ユーザーを取得</button>
     </div>
   </main>
   <?php

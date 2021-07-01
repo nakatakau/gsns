@@ -171,6 +171,7 @@ header.boot_atag{
 .footer_main{
   display: flex;
   justify-content: center;
+  align-items: center;
   padding-top: 20px;
   padding-bottom: 50px;
   border-top: 2px solid #F2F2F2;
