@@ -67,7 +67,6 @@ if ($occupation_count !== 0) {
   $stmt = $pdo->prepare($sql);
   // $stmt->bindValue(':my_id', $my_id, PDO::PARAM_STR);
   $status = $stmt->execute();
-
   //SQL実行時にエラーがある場合STOP
   if ($status == false) {
     sql_error($stmt);
@@ -128,7 +127,7 @@ $search_target_users_id = array_merge($occupations, $langs);
 $search_target_users_id = array_unique($search_target_users_id);
 // v($search_target_users_id);
 $search_target_users_id_count = count($search_target_users_id);
-v($search_target_users_id_count);
+// v($search_target_users_id_count);
 
 // 職種と利用可能言語を持つユーザーが一人以上なら検索処理(usersテーブルから基本情報を取得する処理)
 if ($search_target_users_id_count >= 1) {
