@@ -8,7 +8,6 @@ $occupations_no_found_flag = false;
 $langs_no_found_flag = false;
 
 
-
 //POSTデータ取得
 //職種に関する情報
 $occupation = isset($_POST['occupation']) ? $_POST['occupation'] : [];
@@ -719,7 +718,7 @@ if ($search_target_users_id_count === 0) {
       <div class="card_two" id="card_two">
       </div>
       <!-- /////////////////ここまでがプロフィールカード//////////////////// -->
-      <button class="btn_user" id="next" onclick="user_get()">ユーザーを取得</button>
+      <button class="btn btn_user" id="next" onclick="user_get()">ユーザーを取得</button>
     </div>
   </main>
   <?php

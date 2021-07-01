@@ -16,9 +16,7 @@
 <body>
 
   <div class="title">
-    <img class="img_head" src="../img/id.svg" alt="">
-    <p class="tl_2">For</p>
-    <p class="tl_3">G Talk</p>
+    <img class="img_head" src="../img/rogo.png" alt="">
   </div>
 
   <div class="content">
@@ -43,3 +41,4 @@
 
 </body>
 </html>
+

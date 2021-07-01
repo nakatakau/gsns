@@ -34,7 +34,7 @@ footer{
   position: absolute;
   width: 100%;
 }
-footer .footer_title{
+footer .title{
   display:none;
 }
 footer .footer_masse{
@@ -58,3 +58,4 @@ footer .footer_masse{
   color: #00478f;
   font-weight: bold;
 }
+

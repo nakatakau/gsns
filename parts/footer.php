@@ -1,10 +1,8 @@
 <footer>
 
 <div class="footer_main">
-  <div class="footer_title">
-    <img class="img_head" src="../img/id.svg" alt="">
-    <p class="tl_2">For</p>
-    <p class="tl_3">G Talk</p>
+  <div class="title">
+    <img class="img_head" src="../img/rogo.png" alt="">
   </div>
 
   <div class="footer_masse">

@@ -25,9 +25,7 @@
 <div class="header">
 
   <div class="title">
-    <img class="img_head" src="../img/id.svg" alt="">
-    <h1 class="tl_2">For</h1>
-    <h1 class="tl_3">G Talk</h1>
+    <img class="img_head" src="../img/rogo.png" alt="">
   </div>
 
   <div class="menu">
@@ -90,12 +88,13 @@
 <!-- メイン2 ナンバー１-->
 <!------------------------------------------------------------------------>
 
+
 <div class="main_item">
 
   <div class="card1">
     <div class="card_head">
       <div class="card_moya">
-        <p class="tp_icon">モヤモヤ#2</p>
+        <p class="tp_icon">モヤモヤ#1</p>
       </div>
       <div class="top_tl">
         <p class="tp_masse">同じ期以外の人と繋がりにくい...</p>
@@ -110,7 +109,7 @@
         <p class="sub_icon">カイケツ！</p>
       </div>
       <div class="sub_tl">
-        <p>プロフィールでつながる</p>
+        <p>メッセージでつながる</p>
       </div>
       <div class="sub_com">
         <p>気軽にコミュニケーションをとってみよう！<br>
@@ -129,23 +128,23 @@
         <p class="tp_icon">モヤモヤ#2</p>
       </div>
       <div class="top_tl">
-        <p class="tp_masse">同じ期以外の人と繋がりにくい...</p>
+        <p class="tp_masse">卒業後の進路が不安...</p>
       </div>
     </div>
     <div class="border_sankaku"></div>
     <div class="card_img">
-      <img class="card_img_wh" src="../img/teams.svg" alt="">
+      <img class="card_img_wh" src="../img/card1.svg" alt="">
     </div>
     <div class="card_btom">
       <div class="sub1">
         <p class="sub_icon">カイケツ！</p>
       </div>
       <div class="sub_tl">
-        <p>プロフィールでつながる</p>
+        <p>細かい職種指定</p>
       </div>
       <div class="sub_com">
-        <p>気軽にコミュニケーションをとってみよう！<br>
-        G’s生ならではの会話で繋がれる！</p>
+        <p>先輩たちのさまざまな<br>
+        職種・活躍が一目でわかる！</p>
       </div>
     </div>
   </div>
@@ -163,23 +162,23 @@
         <p class="tp_icon">モヤモヤ#3</p>
       </div>
       <div class="top_tl">
-        <p class="tp_masse">同じ期以外の人と繋がりにくい...</p>
+        <p class="tp_masse">プログラミングの質問がしたい...</p>
       </div>
     </div>
     <div class="border_sankaku"></div>
     <div class="card_img">
-      <img class="card_img_wh" src="../img/teams.svg" alt="">
+      <img class="card_img_wh" src="../img/card2.svg" alt="">
     </div>
     <div class="card_btom">
       <div class="sub1">
         <p class="sub_icon">カイケツ！</p>
       </div>
       <div class="sub_tl">
-        <p>プロフィールでつながる</p>
+        <p>G’s生ならではの...</p>
       </div>
       <div class="sub_com">
-        <p>気軽にコミュニケーションをとってみよう！<br>
-        G’s生ならではの会話で繋がれる！</p>
+        <p>同じカリキュラムに取り組んでいたから<br>
+        的確なアドバイスがもらえる！</p>
       </div>
     </div>
   </div>
@@ -194,23 +193,24 @@
         <p class="tp_icon">モヤモヤ#4</p>
       </div>
       <div class="top_tl">
-        <p class="tp_masse">同じ期以外の人と繋がりにくい...</p>
+        <p class="tp_masse">みんなのポートフォリオが見たい...</p>
       </div>
     </div>
     <div class="border_sankaku"></div>
     <div class="card_img">
-      <img class="card_img_wh" src="../img/teams.svg" alt="">
+      <img class="card_img_wh" src="../img/card3.svg" alt="">
     </div>
     <div class="card_btom">
       <div class="sub1">
         <p class="sub_icon">カイケツ！</p>
       </div>
       <div class="sub_tl">
-        <p>プロフィールでつながる</p>
+        <p>過去の作品が気になる...</p>
       </div>
       <div class="sub_com">
-        <p>気軽にコミュニケーションをとってみよう！<br>
-        G’s生ならではの会話で繋がれる！</p>
+        <p>今はエンジニアとして活躍している<br>
+        先輩も学んでいたときは<br>
+        どうだったのかな〜？</p>
       </div>
     </div>
   </div>
@@ -259,7 +259,7 @@
   <h1 class="shinki_1">G's 生のみんなで同じ感動、プログラミングの楽しさを分かち合おう！</h1>
   <img class="sankaku" src="../img/sankaku.png" alt="">
   <div class="shinki_2">
-    <a id="logout_btn" href="../view/member_registration.php"><h5>登録がまだの人はこちらから</h5></a>
+    <a class="touroku_btn" id="logout_btn" href="../view/member_registration.php"><h5>登録がまだの人はこちらから</h5></a>
   </div>
 </div>
 
@@ -272,9 +272,7 @@
 
 <div class="footer_main">
   <div class="title">
-    <img class="img_head" src="../img/id.svg" alt="">
-    <h1 class="tl_2">For</h1>
-    <h1 class="tl_3">G Talk</h1>
+    <img class="img_head" src="../img/rogo.png" alt="">
   </div>
 
   <div class="footer_masse">

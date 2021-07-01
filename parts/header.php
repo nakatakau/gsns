@@ -4,9 +4,9 @@
     <div class="header">
 
       <a class="header_title" href="../view/index.php">
-        <img class="img_head" src="../img/id.svg" alt="">
-        <p class="tl_2">For</p>
-        <p class="tl_3">G Talk</p>
+        <div class="title">
+          <img class="img_head" src="../img/rogo.png" alt="">
+        </div>
       </a>
 
       <a class="top_menu" href="../view/current_student.php">在学生</a>
