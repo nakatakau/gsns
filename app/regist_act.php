@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once __DIR__ . "/funcs.php";
-sschk();
+// sschk();
 
 //POSTデータ取得
 $name = isset($_POST['name']) ? $_POST['name'] : NULL;
